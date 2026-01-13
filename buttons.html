@@ -22,10 +22,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Overview</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a href="typography.html">Typography</a></li>
                 <li><a href="buttons.html" class="active">Buttons</a></li>
-                <li><a href="components.html">Components</a></li>
             </ul>
         </div>
     </nav>
@@ -33,27 +30,27 @@
     <main class="container">
         <header>
             <h1>Buttons</h1>
-            <p class="text-lg">Primary interaction elements with complete state specifications. Available in three sizes and two variants.</p>
+            <p class="text-lg">Primary interaction elements with complete state specifications. Available in three sizes and three variants.</p>
         </header>
 
-        <!-- FILLED BUTTONS -->
+        <!-- PRIMARY BLUE BUTTONS -->
         <section class="section">
-            <h2>Filled Buttons</h2>
-            <p>Primary action buttons with solid backgrounds. Use for main CTAs.</p>
+            <h2>Primary Blue Buttons</h2>
+            <p>Main call-to-action buttons. Use on light backgrounds for primary actions.</p>
             
             <div class="component-demo">
                 <div class="demo-row">
                     <div class="demo-item">
                         <label>Small (32px)</label>
-                        <button class="btn btn-sm btn-filled">Button</button>
+                        <button class="btn btn-sm btn-primary">Button</button>
                     </div>
                     <div class="demo-item">
                         <label>Medium (40px)</label>
-                        <button class="btn btn-md btn-filled">Button</button>
+                        <button class="btn btn-md btn-primary">Button</button>
                     </div>
                     <div class="demo-item">
                         <label>Large (48px)</label>
-                        <button class="btn btn-lg btn-filled">Button</button>
+                        <button class="btn btn-lg btn-primary">Button</button>
                     </div>
                 </div>
             </div>
@@ -64,64 +61,78 @@
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
                 <pre><code>&lt;!-- Small --&gt;
-&lt;button class="btn btn-sm btn-filled"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-sm btn-primary"&gt;Button&lt;/button&gt;
 
 &lt;!-- Medium (Default) --&gt;
-&lt;button class="btn btn-md btn-filled"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary"&gt;Button&lt;/button&gt;
 
 &lt;!-- Large --&gt;
-&lt;button class="btn btn-lg btn-filled"&gt;Button&lt;/button&gt;</code></pre>
+&lt;button class="btn btn-lg btn-primary"&gt;Button&lt;/button&gt;</code></pre>
             </div>
 
             <div class="specs">
                 <h4>Specifications</h4>
                 <table class="spec-table">
                     <tr>
-                        <th>Size</th>
-                        <th>Height</th>
-                        <th>Padding</th>
-                        <th>Font Size</th>
+                        <th>State</th>
+                        <th>Background</th>
+                        <th>Text Color</th>
+                        <th>Notes</th>
                     </tr>
                     <tr>
-                        <td>Small</td>
-                        <td>32px</td>
-                        <td>12px 16px</td>
-                        <td>14px</td>
+                        <td>Default</td>
+                        <td>#025E96</td>
+                        <td>#FFFFFF</td>
+                        <td>Primary brand color</td>
                     </tr>
                     <tr>
-                        <td>Medium</td>
-                        <td>40px</td>
-                        <td>16px 24px</td>
-                        <td>16px</td>
+                        <td>Hover</td>
+                        <td>#01385A</td>
+                        <td>#FFFFFF</td>
+                        <td>+ text underline</td>
                     </tr>
                     <tr>
-                        <td>Large</td>
-                        <td>48px</td>
-                        <td>20px 32px</td>
-                        <td>18px</td>
+                        <td>Disabled</td>
+                        <td>#CBD5E0</td>
+                        <td>#A0AEC0</td>
+                        <td>cursor: not-allowed</td>
                     </tr>
                 </table>
             </div>
         </section>
 
-        <!-- OUTLINE BUTTONS -->
+        <!-- LIGHT FLUID BUTTONS -->
         <section class="section">
-            <h2>Outline Buttons</h2>
-            <p>Secondary action buttons with transparent backgrounds. Use for secondary CTAs or alongside filled buttons.</p>
+            <h2>Light Fluid Buttons</h2>
+            <p>For use on dark backgrounds (#025E96 or darker). Available in fill and outline variants.</p>
             
-            <div class="component-demo">
+            <div class="demo-dark">
                 <div class="demo-row">
                     <div class="demo-item">
-                        <label>Small</label>
-                        <button class="btn btn-sm btn-outline">Button</button>
+                        <label style="color: white;">Fill - Small</label>
+                        <button class="btn btn-sm btn-light-fill">Button</button>
                     </div>
                     <div class="demo-item">
-                        <label>Medium</label>
-                        <button class="btn btn-md btn-outline">Button</button>
+                        <label style="color: white;">Fill - Medium</label>
+                        <button class="btn btn-md btn-light-fill">Button</button>
                     </div>
                     <div class="demo-item">
-                        <label>Large</label>
-                        <button class="btn btn-lg btn-outline">Button</button>
+                        <label style="color: white;">Fill - Large</label>
+                        <button class="btn btn-lg btn-light-fill">Button</button>
+                    </div>
+                </div>
+                <div class="demo-row" style="margin-top: 24px;">
+                    <div class="demo-item">
+                        <label style="color: white;">Outline - Small</label>
+                        <button class="btn btn-sm btn-light-outline">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label style="color: white;">Outline - Medium</label>
+                        <button class="btn btn-md btn-light-outline">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label style="color: white;">Outline - Large</label>
+                        <button class="btn btn-lg btn-light-outline">Button</button>
                     </div>
                 </div>
             </div>
@@ -131,90 +142,180 @@
                     <span>HTML</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <pre><code>&lt;button class="btn btn-md btn-outline"&gt;Button&lt;/button&gt;</code></pre>
+                <pre><code>&lt;!-- Fill variant --&gt;
+&lt;button class="btn btn-md btn-light-fill"&gt;Button&lt;/button&gt;
+
+&lt;!-- Outline variant --&gt;
+&lt;button class="btn btn-md btn-light-outline"&gt;Button&lt;/button&gt;</code></pre>
+            </div>
+
+            <div class="specs">
+                <h4>Fill Variant Specifications</h4>
+                <table class="spec-table">
+                    <tr>
+                        <th>State</th>
+                        <th>Background</th>
+                        <th>Text Color</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Default</td>
+                        <td>#E6F2F8</td>
+                        <td>#1A202C</td>
+                        <td>Light fill</td>
+                    </tr>
+                    <tr>
+                        <td>Hover</td>
+                        <td>#CCE5F1</td>
+                        <td>#1A202C</td>
+                        <td>+ text underline</td>
+                    </tr>
+                </table>
+                
+                <h4 style="margin-top: 24px;">Outline Variant Specifications</h4>
+                <table class="spec-table">
+                    <tr>
+                        <th>State</th>
+                        <th>Border</th>
+                        <th>Text Color</th>
+                        <th>Background</th>
+                    </tr>
+                    <tr>
+                        <td>Default</td>
+                        <td>1px #E6F2F8</td>
+                        <td>#E6F2F8</td>
+                        <td>transparent</td>
+                    </tr>
+                    <tr>
+                        <td>Hover</td>
+                        <td>1px #CCE5F1</td>
+                        <td>#E6F2F8</td>
+                        <td>rgba(230, 242, 248, 0.1) + underline</td>
+                    </tr>
+                </table>
             </div>
         </section>
 
-        <!-- BUTTON STATES -->
+        <!-- TERTIARY STROKE BUTTONS -->
         <section class="section">
-            <h2>Button States</h2>
-            <p>All interactive states for filled and outline variants.</p>
+            <h2>Tertiary Stroke Buttons</h2>
+            <p>Secondary action buttons. Use for less important actions alongside primary buttons.</p>
             
-            <div class="states-grid">
-                <div class="state-demo">
-                    <h4>Filled - Default</h4>
-                    <button class="btn btn-md btn-filled">Button</button>
-                    <code>#E6F2F8</code>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Filled - Hover</h4>
-                    <button class="btn btn-md btn-filled hover-state">Button</button>
-                    <code>#CCE5F1</code>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Filled - Active</h4>
-                    <button class="btn btn-md btn-filled active-state">Button</button>
-                    <p class="text-sm">With underline</p>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Filled - Disabled</h4>
-                    <button class="btn btn-md btn-filled" disabled>Button</button>
-                    <code>#CBD5E0</code>
-                </div>
-
-                <div class="state-demo">
-                    <h4>Outline - Default</h4>
-                    <button class="btn btn-md btn-outline">Button</button>
-                    <code>Border: 2px</code>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Outline - Hover</h4>
-                    <button class="btn btn-md btn-outline hover-state">Button</button>
-                    <code>Border: 2px</code>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Outline - Active</h4>
-                    <button class="btn btn-md btn-outline active-state">Button</button>
-                    <p class="text-sm">With underline</p>
-                </div>
-                
-                <div class="state-demo">
-                    <h4>Outline - Disabled</h4>
-                    <button class="btn btn-md btn-outline" disabled>Button</button>
-                    <code>Opacity: 0.5</code>
+            <div class="component-demo">
+                <div class="demo-row">
+                    <div class="demo-item">
+                        <label>Small</label>
+                        <button class="btn btn-sm btn-tertiary">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Medium</label>
+                        <button class="btn btn-md btn-tertiary">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Large</label>
+                        <button class="btn btn-lg btn-tertiary">Button</button>
+                    </div>
                 </div>
             </div>
 
             <div class="code-example">
                 <div class="code-header">
-                    <span>CSS</span>
+                    <span>HTML</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <pre><code>/* Filled Button States */
-.btn-filled {
-  background: #E6F2F8;
-  color: #1A202C;
-}
+                <pre><code>&lt;button class="btn btn-md btn-tertiary"&gt;Button&lt;/button&gt;</code></pre>
+            </div>
 
-.btn-filled:hover {
-  background: #CCE5F1;
-}
+            <div class="specs">
+                <h4>Specifications</h4>
+                <table class="spec-table">
+                    <tr>
+                        <th>State</th>
+                        <th>Border</th>
+                        <th>Text Color</th>
+                        <th>Background</th>
+                    </tr>
+                    <tr>
+                        <td>Default</td>
+                        <td>1px #A0AEC0</td>
+                        <td>#1A202C</td>
+                        <td>transparent</td>
+                    </tr>
+                    <tr>
+                        <td>Hover</td>
+                        <td>1px #718096</td>
+                        <td>#1A202C</td>
+                        <td>#EDF2F7 + underline</td>
+                    </tr>
+                    <tr>
+                        <td>Disabled</td>
+                        <td>1px #CBD5E0</td>
+                        <td>#A0AEC0</td>
+                        <td>transparent</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
 
-.btn-filled:active {
-  background: #CCE5F1;
-  text-decoration: underline;
-}
+        <!-- BUTTON STATES -->
+        <section class="section">
+            <h2>All Button States</h2>
+            <p>Interactive states for all button variants.</p>
+            
+            <div class="states-grid">
+                <div class="state-demo">
+                    <h4>Primary - Default</h4>
+                    <button class="btn btn-md btn-primary">Button</button>
+                    <code>#025E96</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Primary - Hover</h4>
+                    <button class="btn btn-md btn-primary" style="background: #01385A; text-decoration: underline; text-underline-offset: 4px;">Button</button>
+                    <code>#01385A</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Primary - Disabled</h4>
+                    <button class="btn btn-md btn-primary" disabled>Button</button>
+                    <code>#CBD5E0</code>
+                </div>
 
-.btn-filled:disabled {
-  background: #CBD5E0;
-  color: #A0AEC0;
-  cursor: not-allowed;
-}</code></pre>
+                <div class="state-demo">
+                    <h4>Light Fill - Default</h4>
+                    <button class="btn btn-md btn-light-fill">Button</button>
+                    <code>#E6F2F8</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Light Fill - Hover</h4>
+                    <button class="btn btn-md btn-light-fill" style="background: #CCE5F1; text-decoration: underline; text-underline-offset: 4px;">Button</button>
+                    <code>#CCE5F1</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Light Outline - Default</h4>
+                    <button class="btn btn-md btn-light-outline">Button</button>
+                    <code>1px stroke</code>
+                </div>
+
+                <div class="state-demo">
+                    <h4>Tertiary - Default</h4>
+                    <button class="btn btn-md btn-tertiary">Button</button>
+                    <code>1px #A0AEC0</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Tertiary - Hover</h4>
+                    <button class="btn btn-md btn-tertiary" style="background: #EDF2F7; border-color: #718096; text-decoration: underline; text-underline-offset: 4px;">Button</button>
+                    <code>+ underline</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Tertiary - Disabled</h4>
+                    <button class="btn btn-md btn-tertiary" disabled>Button</button>
+                    <code>opacity: 0.5</code>
+                </div>
             </div>
         </section>
 
@@ -225,8 +326,8 @@
             
             <div class="component-demo">
                 <div style="max-width: 400px;">
-                    <button class="btn btn-md btn-filled btn-fluid">Continue</button>
-                    <button class="btn btn-md btn-outline btn-fluid" style="margin-top: 12px;">Cancel</button>
+                    <button class="btn btn-md btn-primary btn-fluid">Continue</button>
+                    <button class="btn btn-md btn-tertiary btn-fluid" style="margin-top: 12px;">Cancel</button>
                 </div>
             </div>
 
@@ -235,7 +336,8 @@
                     <span>HTML</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <pre><code>&lt;button class="btn btn-md btn-filled btn-fluid"&gt;Continue&lt;/button&gt;</code></pre>
+                <pre><code>&lt;button class="btn btn-md btn-primary btn-fluid"&gt;Continue&lt;/button&gt;
+&lt;button class="btn btn-md btn-tertiary btn-fluid"&gt;Cancel&lt;/button&gt;</code></pre>
             </div>
         </section>
 
@@ -246,23 +348,23 @@
                 <div class="guideline do">
                     <h4>✅ Do</h4>
                     <ul>
-                        <li>Use filled buttons for primary actions</li>
-                        <li>Use outline buttons for secondary actions</li>
+                        <li>Use primary blue (#025E96) buttons for main CTAs on light backgrounds</li>
+                        <li>Use light fluid buttons (#E6F2F8) on dark blue backgrounds</li>
+                        <li>Use tertiary stroke buttons for secondary actions</li>
                         <li>Maintain minimum 44px touch targets on mobile</li>
-                        <li>Use white buttons on blue backgrounds (#025E96)</li>
-                        <li>Use blue buttons on white backgrounds</li>
-                        <li>Maximum one primary (filled) button per section</li>
+                        <li>Maximum one primary button per section</li>
+                        <li>All buttons show text underline on hover</li>
                     </ul>
                 </div>
                 
                 <div class="guideline dont">
                     <h4>❌ Don't</h4>
                     <ul>
-                        <li>Don't use multiple filled buttons side-by-side</li>
+                        <li>Don't use multiple primary buttons side-by-side</li>
                         <li>Don't use buttons smaller than 32px height</li>
                         <li>Don't override border-radius (keep 8px)</li>
-                        <li>Don't use orange/yellow accent colors on buttons</li>
-                        <li>Don't use outline buttons on colored backgrounds</li>
+                        <li>Don't use light buttons on light backgrounds</li>
+                        <li>Don't use primary blue buttons on dark backgrounds</li>
                         <li>Don't stretch buttons unnecessarily wide</li>
                     </ul>
                 </div>
@@ -292,6 +394,10 @@
                 <div class="a11y-item">
                     <span class="check">✓</span>
                     <p><strong>Disabled State:</strong> Visually distinct and not keyboard-focusable</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Hover Feedback:</strong> Text underline appears on all button hovers for clarity</p>
                 </div>
             </div>
         </section>

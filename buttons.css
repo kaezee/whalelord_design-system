@@ -1,6 +1,9 @@
-/* BUTTON COMPONENTS */
+/* BUTTON COMPONENTS - WHALELORD DESIGN SYSTEM */
 
-/* Base Button Styles */
+/* ===========================
+   BASE BUTTON STYLES
+   =========================== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -20,7 +23,10 @@
   outline-offset: 2px;
 }
 
-/* Button Sizes */
+/* ===========================
+   BUTTON SIZES
+   =========================== */
+
 .btn-sm {
   height: var(--height-button-sm);
   padding: 0 16px;
@@ -39,73 +45,145 @@
   font-size: var(--font-size-lg);
 }
 
-/* Filled Variant */
-.btn-filled {
-  background: var(--color-primary-50);
-  color: var(--color-neutral-900);
+/* ===========================
+   PRIMARY BLUE BUTTONS
+   Main CTAs - Use on light backgrounds
+   =========================== */
+
+.btn-primary {
+  background: var(--color-primary-500);
+  color: #FFFFFF;
 }
 
-.btn-filled:hover:not(:disabled),
-.btn-filled.hover-state {
-  background: var(--color-primary-100);
-}
-
-.btn-filled:active:not(:disabled),
-.btn-filled.active-state {
-  background: var(--color-primary-100);
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-700);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.btn-filled:disabled {
+.btn-primary:active:not(:disabled) {
+  background: var(--color-primary-700);
+}
+
+.btn-primary:disabled {
   background: var(--color-neutral-300);
   color: var(--color-neutral-400);
   cursor: not-allowed;
   opacity: 1;
 }
 
-/* Outline Variant */
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary-500);
-  border: 2px solid var(--color-primary-500);
-  padding: 0 22px; /* Reduced by 2px to account for border */
-}
+/* ===========================
+   LIGHT FLUID BUTTONS
+   For use on dark backgrounds (#025E96, etc)
+   =========================== */
 
-.btn-outline.btn-sm {
-  padding: 0 14px;
-}
-
-.btn-outline.btn-lg {
-  padding: 0 30px;
-}
-
-.btn-outline:hover:not(:disabled),
-.btn-outline.hover-state {
+/* Fill variant */
+.btn-light-fill {
   background: var(--color-primary-50);
-  border-color: var(--color-primary-600);
+  color: var(--color-neutral-900);
 }
 
-.btn-outline:active:not(:disabled),
-.btn-outline.active-state {
-  background: var(--color-primary-50);
+.btn-light-fill:hover:not(:disabled) {
+  background: var(--color-primary-100);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.btn-outline:disabled {
+.btn-light-fill:active:not(:disabled) {
+  background: var(--color-primary-100);
+}
+
+.btn-light-fill:disabled {
+  background: var(--color-neutral-300);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Outline variant */
+.btn-light-outline {
+  background: transparent;
+  color: var(--color-primary-50);
+  border: 1px solid var(--color-primary-50);
+  padding: 0 23px; /* Reduced by 1px to account for border */
+}
+
+.btn-light-outline.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-light-outline.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-light-outline:hover:not(:disabled) {
+  background: rgba(230, 242, 248, 0.1);
+  border-color: var(--color-primary-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-light-outline:active:not(:disabled) {
+  background: rgba(230, 242, 248, 0.15);
+}
+
+.btn-light-outline:disabled {
+  border-color: var(--color-neutral-400);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ===========================
+   TERTIARY STROKE BUTTONS
+   Secondary actions - Use anywhere
+   =========================== */
+
+.btn-tertiary {
+  background: transparent;
+  color: var(--color-neutral-900);
+  border: 1px solid var(--color-neutral-400);
+  padding: 0 23px; /* Reduced by 1px to account for border */
+}
+
+.btn-tertiary.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-tertiary.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  background: var(--color-neutral-100);
+  border-color: var(--color-neutral-500);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-tertiary:active:not(:disabled) {
+  background: var(--color-neutral-200);
+}
+
+.btn-tertiary:disabled {
   border-color: var(--color-neutral-300);
   color: var(--color-neutral-400);
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-/* Fluid Width */
+/* ===========================
+   FLUID WIDTH
+   =========================== */
+
 .btn-fluid {
   width: 100%;
 }
 
-/* DEMO STYLES */
+/* ===========================
+   DEMO STYLES
+   =========================== */
+
 .component-demo {
   background: white;
   border: 1px solid var(--color-neutral-200);
@@ -118,6 +196,7 @@
   display: flex;
   gap: var(--spacing-8);
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .demo-item {
@@ -130,6 +209,13 @@
   font-size: var(--font-size-sm);
   color: var(--color-neutral-600);
   font-weight: var(--font-weight-medium);
+}
+
+/* Dark background demo container */
+.demo-dark {
+  background: var(--color-primary-500);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
 }
 
 /* Code Examples */
@@ -335,6 +421,7 @@
 @media (max-width: 768px) {
   .demo-row {
     flex-direction: column;
+    align-items: stretch;
   }
   
   .states-grid {

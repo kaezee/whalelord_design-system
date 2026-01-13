@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons - Whalelord Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="#025E96"/>
+                    <path d="M16 8C11.6 8 8 11.6 8 16C8 20.4 11.6 24 16 24C20.4 24 24 20.4 24 16C24 11.6 20.4 8 16 8Z" fill="white" opacity="0.9"/>
+                </svg>
+                <span>Whalelord Design System</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="colors.html">Colors</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="buttons.html" class="active">Buttons</a></li>
+                <li><a href="components.html">Components</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Buttons</h1>
+            <p class="text-lg">Primary interaction elements with complete state specifications. Available in three sizes and two variants.</p>
+        </header>
+
+        <!-- FILLED BUTTONS -->
+        <section class="section">
+            <h2>Filled Buttons</h2>
+            <p>Primary action buttons with solid backgrounds. Use for main CTAs.</p>
+            
+            <div class="component-demo">
+                <div class="demo-row">
+                    <div class="demo-item">
+                        <label>Small (32px)</label>
+                        <button class="btn btn-sm btn-filled">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Medium (40px)</label>
+                        <button class="btn btn-md btn-filled">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Large (48px)</label>
+                        <button class="btn btn-lg btn-filled">Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;!-- Small --&gt;
+&lt;button class="btn btn-sm btn-filled"&gt;Button&lt;/button&gt;
+
+&lt;!-- Medium (Default) --&gt;
+&lt;button class="btn btn-md btn-filled"&gt;Button&lt;/button&gt;
+
+&lt;!-- Large --&gt;
+&lt;button class="btn btn-lg btn-filled"&gt;Button&lt;/button&gt;</code></pre>
+            </div>
+
+            <div class="specs">
+                <h4>Specifications</h4>
+                <table class="spec-table">
+                    <tr>
+                        <th>Size</th>
+                        <th>Height</th>
+                        <th>Padding</th>
+                        <th>Font Size</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>32px</td>
+                        <td>12px 16px</td>
+                        <td>14px</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>40px</td>
+                        <td>16px 24px</td>
+                        <td>16px</td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td>48px</td>
+                        <td>20px 32px</td>
+                        <td>18px</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- OUTLINE BUTTONS -->
+        <section class="section">
+            <h2>Outline Buttons</h2>
+            <p>Secondary action buttons with transparent backgrounds. Use for secondary CTAs or alongside filled buttons.</p>
+            
+            <div class="component-demo">
+                <div class="demo-row">
+                    <div class="demo-item">
+                        <label>Small</label>
+                        <button class="btn btn-sm btn-outline">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Medium</label>
+                        <button class="btn btn-md btn-outline">Button</button>
+                    </div>
+                    <div class="demo-item">
+                        <label>Large</label>
+                        <button class="btn btn-lg btn-outline">Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;button class="btn btn-md btn-outline"&gt;Button&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- BUTTON STATES -->
+        <section class="section">
+            <h2>Button States</h2>
+            <p>All interactive states for filled and outline variants.</p>
+            
+            <div class="states-grid">
+                <div class="state-demo">
+                    <h4>Filled - Default</h4>
+                    <button class="btn btn-md btn-filled">Button</button>
+                    <code>#E6F2F8</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Filled - Hover</h4>
+                    <button class="btn btn-md btn-filled hover-state">Button</button>
+                    <code>#CCE5F1</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Filled - Active</h4>
+                    <button class="btn btn-md btn-filled active-state">Button</button>
+                    <p class="text-sm">With underline</p>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Filled - Disabled</h4>
+                    <button class="btn btn-md btn-filled" disabled>Button</button>
+                    <code>#CBD5E0</code>
+                </div>
+
+                <div class="state-demo">
+                    <h4>Outline - Default</h4>
+                    <button class="btn btn-md btn-outline">Button</button>
+                    <code>Border: 2px</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Outline - Hover</h4>
+                    <button class="btn btn-md btn-outline hover-state">Button</button>
+                    <code>Border: 2px</code>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Outline - Active</h4>
+                    <button class="btn btn-md btn-outline active-state">Button</button>
+                    <p class="text-sm">With underline</p>
+                </div>
+                
+                <div class="state-demo">
+                    <h4>Outline - Disabled</h4>
+                    <button class="btn btn-md btn-outline" disabled>Button</button>
+                    <code>Opacity: 0.5</code>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>/* Filled Button States */
+.btn-filled {
+  background: #E6F2F8;
+  color: #1A202C;
+}
+
+.btn-filled:hover {
+  background: #CCE5F1;
+}
+
+.btn-filled:active {
+  background: #CCE5F1;
+  text-decoration: underline;
+}
+
+.btn-filled:disabled {
+  background: #CBD5E0;
+  color: #A0AEC0;
+  cursor: not-allowed;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- FLUID WIDTH -->
+        <section class="section">
+            <h2>Fluid Width Buttons</h2>
+            <p>Buttons that expand to fill their container. Useful for mobile layouts and form submissions.</p>
+            
+            <div class="component-demo">
+                <div style="max-width: 400px;">
+                    <button class="btn btn-md btn-filled btn-fluid">Continue</button>
+                    <button class="btn btn-md btn-outline btn-fluid" style="margin-top: 12px;">Cancel</button>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;button class="btn btn-md btn-filled btn-fluid"&gt;Continue&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- USAGE GUIDELINES -->
+        <section class="section">
+            <h2>Usage Guidelines</h2>
+            <div class="guidelines-grid">
+                <div class="guideline do">
+                    <h4>✅ Do</h4>
+                    <ul>
+                        <li>Use filled buttons for primary actions</li>
+                        <li>Use outline buttons for secondary actions</li>
+                        <li>Maintain minimum 44px touch targets on mobile</li>
+                        <li>Use white buttons on blue backgrounds (#025E96)</li>
+                        <li>Use blue buttons on white backgrounds</li>
+                        <li>Maximum one primary (filled) button per section</li>
+                    </ul>
+                </div>
+                
+                <div class="guideline dont">
+                    <h4>❌ Don't</h4>
+                    <ul>
+                        <li>Don't use multiple filled buttons side-by-side</li>
+                        <li>Don't use buttons smaller than 32px height</li>
+                        <li>Don't override border-radius (keep 8px)</li>
+                        <li>Don't use orange/yellow accent colors on buttons</li>
+                        <li>Don't use outline buttons on colored backgrounds</li>
+                        <li>Don't stretch buttons unnecessarily wide</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCESSIBILITY -->
+        <section class="section bg-primary text-white">
+            <h2>Accessibility</h2>
+            <div class="a11y-checklist">
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Color Contrast:</strong> All button text meets WCAG AA standards (4.5:1 minimum)</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Touch Targets:</strong> Minimum 44x44px on mobile devices</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Keyboard Navigation:</strong> All buttons focusable and activatable via keyboard</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Focus Indicators:</strong> Clear visual focus states for keyboard users</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check">✓</span>
+                    <p><strong>Disabled State:</strong> Visually distinct and not keyboard-focusable</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Whalelord. Design System v1.0</p>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-example').querySelector('code');
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

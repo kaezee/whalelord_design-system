@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - Whalelord Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .type-specimen {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .specimen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: var(--spacing-6);
+            padding-bottom: var(--spacing-4);
+            border-bottom: 1px solid var(--color-neutral-200);
+        }
+        
+        .specimen-label {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .specimen-details {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-500);
+        }
+        
+        .font-family-section {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+        }
+        
+        .font-weights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-6);
+        }
+        
+        .weight-sample {
+            text-align: center;
+        }
+        
+        .weight-number {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-600);
+            margin-top: var(--spacing-2);
+        }
+        
+        .scale-table {
+            width: 100%;
+            margin-top: var(--spacing-6);
+            border-collapse: collapse;
+        }
+        
+        .scale-table th {
+            text-align: left;
+            padding: var(--spacing-3);
+            background: var(--color-neutral-50);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-neutral-700);
+            border-bottom: 2px solid var(--color-neutral-300);
+        }
+        
+        .scale-table td {
+            padding: var(--spacing-4) var(--spacing-3);
+            border-bottom: 1px solid var(--color-neutral-200);
+        }
+        
+        .scale-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .scale-table code {
+            font-size: var(--font-size-xs);
+        }
+        
+        .usage-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-6);
+        }
+        
+        .usage-card {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+        }
+        
+        .usage-card h4 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .usage-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .usage-card li {
+            padding: var(--spacing-2) 0;
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        .usage-card li::before {
+            content: '→';
+            margin-right: var(--spacing-2);
+            color: var(--color-primary-500);
+            font-weight: bold;
+        }
+        
+        .line-height-demo {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .lh-sample {
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .lh-sample:last-child {
+            margin-bottom: 0;
+        }
+        
+        .lh-label {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-600);
+            margin-bottom: var(--spacing-3);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .example-grid {
+            display: grid;
+            gap: var(--spacing-8);
+        }
+        
+        .example-section {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+        }
+        
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-6);
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-6);
+            border: 2px solid;
+        }
+        
+        .example-card.do {
+            border-color: var(--color-info-500);
+            background: #F0FAFF;
+        }
+        
+        .example-card.dont {
+            border-color: var(--color-error-500);
+            background: #FFF5F5;
+        }
+        
+        .example-card h4 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="#025E96"/>
+                    <path d="M16 8C11.6 8 8 11.6 8 16C8 20.4 11.6 24 16 24C20.4 24 24 20.4 24 16C24 11.6 20.4 8 16 8Z" fill="white" opacity="0.9"/>
+                </svg>
+                <span>Whalelord Design System</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="colors.html">Colors</a></li>
+                <li><a href="typography.html" class="active">Typography</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Typography</h1>
+            <p class="text-lg">A clear type system using DM Sans for content, Inter for data values, and Roboto Mono for technical elements.</p>
+        </header>
+
+        <!-- FONT FAMILIES -->
+        <section class="section">
+            <h2>Font Families</h2>
+            
+            <div class="font-family-section">
+                <h3 style="font-family: 'DM Sans'; font-size: 36px; margin-bottom: 12px;">DM Sans</h3>
+                <p style="font-family: var(--font-mono); color: var(--color-neutral-600); margin-bottom: 24px;">var(--font-heading)</p>
+                <p style="font-size: 18px; line-height: 175%; margin-bottom: 24px;">
+                    Primary typeface for all content including headings, body text, buttons, and general UI. DM Sans provides excellent readability with a modern, professional appearance. Use this for storytelling, articles, case studies, and general communication.
+                </p>
+                
+                <div class="font-weights-grid">
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 300; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Light (300)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 400; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Regular (400)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 500; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Medium (500)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 600; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Semibold (600)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 700; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Bold (700)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'DM Sans'; font-weight: 800; font-size: 24px;">Aa Bb Cc</div>
+                        <div class="weight-number">Extrabold (800)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-family-section">
+                <h3 style="font-family: 'Inter'; font-size: 36px; margin-bottom: 12px;">Inter</h3>
+                <p style="font-family: var(--font-mono); color: var(--color-neutral-600); margin-bottom: 24px;">var(--font-body)</p>
+                <p style="font-size: 18px; line-height: 175%; margin-bottom: 24px;">
+                    Reserved specifically for data values, pricing, metrics, and numerical information. Inter's precise letterforms and excellent tabular figures make it ideal for displaying numbers, prices, statistics, and data-heavy interfaces. Do not use for general content.
+                </p>
+                
+                <div class="font-weights-grid">
+                    <div class="weight-sample">
+                        <div style="font-family: 'Inter'; font-weight: 400; font-size: 24px;">₹12,345.67</div>
+                        <div class="weight-number">Regular (400)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Inter'; font-weight: 500; font-size: 24px;">₹12,345.67</div>
+                        <div class="weight-number">Medium (500)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Inter'; font-weight: 600; font-size: 24px;">₹12,345.67</div>
+                        <div class="weight-number">Semibold (600)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Inter'; font-weight: 700; font-size: 24px;">₹12,345.67</div>
+                        <div class="weight-number">Bold (700)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-family-section">
+                <h3 style="font-family: 'Roboto Mono'; font-size: 36px; margin-bottom: 12px;">Roboto Mono</h3>
+                <p style="font-family: var(--font-mono); color: var(--color-neutral-600); margin-bottom: 24px;">var(--font-mono)</p>
+                <p style="font-size: 18px; line-height: 175%; margin-bottom: 24px;">
+                    Monospace typeface for code snippets, transaction IDs, technical identifiers, and machine-readable text. Use when displaying system-generated IDs, API responses, code examples, or any content where fixed-width characters are beneficial.
+                </p>
+                
+                <div class="font-weights-grid">
+                    <div class="weight-sample">
+                        <div style="font-family: 'Roboto Mono'; font-weight: 400; font-size: 20px;">TXN_12A4B</div>
+                        <div class="weight-number">Regular (400)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Roboto Mono'; font-weight: 500; font-size: 20px;">TXN_12A4B</div>
+                        <div class="weight-number">Medium (500)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Roboto Mono'; font-weight: 600; font-size: 20px;">TXN_12A4B</div>
+                        <div class="weight-number">Semibold (600)</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div style="font-family: 'Roboto Mono'; font-weight: 700; font-size: 20px;">TXN_12A4B</div>
+                        <div class="weight-number">Bold (700)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPE SCALE -->
+        <section class="section">
+            <h2>Type Scale</h2>
+            <p>Systematic size progression from 12px to 60px for consistent hierarchy.</p>
+            
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Display XL (H1)</span>
+                    <span class="specimen-details">60px / Bold / 125%</span>
+                </div>
+                <h1 style="font-size: 60px; line-height: 125%; margin: 0;">The quick brown fox jumps</h1>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Display L (H2)</span>
+                    <span class="specimen-details">48px / Bold / 125%</span>
+                </div>
+                <h2 style="font-size: 48px; line-height: 125%; margin: 0;">The quick brown fox jumps over</h2>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Display M (H3)</span>
+                    <span class="specimen-details">36px / Bold / 125%</span>
+                </div>
+                <h3 style="font-size: 36px; line-height: 125%; margin: 0;">The quick brown fox jumps over the lazy dog</h3>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Display S (H4)</span>
+                    <span class="specimen-details">30px / Bold / 125%</span>
+                </div>
+                <h4 style="font-size: 30px; line-height: 125%; margin: 0;">The quick brown fox jumps over the lazy dog and runs</h4>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Title L (H5)</span>
+                    <span class="specimen-details">24px / Bold / 125%</span>
+                </div>
+                <h5 style="font-size: 24px; line-height: 125%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field</h5>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Title M (H6)</span>
+                    <span class="specimen-details">20px / Bold / 125%</span>
+                </div>
+                <h6 style="font-size: 20px; line-height: 125%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field under the blue sky</h6>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Body Large</span>
+                    <span class="specimen-details">18px / Regular / 175%</span>
+                </div>
+                <p style="font-size: 18px; line-height: 175%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field under the blue sky. It's a beautiful day for an adventure through nature.</p>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Body Base (Default)</span>
+                    <span class="specimen-details">16px / Regular / 150%</span>
+                </div>
+                <p style="font-size: 16px; line-height: 150%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field under the blue sky. It's a beautiful day for an adventure through nature. This is the standard body text size used throughout the interface.</p>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Body Small</span>
+                    <span class="specimen-details">14px / Regular / 150%</span>
+                </div>
+                <p style="font-size: 14px; line-height: 150%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field under the blue sky. It's a beautiful day for an adventure through nature. This size is ideal for secondary information and supporting text.</p>
+            </div>
+
+            <div class="type-specimen">
+                <div class="specimen-header">
+                    <span class="specimen-label">Caption</span>
+                    <span class="specimen-details">12px / Regular / 150%</span>
+                </div>
+                <p style="font-size: 12px; line-height: 150%; margin: 0;">The quick brown fox jumps over the lazy dog and runs through the field under the blue sky. It's a beautiful day for an adventure through nature. Use this size for captions, metadata, and fine print.</p>
+            </div>
+        </section>
+
+        <!-- SIZE REFERENCE TABLE -->
+        <section class="section">
+            <h2>Size Reference</h2>
+            <div class="type-specimen">
+                <table class="scale-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>CSS Variable</th>
+                            <th>Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>XS</strong></td>
+                            <td>12px</td>
+                            <td><code>var(--font-size-xs)</code></td>
+                            <td>Captions, metadata, fine print</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SM</strong></td>
+                            <td>14px</td>
+                            <td><code>var(--font-size-sm)</code></td>
+                            <td>Small labels, secondary text</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BASE</strong></td>
+                            <td>16px</td>
+                            <td><code>var(--font-size-base)</code></td>
+                            <td>Body text, paragraphs (default)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LG</strong></td>
+                            <td>18px</td>
+                            <td><code>var(--font-size-lg)</code></td>
+                            <td>Lead paragraphs, prominent body text</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XL</strong></td>
+                            <td>20px</td>
+                            <td><code>var(--font-size-xl)</code></td>
+                            <td>Small headings (H6)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2XL</strong></td>
+                            <td>24px</td>
+                            <td><code>var(--font-size-2xl)</code></td>
+                            <td>Section headings (H5)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3XL</strong></td>
+                            <td>30px</td>
+                            <td><code>var(--font-size-3xl)</code></td>
+                            <td>Sub-headings (H4)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4XL</strong></td>
+                            <td>36px</td>
+                            <td><code>var(--font-size-4xl)</code></td>
+                            <td>Page headings (H3)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5XL</strong></td>
+                            <td>48px</td>
+                            <td><code>var(--font-size-5xl)</code></td>
+                            <td>Major headings (H2)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6XL</strong></td>
+                            <td>60px</td>
+                            <td><code>var(--font-size-6xl)</code></td>
+                            <td>Hero headings (H1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- LINE HEIGHT -->
+        <section class="section">
+            <h2>Line Heights</h2>
+            <p>Four line height options for different content types.</p>
+            
+            <div class="line-height-demo">
+                <div class="lh-sample">
+                    <div class="lh-label">Tight (125%) - Headings & Titles</div>
+                    <h3 style="line-height: 125%; margin: 0;">The Future of Design Systems</h3>
+                    <p style="line-height: 125%; font-size: 18px; margin: 8px 0 0 0;">Best for headings where vertical space is premium</p>
+                </div>
+
+                <div class="lh-sample">
+                    <div class="lh-label">Normal (150%) - Body Text & UI</div>
+                    <p style="line-height: 150%; margin: 0;">This is the standard line height for most UI elements and body text. It provides good readability while maintaining efficient use of space. Perfect for buttons, labels, cards, and general interface text.</p>
+                </div>
+
+                <div class="lh-sample">
+                    <div class="lh-label">Relaxed (175%) - Long-form Content</div>
+                    <p style="line-height: 175%; margin: 0;">Use this more spacious line height for articles, blog posts, documentation, and any long-form reading content. The extra breathing room significantly improves readability for extended reading sessions and reduces eye strain.</p>
+                </div>
+
+                <div class="lh-sample">
+                    <div class="lh-label">Loose (200%) - Emphasis & Quotes</div>
+                    <p style="line-height: 200%; font-size: 18px; margin: 0; font-style: italic;">"Design is not just what it looks like and feels like. Design is how it works. The extra space in this line height creates emphasis and allows text to breathe."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USAGE GUIDELINES -->
+        <section class="section">
+            <h2>Usage Guidelines</h2>
+            <div class="usage-cards">
+                <div class="usage-card">
+                    <h4>🎨 DM Sans (Content)</h4>
+                    <ul>
+                        <li>All headings H1-H6</li>
+                        <li>Body paragraphs and articles</li>
+                        <li>Button labels and UI text</li>
+                        <li>Navigation and menus</li>
+                        <li>Case studies and storytelling</li>
+                        <li>General content everywhere</li>
+                    </ul>
+                </div>
+
+                <div class="usage-card">
+                    <h4>📊 Inter (Data Values)</h4>
+                    <ul>
+                        <li>Prices and currency amounts</li>
+                        <li>Statistics and metrics</li>
+                        <li>Percentages and ratios</li>
+                        <li>Data tables and charts</li>
+                        <li>Numerical dashboards</li>
+                        <li>Financial information only</li>
+                    </ul>
+                </div>
+
+                <div class="usage-card">
+                    <h4>⌨️ Roboto Mono (Technical)</h4>
+                    <ul>
+                        <li>Code snippets and examples</li>
+                        <li>Transaction IDs</li>
+                        <li>API endpoints and responses</li>
+                        <li>File names and paths</li>
+                        <li>System-generated identifiers</li>
+                        <li>Technical documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICAL EXAMPLES -->
+        <section class="section">
+            <h2>Practical Examples</h2>
+            <div class="example-grid">
+                <div class="example-section">
+                    <h4>📱 Mobile Card Header</h4>
+                    <div style="background: var(--color-neutral-50); padding: 20px; border-radius: 8px; margin-top: 16px;">
+                        <h5 style="font-family: 'DM Sans'; font-size: 20px; margin-bottom: 8px;">Weekly Budget</h5>
+                        <p style="font-family: 'Inter'; font-size: 30px; font-weight: 700; margin: 0; color: var(--color-primary-500);">₹12,450.00</p>
+                        <p style="font-family: 'DM Sans'; font-size: 14px; color: var(--color-neutral-600); margin: 4px 0 0 0;">of ₹15,000 remaining</p>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <h4>💳 Transaction Item</h4>
+                    <div style="background: var(--color-neutral-50); padding: 20px; border-radius: 8px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <p style="font-family: 'DM Sans'; font-size: 16px; font-weight: 600; margin: 0;">Grocery Store</p>
+                            <p style="font-family: 'Roboto Mono'; font-size: 12px; color: var(--color-neutral-600); margin: 4px 0 0 0;">TXN_8F4K2L</p>
+                        </div>
+                        <p style="font-family: 'Inter'; font-size: 18px; font-weight: 600; margin: 0;">₹845.50</p>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <h4>📄 Article Introduction</h4>
+                    <div style="background: var(--color-neutral-50); padding: 24px; border-radius: 8px; margin-top: 16px;">
+                        <h2 style="font-family: 'DM Sans'; font-size: 36px; line-height: 125%; margin-bottom: 16px;">Designing for Gig Workers</h2>
+                        <p style="font-family: 'DM Sans'; font-size: 18px; line-height: 175%; color: var(--color-neutral-700); margin: 0;">
+                            Understanding the unique financial challenges faced by India's informal workforce requires deep empathy and careful design consideration. This case study explores how thoughtful UX can address irregular income patterns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DO'S AND DON'TS -->
+        <section class="section">
+            <h2>Do's and Don'ts</h2>
+            <div class="do-dont-grid">
+                <div class="example-card do">
+                    <h4>✅ Do</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">Use DM Sans for all content and storytelling</li>
+                        <li style="padding: 8px 0;">Use Inter exclusively for numbers and prices</li>
+                        <li style="padding: 8px 0;">Use Roboto Mono only for IDs and code</li>
+                        <li style="padding: 8px 0;">Maintain minimum 16px for body text</li>
+                        <li style="padding: 8px 0;">Use tight line-height (125%) for headings</li>
+                        <li style="padding: 8px 0;">Use relaxed line-height (175%) for articles</li>
+                    </ul>
+                </div>
+
+                <div class="example-card dont">
+                    <h4>❌ Don't</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0;">Mix DM Sans and Inter in body paragraphs</li>
+                        <li style="padding: 8px 0;">Use Inter for headings or general text</li>
+                        <li style="padding: 8px 0;">Use Roboto Mono outside technical contexts</li>
+                        <li style="padding: 8px 0;">Go below 14px for UI text (12px minimum)</li>
+                        <li style="padding: 8px 0;">Use loose line-height for compact UI</li>
+                        <li style="padding: 8px 0;">Override font weights arbitrarily</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPLEMENTATION -->
+        <section class="section">
+            <h2>Implementation</h2>
+            <p>Use CSS custom properties for consistent typography:</p>
+            
+            <div class="code-block">
+                <pre><code>/* Content (DM Sans) */
+h1, h2, h3, h4, h5, h6, p, button, .content {
+  font-family: var(--font-heading);
+}
+
+/* Data Values (Inter) */
+.price, .metric, .amount, .percentage {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Technical (Roboto Mono) */
+.transaction-id, code, pre, .identifier {
+  font-family: var(--font-mono);
+}
+
+/* Size Examples */
+.heading-xl {
+  font-size: var(--font-size-5xl);
+  line-height: var(--line-height-tight);
+}
+
+.body-text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.long-form {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- ACCESSIBILITY -->
+        <section class="section bg-primary text-white">
+            <h2>Accessibility Guidelines</h2>
+            <div class="a11y-checklist">
+                <div class="a11y-item">
+                    <span class="check" style="background: rgba(255, 255, 255, 0.2);">✓</span>
+                    <p><strong>Minimum Size:</strong> Never go below 14px for UI text; 16px is standard body text size</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check" style="background: rgba(255, 255, 255, 0.2);">✓</span>
+                    <p><strong>Line Length:</strong> Limit text to 70-80 characters per line for optimal readability</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check" style="background: rgba(255, 255, 255, 0.2);">✓</span>
+                    <p><strong>Contrast:</strong> All text meets WCAG AA standards with proper color combinations</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check" style="background: rgba(255, 255, 255, 0.2);">✓</span>
+                    <p><strong>Responsive:</strong> Font sizes scale appropriately on mobile devices (minimum 14px)</p>
+                </div>
+                <div class="a11y-item">
+                    <span class="check" style="background: rgba(255, 255, 255, 0.2);">✓</span>
+                    <p><strong>Hierarchy:</strong> Clear visual distinction between heading levels using size and weight</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Whalelord. Design System v1.0</p>
+    </footer>
+</body>
+</html>

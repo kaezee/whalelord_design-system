@@ -1,0 +1,131 @@
+/* BADGE COMPONENTS - WHALELORD DESIGN SYSTEM */
+
+/* BASE BADGE STYLES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  font-size: 10px;
+}
+
+.badge-icon-cert {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+}
+
+.badge-icon-cert img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* STATUS BADGES */
+.badge-popular {
+  background: #FFE8E8;
+  color: #991B1B;
+}
+
+.badge-new {
+  background: #E0F2FE;
+  color: #075985;
+}
+
+.badge-limited {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.badge-seasonal {
+  background: #ECFCCB;
+  color: #3F6212;
+}
+
+/* CERTIFICATION BADGES */
+.badge-cert {
+  background: var(--color-primary-50);
+  color: var(--color-primary-500);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+/* ORDER STATUS BADGES */
+.badge-status-info {
+  background: #E0F2FE;
+  color: #075985;
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.badge-status-warning {
+  background: #FEF3C7;
+  color: #92400E;
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.badge-status-success {
+  background: #D1FAE5;
+  color: #065F46;
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.badge-status-complete {
+  background: #E0E7FF;
+  color: #3730A3;
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+/* SUPPLIER TYPE BADGES */
+.badge-supplier {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.badge-top-rated {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.badge-verified {
+  background: #D1FAE5;
+  color: #065F46;
+}

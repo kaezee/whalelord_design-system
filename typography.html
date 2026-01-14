@@ -197,24 +197,20 @@
     </style>
 </head>
 <body>
-        <nav class="nav">
+    <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="Logo.svg" alt="Whalelord" width="40" height="40" style="display: inline-block; vertical-align: middle; margin-right: 12px;">
-                <span style="font-size: 20px; font-weight: 700; color: #025E96;">WHALELORD</span>
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Overview</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a href="typography.html" class="active">Typography</a></li>
-                <li><a href="buttons.html">Buttons</a></li>
-                <li><a href="badges.html">Badges</a></li>
-                <li><a href="components.html">Components</a></li>
-            </ul>
         </div>
     </nav>
 
-    <main class="container">
+    <div class="main-content">
+        <div class="container-with-sidenav">
         <header>
             <h1>Typography</h1>
             <p class="text-lg">A clear type system using DM Sans for content, Inter for data values, and Roboto Mono for technical elements.</p>
@@ -682,10 +678,13 @@ h1, h2, h3, h4, h5, h6, p, button, .content {
                 </div>
             </div>
         </section>
-    </main>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2025 Whalelord. Design System v1.0</p>
     </footer>
+
+    <script src="navigation.js"></script>
 </body>
 </html>

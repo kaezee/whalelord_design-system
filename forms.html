@@ -17,25 +17,17 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="Logo.svg" alt="Whalelord" width="40" height="40" style="display: inline-block; vertical-align: middle; margin-right: 12px;">
-                <div style="display: inline-block; vertical-align: middle;">
-                    <div style="font-size: 20px; font-weight: 700; color: #025E96; line-height: 1.2;">WHALELORD</div>
-                    <div style="font-size: 11px; font-weight: 500; color: #718096; text-transform: uppercase; letter-spacing: 0.05em;">Compass Design System</div>
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
                 </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Overview</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a href="typography.html">Typography</a></li>
-                <li><a href="buttons.html">Buttons</a></li>
-                <li><a href="badges.html">Badges</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="forms.html" class="active">Forms</a></li>
-            </ul>
         </div>
     </nav>
 
-    <main class="container">
+    <div class="main-content">
+        <div class="container-with-sidenav">
         <header>
             <h1>Forms & UI Components</h1>
             <p class="hero-subtitle">Comprehensive form inputs, stepper, snackbars, accordions, cards, and interactive elements for B2B marketplace.</p>
@@ -138,7 +130,7 @@ button.addEventListener('click', function() {
                 </div>
                 <pre><code>&lt;div class="input-group"&gt;
   &lt;label class="input-label input-label-required"&gt;Email Address&lt;/label&gt;
-  &lt;input type="email" class="input-field" placeholder="johndoe@example.com"&gt;
+  &lt;input type="email" class="input-field" placeholder="<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b4dedbdcdad0dbd1f4d1ccd5d9c4d8d19ad7dbd9">[email&#160;protected]</a>"&gt;
   &lt;span class="input-helper"&gt;We'll never share your email.&lt;/span&gt;
 &lt;/div&gt;
 
@@ -147,7 +139,7 @@ button.addEventListener('click', function() {
 &lt;span class="input-error-message"&gt;Please enter a valid email&lt;/span&gt;
 
 &lt;!-- Success State --&gt;
-&lt;input type="text" class="input-field success" value="valid@email.com"&gt;
+&lt;input type="text" class="input-field success" value="<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="047265686d60446169656d682a676b69">[email&#160;protected]</a>"&gt;
 &lt;span class="input-success-message"&gt;Email verified&lt;/span&gt;</code></pre>
             </div>
         </section>
@@ -388,13 +380,16 @@ button.addEventListener('click', function() {
 &lt;/div&gt;</code></pre>
             </div>
         </section>
-    </main>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2025 Compass Design System v1.0</p>
     </footer>
 
-    <script>
+    <script src="navigation.js"></script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;
@@ -470,16 +465,4 @@ button.addEventListener('click', function() {
             const snackbar = document.createElement('div');
             snackbar.className = 'snackbar' + (type !== 'default' ? ' snackbar-' + type : '');
             snackbar.innerHTML = `
-                <span class="snackbar-message">${messages[type]}</span>
-                <button class="snackbar-close" onclick="this.parentElement.remove()">×</button>
-            `;
-            
-            document.body.appendChild(snackbar);
-            
-            setTimeout(() => {
-                snackbar.remove();
-            }, 3000);
-        }
-    </script>
-</body>
-</html>
+                <span class="snackbar-m

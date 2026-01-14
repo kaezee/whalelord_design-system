@@ -14,21 +14,17 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="Logo.svg" alt="Whalelord" width="40" height="40" style="display: inline-block; vertical-align: middle; margin-right: 12px;">
-                <span style="font-size: 20px; font-weight: 700; color: #025E96;">WHALELORD</span>
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Overview</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a href="typography.html">Typography</a></li>
-                <li><a href="buttons.html" class="active">Buttons</a></li>
-                <li><a href="badges.html">Badges</a></li>
-                <li><a href="components.html">Components</a></li>
-            </ul>
         </div>
     </nav>
 
-    <main class="container">
+    <div class="main-content">
+        <div class="container-with-sidenav">
         <header>
             <h1>Buttons</h1>
             <p class="text-lg">Primary interaction elements with complete state specifications. Available in three sizes and three variants.</p>
@@ -402,12 +398,14 @@
                 </div>
             </div>
         </section>
-    </main>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2026 Whalelord. Design System v1.0</p>
     </footer>
 
+    <script src="navigation.js"></script>
     <script>
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');

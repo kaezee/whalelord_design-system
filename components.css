@@ -61,6 +61,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  border: 1px solid var(--color-neutral-500);
 }
 
 .product-certs {

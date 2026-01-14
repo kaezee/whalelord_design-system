@@ -22,6 +22,9 @@
   width: 14px;
   height: 14px;
   font-size: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  border: 1px solid currentColor;
 }
 
 .badge-icon-cert {
@@ -31,6 +34,9 @@
   width: 16px;
   height: 16px;
   font-size: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  border: 1px solid currentColor;
 }
 
 .badge-icon-cert img {
@@ -100,8 +106,8 @@
 }
 
 .badge-status-complete {
-  background: #E0E7FF;
-  color: #3730A3;
+  background: #D1FAE5;
+  color: #065F46;
   font-weight: var(--font-weight-medium);
   text-transform: none;
   font-size: 12px;

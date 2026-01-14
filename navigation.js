@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="sidenav-section">
                 <div class="sidenav-section-title">Getting Started</div>
                 <a href="index.html" class="sidenav-item">Overview</a>
-                <a href="installation.html" class="sidenav-item">Installation</a>
             </div>
 
             <div class="sidenav-section">
@@ -22,46 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="sidenav-section">
                 <div class="sidenav-section-title">Components</div>
                 
-                <button class="sidenav-collapsible" onclick="toggleSidebarMenu(this)">
-                    <span>Buttons</span>
-                    <svg class="sidenav-collapsible-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="sidenav-submenu">
-                    <a href="buttons.html#primary" class="sidenav-subitem">Primary</a>
-                    <a href="buttons.html#light" class="sidenav-subitem">Light Fluid</a>
-                    <a href="buttons.html#tertiary" class="sidenav-subitem">Tertiary</a>
-                    <a href="buttons.html#states" class="sidenav-subitem">States</a>
-                </div>
-
-                <button class="sidenav-collapsible" onclick="toggleSidebarMenu(this)">
-                    <span>Form Elements</span>
-                    <svg class="sidenav-collapsible-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="sidenav-submenu">
-                    <a href="forms.html#inputs" class="sidenav-subitem">Text Inputs</a>
-                    <a href="forms.html#textarea" class="sidenav-subitem">Textarea</a>
-                    <a href="forms.html#select" class="sidenav-subitem">Select</a>
-                    <a href="forms.html#checkbox" class="sidenav-subitem">Checkbox</a>
-                </div>
-
+                <a href="buttons.html" class="sidenav-item">Buttons</a>
+                <a href="forms.html" class="sidenav-item">Form Elements</a>
                 <a href="badges.html" class="sidenav-item">Badges</a>
-
-                <button class="sidenav-collapsible" onclick="toggleSidebarMenu(this)">
-                    <span>Cards</span>
-                    <svg class="sidenav-collapsible-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="sidenav-submenu">
-                    <a href="cards.html#basic" class="sidenav-subitem">Basic Cards</a>
-                    <a href="cards.html#image" class="sidenav-subitem">With Image</a>
-                    <a href="cards.html#icon" class="sidenav-subitem">With Icon</a>
-                </div>
-
+                <a href="cards.html" class="sidenav-item">Cards</a>
                 <a href="accordion.html" class="sidenav-item">Accordion</a>
                 <a href="stepper.html" class="sidenav-item">Stepper</a>
                 <a href="snackbar.html" class="sidenav-item">Snackbar</a>
@@ -70,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="sidenav-section">
                 <div class="sidenav-section-title">Patterns</div>
-                <a href="product-cards.html" class="sidenav-item">Product Cards</a>
+                <a href="components.html" class="sidenav-item">Product Cards</a>
                 <a href="navigation-patterns.html" class="sidenav-item">Navigation</a>
                 <a href="form-patterns.html" class="sidenav-item">Forms</a>
                 <a href="data-tables.html" class="sidenav-item">Data Tables</a>
@@ -88,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Toggle submenu function
+// Toggle submenu function (not used anymore but kept for compatibility)
 function toggleSidebarMenu(button) {
     button.classList.toggle('expanded');
 }

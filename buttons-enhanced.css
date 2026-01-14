@@ -83,6 +83,54 @@
   to { transform: rotate(360deg); }
 }
 
+/* Button State Transitions - Add to Cart Example */
+.btn-state-transition {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-success {
+  background: var(--color-success-500) !important;
+  color: white !important;
+  pointer-events: none;
+}
+
+.btn-success .btn-icon {
+  animation: iconPop 0.3s ease;
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Success pulse animation */
+.btn-success-pulse {
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(72, 187, 120, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+  }
+}
+
 /* Loading Skeleton for Images/Content */
 .skeleton {
   background: linear-gradient(

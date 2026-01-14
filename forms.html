@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms & Components - Compass Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="buttons-enhanced.css">
+    <link rel="stylesheet" href="badges.css">
+    <link rel="stylesheet" href="forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40" style="display: inline-block; vertical-align: middle; margin-right: 12px;">
+                <div style="display: inline-block; vertical-align: middle;">
+                    <div style="font-size: 20px; font-weight: 700; color: #025E96; line-height: 1.2;">WHALELORD</div>
+                    <div style="font-size: 11px; font-weight: 500; color: #718096; text-transform: uppercase; letter-spacing: 0.05em;">Compass Design System</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="colors.html">Colors</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+                <li><a href="badges.html">Badges</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="forms.html" class="active">Forms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Forms & UI Components</h1>
+            <p class="hero-subtitle">Comprehensive form inputs, stepper, snackbars, accordions, cards, and interactive elements for B2B marketplace.</p>
+        </header>
+
+        <!-- BUTTON STATE TRANSITIONS -->
+        <section class="section">
+            <h2>Button State Transitions</h2>
+            <p>Buttons can transition between states to provide user feedback. Common pattern: Add to Cart → Added to Cart.</p>
+            
+            <div class="component-demo">
+                <h4>Interactive Button States</h4>
+                <div class="demo-row">
+                    <button class="btn btn-md btn-tertiary btn-icon-left" id="addToCartDemo">
+                        <span class="btn-icon">+</span>
+                        Add to Cart
+                    </button>
+                    
+                    <button class="btn btn-md btn-primary btn-icon-left" id="requestQuoteDemo">
+                        <span class="btn-icon">→</span>
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>JavaScript</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>// Add to Cart Transition
+button.addEventListener('click', function() {
+  // Show loading
+  this.classList.add('btn-loading');
+  this.disabled = true;
+  
+  setTimeout(() => {
+    // Show success
+    this.classList.remove('btn-loading');
+    this.classList.add('btn-success', 'btn-success-pulse');
+    this.innerHTML = '<span class="btn-icon">✓</span>Added to Cart';
+    
+    // Reset after 2 seconds
+    setTimeout(() => {
+      this.classList.remove('btn-success', 'btn-success-pulse');
+      this.innerHTML = '<span class="btn-icon">+</span>Add to Cart';
+      this.disabled = false;
+    }, 2000);
+  }, 1000);
+});</code></pre>
+            </div>
+        </section>
+
+        <!-- INPUT FIELDS -->
+        <section class="section">
+            <h2>Input Fields</h2>
+            <p>Text inputs with various states: default, hover, focus, error, success, and disabled.</p>
+            
+            <div class="component-demo">
+                <div style="max-width: 500px;">
+                    <div class="input-group">
+                        <label class="input-label input-label-required">Email Address</label>
+                        <input type="email" class="input-field" placeholder="johndoe@example.com">
+                        <span class="input-helper">We'll never share your email with anyone else.</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Password</label>
+                        <input type="password" class="input-field" placeholder="Enter password">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">With Error</label>
+                        <input type="text" class="input-field error" value="invalid@email">
+                        <span class="input-error-message">Please enter a valid email address</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">With Success</label>
+                        <input type="text" class="input-field success" value="valid@email.com">
+                        <span class="input-success-message">Email verified successfully</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Disabled</label>
+                        <input type="text" class="input-field" disabled value="Cannot edit">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">Textarea</label>
+                        <textarea class="textarea-field" placeholder="Enter your message here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;div class="input-group"&gt;
+  &lt;label class="input-label input-label-required"&gt;Email Address&lt;/label&gt;
+  &lt;input type="email" class="input-field" placeholder="johndoe@example.com"&gt;
+  &lt;span class="input-helper"&gt;We'll never share your email.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Error State --&gt;
+&lt;input type="text" class="input-field error" value="invalid@email"&gt;
+&lt;span class="input-error-message"&gt;Please enter a valid email&lt;/span&gt;
+
+&lt;!-- Success State --&gt;
+&lt;input type="text" class="input-field success" value="valid@email.com"&gt;
+&lt;span class="input-success-message"&gt;Email verified&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- STEPPER -->
+        <section class="section">
+            <h2>Stepper Component</h2>
+            <p>Multi-step form indicator showing progress through a process.</p>
+            
+            <div class="component-demo">
+                <div class="stepper">
+                    <div class="stepper-step completed">
+                        <div class="stepper-circle">✓</div>
+                        <span class="stepper-label">Account Info</span>
+                    </div>
+                    <div class="stepper-step active">
+                        <div class="stepper-circle">2</div>
+                        <span class="stepper-label">Company Details</span>
+                    </div>
+                    <div class="stepper-step">
+                        <div class="stepper-circle">3</div>
+                        <span class="stepper-label">Verification</span>
+                    </div>
+                    <div class="stepper-step">
+                        <div class="stepper-circle">4</div>
+                        <span class="stepper-label">Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;div class="stepper"&gt;
+  &lt;div class="stepper-step completed"&gt;
+    &lt;div class="stepper-circle"&gt;âœ"&lt;/div&gt;
+    &lt;span class="stepper-label"&gt;Account Info&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="stepper-step active"&gt;
+    &lt;div class="stepper-circle"&gt;2&lt;/div&gt;
+    &lt;span class="stepper-label"&gt;Company Details&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="stepper-step"&gt;
+    &lt;div class="stepper-circle"&gt;3&lt;/div&gt;
+    &lt;span class="stepper-label"&gt;Verification&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- SNACKBARS -->
+        <section class="section">
+            <h2>Snackbars / Toast Notifications</h2>
+            <p>Temporary messages that appear at the bottom of the screen for user feedback.</p>
+            
+            <div class="component-demo">
+                <h4>Snackbar Variants</h4>
+                <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 16px;">
+                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('default')">Show Default</button>
+                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('success')">Show Success</button>
+                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('error')">Show Error</button>
+                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('warning')">Show Warning</button>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;!-- Default --&gt;
+&lt;div class="snackbar"&gt;
+  &lt;span class="snackbar-message"&gt;Order successfully placed!&lt;/span&gt;
+  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Success --&gt;
+&lt;div class="snackbar snackbar-success"&gt;
+  &lt;span class="snackbar-icon"&gt;âœ"&lt;/span&gt;
+  &lt;span class="snackbar-message"&gt;Payment confirmed!&lt;/span&gt;
+  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Error --&gt;
+&lt;div class="snackbar snackbar-error"&gt;
+  &lt;span class="snackbar-icon"&gt;âœ•&lt;/span&gt;
+  &lt;span class="snackbar-message"&gt;Failed to process request&lt;/span&gt;
+  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- ACCORDION -->
+        <section class="section">
+            <h2>Accordion</h2>
+            <p>Collapsible content panels for organizing related information.</p>
+            
+            <div class="component-demo">
+                <div class="accordion" style="max-width: 600px;">
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>What is Whalelord?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Whalelord is a B2B seafood marketplace connecting buyers and suppliers. Our platform streamlines ordering, provides real-time inventory, and ensures quality through verified suppliers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>How does pricing work?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Pricing is based on market rates and order volume. Request a quote for specific products and quantities. We offer competitive pricing for bulk orders and recurring customers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>What certifications do suppliers have?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                All suppliers are verified and hold industry-standard certifications including MSC, ASC, Global GAP, and organic certifications where applicable.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARD VARIANTS -->
+        <section class="section">
+            <h2>Card Variants</h2>
+            <p>Various card sizes and styles for different content hierarchies.</p>
+            
+            <div class="component-demo">
+                <div class="grid-3">
+                    <!-- Small Card -->
+                    <div class="card-sm card-hoverable">
+                        <h4 style="margin-bottom: 8px;">Small Card</h4>
+                        <p style="font-size: 14px; color: #718096; margin: 0;">Compact information display</p>
+                    </div>
+
+                    <!-- Medium Card -->
+                    <div class="card-md card-hoverable">
+                        <h4 style="margin-bottom: 8px;">Medium Card</h4>
+                        <p style="font-size: 14px; color: #718096; margin: 0;">Default card size for most use cases</p>
+                    </div>
+
+                    <!-- Large Card -->
+                    <div class="card-lg card-hoverable">
+                        <h4 style="margin-bottom: 8px;">Large Card</h4>
+                        <p style="font-size: 14px; color: #718096; margin: 0;">Spacious layout for detailed content</p>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 32px; margin-bottom: 16px;">Card with Image</h4>
+                <div style="max-width: 400px;">
+                    <div class="card-with-image card-hoverable">
+                        <div class="skeleton skeleton-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Atlantic Salmon</h3>
+                            <p class="card-description">Fresh, sustainably sourced salmon from Norwegian waters. MSC certified.</p>
+                            <button class="btn btn-md btn-tertiary btn-fluid">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 32px; margin-bottom: 16px;">Card with Icon</h4>
+                <div class="card-with-icon card-hoverable" style="max-width: 400px;">
+                    <div class="card-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 8px;">Order Confirmed</h4>
+                        <p style="font-size: 14px; color: #718096; margin: 0;">Your order #12345 has been confirmed and will ship within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHIPS -->
+        <section class="section">
+            <h2>Chips / Removable Tags</h2>
+            <p>Compact elements for labels, filters, or selections that can be dismissed.</p>
+            
+            <div class="component-demo">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="chip">
+                        <span>Fresh Seafood</span>
+                        <button class="chip-remove">×</button>
+                    </div>
+                    <div class="chip chip-primary">
+                        <span>MSC Certified</span>
+                        <button class="chip-remove">×</button>
+                    </div>
+                    <div class="chip">
+                        <span>Norway</span>
+                        <button class="chip-remove">×</button>
+                    </div>
+                    <div class="chip">
+                        <span>Wholesale</span>
+                        <button class="chip-remove">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code>&lt;div class="chip"&gt;
+  &lt;span&gt;Fresh Seafood&lt;/span&gt;
+  &lt;button class="chip-remove"&gt;Ã—&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="chip chip-primary"&gt;
+  &lt;span&gt;MSC Certified&lt;/span&gt;
+  &lt;button class="chip-remove"&gt;Ã—&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Compass Design System v1.0</p>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-example').querySelector('code');
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Button state demo
+        document.getElementById('addToCartDemo')?.addEventListener('click', function() {
+            const btn = this;
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.classList.remove('btn-loading');
+                btn.classList.add('btn-success', 'btn-success-pulse');
+                btn.innerHTML = '<span class="btn-icon">✓</span>Added to Cart';
+                
+                setTimeout(() => {
+                    btn.classList.remove('btn-success', 'btn-success-pulse');
+                    btn.innerHTML = '<span class="btn-icon">+</span>Add to Cart';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+
+        document.getElementById('requestQuoteDemo')?.addEventListener('click', function() {
+            const btn = this;
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.classList.remove('btn-loading');
+                btn.classList.add('btn-success', 'btn-success-pulse');
+                btn.innerHTML = '<span class="btn-icon">✓</span>Quote Requested';
+                
+                setTimeout(() => {
+                    btn.classList.remove('btn-success', 'btn-success-pulse');
+                    btn.innerHTML = '<span class="btn-icon">→</span>Request Quote';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+
+        // Snackbar demo
+        function showSnackbar(type) {
+            const messages = {
+                default: 'Order successfully placed!',
+                success: 'Payment confirmed!',
+                error: 'Failed to process request',
+                warning: 'Low stock warning'
+            };
+            
+            const snackbar = document.createElement('div');
+            snackbar.className = 'snackbar' + (type !== 'default' ? ' snackbar-' + type : '');
+            snackbar.innerHTML = `
+                <span class="snackbar-message">${messages[type]}</span>
+                <button class="snackbar-close" onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            document.body.appendChild(snackbar);
+            
+            setTimeout(() => {
+                snackbar.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

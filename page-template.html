@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title - Compass Design System</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css"> <!-- Add component-specific CSS as needed -->
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fixed Top Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar will be injected here by navigation.js -->
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="container-with-sidenav">
+            
+            <!-- Page Header -->
+            <header>
+                <h1>Page Title</h1>
+                <p class="hero-subtitle">Page description goes here.</p>
+            </header>
+
+            <!-- Content Sections -->
+            <section class="section" id="section-1">
+                <h2>Section Title</h2>
+                <p>Your content here...</p>
+            </section>
+
+            <section class="section" id="section-2">
+                <h2>Another Section</h2>
+                <p>More content...</p>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Compass Design System v1.0</p>
+    </footer>
+
+    <!-- Navigation Script - Injects sidebar automatically -->
+    <script src="navigation.js"></script>
+</body>
+</html>

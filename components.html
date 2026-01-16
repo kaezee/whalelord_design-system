@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Cards - Compass Design System</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,10 +16,11 @@
         .tab-btn.active { color: var(--color-primary-500); border-bottom-color: var(--color-primary-500); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .preview-box { background: #F7FAFC; border: 1px solid var(--color-neutral-200); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); }
+        .preview-box { background: #F7FAFC; border: 1px solid var(--color-neutral-200); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); display: flex; justify-content: center; align-items: center; }
     </style>
 </head>
 <body>
+    <!-- Fixed Top Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -31,14 +33,18 @@
         </div>
     </nav>
 
+    <!-- Main Content Area -->
     <div class="main-content">
         <div class="container-with-sidenav">
+            
+            <!-- Page Header -->
             <header>
                 <h1>Product Cards</h1>
                 <p class="hero-subtitle">Primary component for displaying seafood products in B2B marketplace. Includes badges, certifications, and supplier information.</p>
             </header>
 
-            <section class="section">
+            <!-- Product Card Section -->
+            <section class="section" id="product-card">
                 <h2>Product Card</h2>
                 <p>Standard product card for grid or list views with badges, certifications, and action buttons.</p>
                 
@@ -50,13 +56,13 @@
                 
                 <div id="card-preview" class="tab-content active">
                     <div class="preview-box">
-                        <div style="max-width: 350px;">
+                        <div style="max-width: 350px; width: 100%;">
                             <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; transition: all 0.2s;">
                                 <!-- Image -->
                                 <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: #EDF2F7;">
                                     <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #E6F2F8 0%, #CCE5F1 100%); display: flex; align-items: center; justify-content: center; color: #718096; font-size: 48px;">🐟</div>
                                     <span style="position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 4px; background: #FFE8E8; color: #991B1B; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
-                                        <span style="display: inline-flex; align-items: center; justify-center; width: 14px; height: 14px; font-size: 10px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">⭐</span>
+                                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; font-size: 10px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">⭐</span>
                                         POPULAR
                                     </span>
                                 </div>
@@ -65,24 +71,24 @@
                                 <div style="padding: 20px;">
                                     <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #171923;">Bluefin Tuna</h3>
                                     <div style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: #718096; margin-bottom: 16px;">
-                                        <span style="display: inline-flex; align-items: center; justify-center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid #718096;">🏢</span>
+                                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid #718096;">🏢</span>
                                         John and Sons Fishing
                                     </div>
                                     
                                     <!-- Certifications -->
                                     <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
                                         <span style="display: inline-flex; align-items: center; gap: 4px; background: #E6F2F8; color: #025E96; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
-                                            <span style="display: inline-flex; align-items: center; justify-center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🌊</span>
+                                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🌊</span>
                                             GLOBAL AP
                                         </span>
                                         <span style="display: inline-flex; align-items: center; gap: 4px; background: #E6F2F8; color: #025E96; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
-                                            <span style="display: inline-flex; align-items: center; justify-center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🐟</span>
-                                            MSC
+                                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🐟</span>
+                                            ASC
                                         </span>
                                     </div>
                                     
                                     <!-- Button -->
-                                    <button style="width: 100%; height: 40px; padding: 0 24px; font-size: 16px; font-weight: 500; color: #171923; background: transparent; border: 1px solid #CBD5E0; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                                    <button style="width: 100%; height: 40px; padding: 0 24px; font-size: 16px; font-weight: 500; color: #171923; background: transparent; border: 1px solid #CBD5E0; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;">
                                         Request Quote
                                     </button>
                                 </div>
@@ -97,7 +103,7 @@
                             <span>HTML + Tailwind</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre><code>&lt;div class="bg-white border border-pearl-200 rounded-lg overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5"&gt;
+                        <pre><code>&lt;div class="bg-white border border-pearl-200 rounded-lg overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5 max-w-[350px]"&gt;
   &lt;!-- Image --&gt;
   &lt;div class="relative w-full aspect-[4/3] bg-pearl-100"&gt;
     &lt;img src="tuna.jpg" alt="Bluefin Tuna" class="w-full h-full object-cover" /&gt;
@@ -123,12 +129,12 @@
       &lt;/span&gt;
       &lt;span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider"&gt;
         &lt;span class="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current"&gt;🐟&lt;/span&gt;
-        MSC
+        ASC
       &lt;/span&gt;
     &lt;/div&gt;
     
     &lt;!-- Button --&gt;
-    &lt;button class="w-full h-10 px-6 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-all"&gt;
+    &lt;button class="w-full h-10 px-6 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 hover:border-pearl-400 transition-all"&gt;
       Request Quote
     &lt;/button&gt;
   &lt;/div&gt;
@@ -150,12 +156,19 @@
   certifications = [],
   onRequestQuote 
 }) => (
-  &lt;div className="bg-white border border-pearl-200 rounded-lg overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5"&gt;
+  &lt;div className="bg-white border border-pearl-200 rounded-lg overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5 max-w-[350px]"&gt;
     {/* Image */}
     &lt;div className="relative w-full aspect-[4/3] bg-pearl-100"&gt;
-      &lt;img src={image} alt={title} className="w-full h-full object-cover" /&gt;
+      &lt;img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover" 
+      /&gt;
       {badges.map((badge, i) => (
-        &lt;span key={i} className="absolute top-3 left-3 inline-flex items-center gap-1 bg-red-50 text-red-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider"&gt;
+        &lt;span 
+          key={i} 
+          className="absolute top-3 left-3 inline-flex items-center gap-1 bg-red-50 text-red-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider"
+        &gt;
           &lt;span className="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current"&gt;
             {badge.icon}
           &lt;/span&gt;
@@ -166,16 +179,23 @@
     
     {/* Content */}
     &lt;div className="p-5"&gt;
-      &lt;h3 className="text-xl font-bold mb-2 text-pearl-900"&gt;{title}&lt;/h3&gt;
+      &lt;h3 className="text-xl font-bold mb-2 text-pearl-900"&gt;
+        {title}
+      &lt;/h3&gt;
       &lt;div className="flex items-center gap-1.5 text-sm text-pearl-600 mb-4"&gt;
-        &lt;span className="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current"&gt;🏢&lt;/span&gt;
+        &lt;span className="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current"&gt;
+          🏢
+        &lt;/span&gt;
         {supplier}
       &lt;/div&gt;
       
       {/* Certifications */}
       &lt;div className="flex gap-2 flex-wrap mb-4"&gt;
         {certifications.map((cert, i) => (
-          &lt;span key={i} className="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider"&gt;
+          &lt;span 
+            key={i} 
+            className="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider"
+          &gt;
             &lt;span className="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current"&gt;
               {cert.icon}
             &lt;/span&gt;
@@ -187,7 +207,7 @@
       {/* Button */}
       &lt;button 
         onClick={onRequestQuote}
-        className="w-full h-10 px-6 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-all"
+        className="w-full h-10 px-6 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 hover:border-pearl-400 transition-all"
       &gt;
         Request Quote
       &lt;/button&gt;
@@ -203,21 +223,270 @@
   badges={[{ icon: '⭐', label: 'POPULAR' }]}
   certifications={[
     { icon: '🌊', label: 'GLOBAL AP' },
-    { icon: '🐟', label: 'MSC' }
+    { icon: '🐟', label: 'ASC' }
   ]}
   onRequestQuote={() => console.log('Quote requested')}
 /&gt;</code></pre>
                     </div>
                 </div>
             </section>
+
+            <!-- Product Card Grid Section -->
+            <section class="section" id="product-card-grid">
+                <h2>Product Card Grid</h2>
+                <p>Display multiple product cards in a responsive grid layout.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'grid-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'grid-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'grid-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="grid-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 1000px;">
+                            <!-- Card 1 -->
+                            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden;">
+                                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #E6F2F8 0%, #CCE5F1 100%); display: flex; align-items: center; justify-content: center; color: #718096; font-size: 36px;">🐟</div>
+                                <div style="padding: 16px;">
+                                    <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #171923;">Bluefin Tuna</h4>
+                                    <div style="display: flex; align-items: center; gap: 4px; font-size: 12px; color: #718096; margin-bottom: 12px;">
+                                        <span style="display: inline-flex; width: 14px; height: 14px;">🏢</span>
+                                        John and Sons
+                                    </div>
+                                    <button style="width: 100%; height: 36px; font-size: 14px; font-weight: 500; color: #171923; background: transparent; border: 1px solid #CBD5E0; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif;">
+                                        Request Quote
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden;">
+                                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #CCE5F1 0%, #99CBE3 100%); display: flex; align-items: center; justify-content: center; color: #718096; font-size: 36px;">🦐</div>
+                                <div style="padding: 16px;">
+                                    <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #171923;">Tiger Prawns</h4>
+                                    <div style="display: flex; align-items: center; gap: 4px; font-size: 12px; color: #718096; margin-bottom: 12px;">
+                                        <span style="display: inline-flex; width: 14px; height: 14px;">🏢</span>
+                                        Ocean Harvest Co
+                                    </div>
+                                    <button style="width: 100%; height: 36px; font-size: 14px; font-weight: 500; color: #171923; background: transparent; border: 1px solid #CBD5E0; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif;">
+                                        Request Quote
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden;">
+                                <div style="position: relative; width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #99CBE3 0%, #66B1D5 100%); display: flex; align-items: center; justify-content: center; color: #718096; font-size: 36px;">🦀</div>
+                                <div style="padding: 16px;">
+                                    <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #171923;">King Crab</h4>
+                                    <div style="display: flex; align-items: center; gap: 4px; font-size: 12px; color: #718096; margin-bottom: 12px;">
+                                        <span style="display: inline-flex; width: 14px; height: 14px;">🏢</span>
+                                        Nordic Seafoods
+                                    </div>
+                                    <button style="width: 100%; height: 36px; font-size: 14px; font-weight: 500; color: #171923; background: transparent; border: 1px solid #CBD5E0; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif;">
+                                        Request Quote
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="grid-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+  &lt;!-- Product Card 1 --&gt;
+  &lt;div class="bg-white border border-pearl-200 rounded-lg overflow-hidden hover:shadow-lg transition-all"&gt;
+    &lt;div class="relative w-full aspect-[4/3] bg-pearl-100"&gt;
+      &lt;img src="tuna.jpg" alt="Bluefin Tuna" class="w-full h-full object-cover" /&gt;
+    &lt;/div&gt;
+    &lt;div class="p-4"&gt;
+      &lt;h3 class="text-base font-bold mb-1.5 text-pearl-900"&gt;Bluefin Tuna&lt;/h3&gt;
+      &lt;div class="flex items-center gap-1 text-xs text-pearl-600 mb-3"&gt;
+        &lt;span&gt;🏢&lt;/span&gt;
+        John and Sons Fishing
+      &lt;/div&gt;
+      &lt;button class="w-full h-9 text-sm font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50"&gt;
+        Request Quote
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- More cards... --&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="grid-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const ProductGrid = ({ products }) => (
+  &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+    {products.map((product) => (
+      &lt;ProductCard
+        key={product.id}
+        image={product.image}
+        title={product.title}
+        supplier={product.supplier}
+        badges={product.badges}
+        certifications={product.certifications}
+        onRequestQuote={() => handleQuoteRequest(product.id)}
+      /&gt;
+    ))}
+  &lt;/div&gt;
+);
+
+// Usage
+const products = [
+  {
+    id: 1,
+    image: '/images/tuna.jpg',
+    title: 'Bluefin Tuna',
+    supplier: 'John and Sons Fishing',
+    badges: [{ icon: '⭐', label: 'POPULAR' }],
+    certifications: [
+      { icon: '🌊', label: 'GLOBAL AP' },
+      { icon: '🐟', label: 'ASC' }
+    ]
+  },
+  // More products...
+];
+
+&lt;ProductGrid products={products} /&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Component Variants -->
+            <section class="section" id="component-variants">
+                <h2>Component Variants</h2>
+                <p>Product cards support different badge types and certification displays.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-6);">
+                    <div>
+                        <h4 style="margin-bottom: var(--spacing-3);">Status Badges</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #FFE8E8; color: #991B1B; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 14px; height: 14px; font-size: 10px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">⭐</span>
+                                POPULAR
+                            </span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #E0F2FE; color: #075985; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 14px; height: 14px; font-size: 10px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">✨</span>
+                                NEW
+                            </span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #FEF3C7; color: #92400E; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 14px; height: 14px; font-size: 10px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">⚡</span>
+                                LIMITED
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 style="margin-bottom: var(--spacing-3);">Certification Badges</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #E6F2F8; color: #025E96; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🌊</span>
+                                GLOBAL AP
+                            </span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #E6F2F8; color: #025E96; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🐟</span>
+                                MSC
+                            </span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; background: #E6F2F8; color: #025E96; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-flex; width: 16px; height: 16px; background: rgba(0,0,0,0.1); border-radius: 2px; border: 1px solid currentColor;">🌱</span>
+                                ORGANIC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Guidelines -->
+            <section class="section" id="usage-guidelines">
+                <h2>Usage Guidelines</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6);">
+                    <div class="guideline do">
+                        <h4>✓ Do</h4>
+                        <ul>
+                            <li>Use consistent image aspect ratios (4:3 recommended)</li>
+                            <li>Display relevant certifications prominently</li>
+                            <li>Keep supplier names concise and readable</li>
+                            <li>Use status badges sparingly (1 per product)</li>
+                            <li>Ensure product images are high quality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guideline dont">
+                        <h4>✗ Don't</h4>
+                        <ul>
+                            <li>Overcrowd cards with too many badges</li>
+                            <li>Use low-resolution or stretched images</li>
+                            <li>Mix different card sizes in the same grid</li>
+                            <li>Hide important certification information</li>
+                            <li>Use vague product titles</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessibility -->
+            <section class="section" id="accessibility">
+                <h2>Accessibility</h2>
+                
+                <div class="a11y-checklist">
+                    <div class="a11y-item">
+                        <div class="check">✓</div>
+                        <div>
+                            <strong>Image Alt Text:</strong> All product images include descriptive alt text for screen readers
+                        </div>
+                    </div>
+                    <div class="a11y-item">
+                        <div class="check">✓</div>
+                        <div>
+                            <strong>Semantic HTML:</strong> Uses proper heading hierarchy (h1 → h2 → h3) for card titles
+                        </div>
+                    </div>
+                    <div class="a11y-item">
+                        <div class="check">✓</div>
+                        <div>
+                            <strong>Keyboard Navigation:</strong> All interactive elements are keyboard accessible with visible focus states
+                        </div>
+                    </div>
+                    <div class="a11y-item">
+                        <div class="check">✓</div>
+                        <div>
+                            <strong>Color Contrast:</strong> Badge text meets WCAG AA standards for readability
+                        </div>
+                    </div>
+                    <div class="a11y-item">
+                        <div class="check">✓</div>
+                        <div>
+                            <strong>Touch Targets:</strong> Buttons meet 40px minimum height for mobile accessibility
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Compass Design System v1.0</p>
     </footer>
 
+    <!-- Navigation Script - Injects sidebar automatically -->
     <script src="navigation.js"></script>
+    
     <script>
         function switchTab(event, tabId) {
             const section = event.target.closest('.section');

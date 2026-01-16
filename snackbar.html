@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snackbar - Compass Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container-with-sidenav">
+            <header>
+                <h1>Snackbar / Toast</h1>
+                <p class="hero-subtitle">Brief notification messages that appear temporarily to provide feedback on user actions.</p>
+            </header>
+
+            <!-- BASIC SNACKBARS -->
+            <section class="section">
+                <h2>Snackbar Variants</h2>
+                <p>Different variants for various message types: default, success, error, warning, and info.</p>
+                
+                <div class="component-demo">
+                    <div class="space-y-4">
+                        <!-- Default -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-3">
+                            <span class="text-sm flex-1">Your changes have been saved</span>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+
+                        <!-- Success -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-coral-500 text-white rounded-md shadow-lg flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm flex-1">Order placed successfully</span>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+
+                        <!-- Error -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-crimson-500 text-white rounded-md shadow-lg flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-sm flex-1">Failed to process payment</span>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+
+                        <!-- Warning -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-amber-500 text-pearl-900 rounded-md shadow-lg flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <span class="text-sm flex-1">Stock is running low for this product</span>
+                            <button class="text-pearl-900 opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-tide-500 text-white rounded-md shadow-lg flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-sm flex-1">New features are now available</span>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>import { X, CheckCircle, XCircle, AlertTriangle, Info } from 'lucide-react';
+
+const Snackbar = ({ 
+  variant = 'default', 
+  message, 
+  onClose,
+  autoHideDuration = 5000 
+}) => {
+  const variants = {
+    default: {
+      bg: 'bg-pearl-900',
+      text: 'text-white',
+      icon: null,
+    },
+    success: {
+      bg: 'bg-coral-500',
+      text: 'text-white',
+      icon: CheckCircle,
+    },
+    error: {
+      bg: 'bg-crimson-500',
+      text: 'text-white',
+      icon: XCircle,
+    },
+    warning: {
+      bg: 'bg-amber-500',
+      text: 'text-pearl-900',
+      icon: AlertTriangle,
+    },
+    info: {
+      bg: 'bg-tide-500',
+      text: 'text-white',
+      icon: Info,
+    },
+  };
+
+  const { bg, text, icon: Icon } = variants[variant];
+
+  useEffect(() => {
+    if (autoHideDuration) {
+      const timer = setTimeout(onClose, autoHideDuration);
+      return () => clearTimeout(timer);
+    }
+  }, [autoHideDuration, onClose]);
+
+  return (
+    &lt;div 
+      className={`min-w-[320px] max-w-[600px] px-5 py-4 ${bg} ${text} rounded-md shadow-lg flex items-center gap-3 animate-slide-up`}
+    &gt;
+      {Icon && &lt;Icon className="w-5 h-5 flex-shrink-0" /&gt;}
+      &lt;span className="text-sm flex-1"&gt;{message}&lt;/span&gt;
+      &lt;button 
+        onClick={onClose}
+        className={`${text} opacity-80 hover:opacity-100 p-1 transition-opacity`}
+      &gt;
+        &lt;X className="w-4 h-4" /&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+// Usage with a Snackbar Provider/Context
+import { createContext, useContext, useState } from 'react';
+
+const SnackbarContext = createContext();
+
+export const SnackbarProvider = ({ children }) => {
+  const [snackbar, setSnackbar] = useState(null);
+
+  const showSnackbar = (message, variant = 'default') => {
+    setSnackbar({ message, variant, id: Date.now() });
+  };
+
+  return (
+    &lt;SnackbarContext.Provider value={{ showSnackbar }}&gt;
+      {children}
+      {snackbar && (
+        &lt;div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"&gt;
+          &lt;Snackbar
+            message={snackbar.message}
+            variant={snackbar.variant}
+            onClose={() => setSnackbar(null)}
+          /&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/SnackbarContext.Provider&gt;
+  );
+};
+
+export const useSnackbar = () => useContext(SnackbarContext);
+
+// In your components
+const { showSnackbar } = useSnackbar();
+showSnackbar('Order placed successfully', 'success');</code></pre>
+                </div>
+
+                <div class="specs">
+                    <h4>Snackbar Specifications</h4>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Variant</th>
+                            <th>Tailwind Classes</th>
+                            <th>Use Case</th>
+                        </tr>
+                        <tr>
+                            <td>Default</td>
+                            <td>bg-pearl-900 text-white</td>
+                            <td>General notifications</td>
+                        </tr>
+                        <tr>
+                            <td>Success</td>
+                            <td>bg-coral-500 text-white</td>
+                            <td>Successful actions</td>
+                        </tr>
+                        <tr>
+                            <td>Error</td>
+                            <td>bg-crimson-500 text-white</td>
+                            <td>Error messages</td>
+                        </tr>
+                        <tr>
+                            <td>Warning</td>
+                            <td>bg-amber-500 text-pearl-900</td>
+                            <td>Warning alerts</td>
+                        </tr>
+                        <tr>
+                            <td>Info</td>
+                            <td>bg-tide-500 text-white</td>
+                            <td>Informational messages</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- WITH ACTIONS -->
+            <section class="section">
+                <h2>Snackbar with Action</h2>
+                <p>Snackbars can include an action button for immediate interaction.</p>
+                
+                <div class="component-demo">
+                    <div class="space-y-4">
+                        <!-- With Undo Action -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-4">
+                            <span class="text-sm flex-1">Item deleted</span>
+                            <button class="text-kelp-300 hover:text-kelp-200 text-sm font-medium transition-colors">
+                                UNDO
+                            </button>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+
+                        <!-- With View Action -->
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-tide-500 text-white rounded-md shadow-lg flex items-center gap-4">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-sm flex-1">New message from supplier</span>
+                            <button class="text-white hover:underline text-sm font-medium">
+                                VIEW
+                            </button>
+                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>const SnackbarWithAction = ({ 
+  message, 
+  actionLabel,
+  onAction,
+  onClose,
+  variant = 'default' 
+}) => {
+  return (
+    &lt;div className="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-4"&gt;
+      &lt;span className="text-sm flex-1"&gt;{message}&lt;/span&gt;
+      {actionLabel && (
+        &lt;button
+          onClick={onAction}
+          className="text-kelp-300 hover:text-kelp-200 text-sm font-medium transition-colors"
+        &gt;
+          {actionLabel.toUpperCase()}
+        &lt;/button&gt;
+      )}
+      &lt;button 
+        onClick={onClose}
+        className="text-white opacity-80 hover:opacity-100 p-1 transition-opacity"
+      &gt;
+        &lt;X className="w-4 h-4" /&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+// Usage
+&lt;SnackbarWithAction
+  message="Item deleted"
+  actionLabel="Undo"
+  onAction={() => console.log('Undo clicked')}
+  onClose={handleClose}
+/&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- USAGE GUIDELINES -->
+            <section class="section">
+                <h2>Usage Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline do">
+                        <h4>✅ Do</h4>
+                        <ul>
+                            <li>Keep messages brief and actionable (under 100 characters)</li>
+                            <li>Auto-dismiss after 4-6 seconds (except errors)</li>
+                            <li>Show only one snackbar at a time</li>
+                            <li>Use success variant for completed actions</li>
+                            <li>Provide clear action buttons when applicable</li>
+                            <li>Position at bottom center or bottom left</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guideline dont">
+                        <h4>❌ Don't</h4>
+                        <ul>
+                            <li>Don't stack multiple snackbars</li>
+                            <li>Don't use for critical system errors (use modals)</li>
+                            <li>Don't auto-dismiss error messages</li>
+                            <li>Don't include long paragraphs of text</li>
+                            <li>Don't block important UI elements</li>
+                            <li>Don't use for permission requests or confirmations</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACCESSIBILITY -->
+            <section class="section bg-primary text-white">
+                <h2>Accessibility</h2>
+                <div class="a11y-checklist">
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>ARIA Role:</strong> Use role="alert" for important messages, role="status" for less critical updates</p>
+                    </div>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Screen Readers:</strong> Snackbars are announced automatically with proper ARIA attributes</p>
+                    </div>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Focus Management:</strong> Don't steal focus unless containing interactive elements</p>
+                    </div>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Keyboard Dismiss:</strong> Allow Escape key to dismiss snackbar</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Compass Design System v1.0</p>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-example').querySelector('code');
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

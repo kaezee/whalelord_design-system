@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -23,122 +22,101 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="main-content">
         <div class="container-with-sidenav">
-            <header class="hero">
+            <div class="hero">
                 <h1>Compass Design System</h1>
-                <p class="hero-subtitle">A comprehensive design system with ocean-inspired blues, clear typography hierarchy, and accessible components. Built for developers, designed for clarity.</p>
-            </header>
+                <p class="hero-subtitle">
+                    A comprehensive design system for building B2B seafood marketplace interfaces. 
+                    Built with Tailwind CSS and React, optimized for professional trading platforms.
+                </p>
+            </div>
 
-            <section class="section">
-                <h2>Foundation</h2>
-                <div class="grid-3">
-                    <a href="colors.html" class="card card-hover">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 2v20M2 12h20"/>
-                            </svg>
-                        </div>
-                        <h3>Colors</h3>
-                        <p>Ocean blue primary colors, success/warning/error semantics, and neutral grays.</p>
-                        <span class="card-link">View colors →</span>
-                    </a>
-
-                    <a href="typography.html" class="card card-hover">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
-                            </svg>
-                        </div>
-                        <h3>Typography</h3>
-                        <p>DM Sans for content, Inter for data, Roboto Mono for code. 10 size scales.</p>
-                        <span class="card-link">View typography →</span>
-                    </a>
-
-                    <a href="buttons.html" class="card card-hover">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="8" width="18" height="8" rx="2"/>
-                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3>Components</h3>
-                        <p>Buttons, forms, cards, badges, and interactive elements with complete specs.</p>
-                        <span class="card-link">View components →</span>
-                    </a>
-                </div>
-            </section>
-
+            <!-- PRINCIPLES -->
             <section class="section">
                 <h2>Design Principles</h2>
                 <div class="principles">
                     <div class="principle">
-                        <h3>Ocean-Inspired</h3>
-                        <p>Color palette rooted in ocean blues - building trust through calming, professional aesthetics.</p>
+                        <h3>🌊 Ocean-Inspired</h3>
+                        <p>
+                            Color palette derived from maritime themes - kelp greens, coral accents, 
+                            and deep ocean blues create a distinctive brand identity.
+                        </p>
                     </div>
                     <div class="principle">
-                        <h3>Clear Hierarchy</h3>
-                        <p>Consistent spacing scale (4px base), clear typography system, and logical component sizing.</p>
+                        <h3>⚡ Performance First</h3>
+                        <p>
+                            Components built with Tailwind utility classes for minimal CSS overhead. 
+                            Optimized for fast load times and smooth interactions.
+                        </p>
                     </div>
                     <div class="principle">
-                        <h3>Accessible</h3>
-                        <p>WCAG AA compliant color contrast, 44px minimum touch targets, semantic HTML structure.</p>
+                        <h3>♿ Accessibility Built-in</h3>
+                        <p>
+                            WCAG AA compliance by default. Every component tested for color contrast, 
+                            keyboard navigation, and screen reader compatibility.
+                        </p>
                     </div>
                     <div class="principle">
-                        <h3>Purpose-Driven</h3>
-                        <p>Every color, size, and component serves a clear purpose in creating intuitive user experiences.</p>
+                        <h3>📱 Responsive by Design</h3>
+                        <p>
+                            Mobile-first approach with touch-friendly targets and adaptive layouts 
+                            that work seamlessly across all device sizes.
+                        </p>
                     </div>
                 </div>
             </section>
 
+            <!-- COMPONENT LIBRARY -->
             <section class="section">
-                <h2>Quick Reference</h2>
-                <div class="quick-ref">
-                    <div class="ref-item">
-                        <h4>Primary Color</h4>
-                        <div class="color-swatch">
-                            <div class="color-swatch-inner" style="background: #025E96;"></div>
-                        </div>
-                        <p><strong>Ocean Blue</strong></p>
-                        <code>#025E96</code>
+                <h2>Component Library</h2>
+                <p>All components include React + Tailwind code examples, accessibility guidelines, and usage documentation.</p>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Form Elements</h3>
+                        <ul style="list-style: none; padding: 0; margin: var(--spacing-4) 0;">
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="buttons.html">Buttons</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="forms.html">Input Fields & Textarea</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="badges.html">Badges & Tags</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="chips.html">Chips (Removable Tags)</a></li>
+                        </ul>
                     </div>
-                    <div class="ref-item">
-                        <h4>Font Family</h4>
-                        <p class="font-dm" style="margin-bottom: 8px;"><strong>DM Sans</strong> (Content)</p>
-                        <p class="font-inter" style="margin-bottom: 0;"><strong>Inter</strong> (Data)</p>
+
+                    <div class="card">
+                        <h3>Interactive Components</h3>
+                        <ul style="list-style: none; padding: 0; margin: var(--spacing-4) 0;">
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="accordion.html">Accordion</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="stepper.html">Stepper (Progress Indicator)</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="snackbar.html">Snackbar / Toast</a></li>
+                        </ul>
                     </div>
-                    <div class="ref-item">
-                        <h4>Spacing Unit</h4>
-                        <div style="margin: 12px 0;">
-                            <code style="font-size: 18px; font-weight: 600;">4px base</code>
-                        </div>
-                        <p class="text-sm" style="margin: 0;">8px, 12px, 16px, 24px...</p>
+
+                    <div class="card">
+                        <h3>Marketplace Patterns</h3>
+                        <ul style="list-style: none; padding: 0; margin: var(--spacing-4) 0;">
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="components.html">Product Cards</a></li>
+                        </ul>
                     </div>
-                    <div class="ref-item">
-                        <h4>Border Radius</h4>
-                        <div style="display: flex; gap: 8px; align-items: center; margin: 12px 0;">
-                            <div style="width: 32px; height: 32px; background: #025E96; border-radius: 4px;"></div>
-                            <div style="width: 32px; height: 32px; background: #025E96; border-radius: 8px;"></div>
-                            <div style="width: 32px; height: 32px; background: #025E96; border-radius: 12px;"></div>
-                        </div>
-                        <code>4px, 8px, 12px</code>
+
+                    <div class="card">
+                        <h3>Foundation</h3>
+                        <ul style="list-style: none; padding: 0; margin: var(--spacing-4) 0;">
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="colors.html">Colors</a></li>
+                            <li style="padding: var(--spacing-2) 0;">→ <a href="typography.html">Typography</a></li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- TAILWIND CONFIG -->
             <section class="section bg-primary text-white">
-                <h2>For Developers</h2>
-                <p>All design tokens are production-ready. Copy CSS custom properties or reference Figma variables.</p>
-                <div class="code-block">
-                    <pre><code>/* CSS Custom Properties */
-:root {
-  --color-primary-500: #025E96;
-  --font-heading: 'DM Sans', sans-serif;
-  --spacing-4: 16px;
-  --radius-md: 8px;
-}</code></pre>
+                <h2>Tailwind Configuration</h2>
+                <p>Download the complete Tailwind config file with all Compass colors, fonts, and spacing:</p>
+                <div style="margin-top: var(--spacing-6);">
+                    <a href="tailwind.config.js" download class="inline-flex items-center px-6 py-3 bg-white text-kelp-500 font-semibold rounded-lg hover:bg-kelp-50 transition-colors">
+                        Download tailwind.config.js →
+                    </a>
                 </div>
             </section>
         </div>
@@ -148,7 +126,6 @@
         <p>&copy; 2026 Compass Design System v1.0</p>
     </footer>
 
-    <!-- This script automatically injects the sidebar -->
     <script src="navigation.js"></script>
 </body>
 </html>

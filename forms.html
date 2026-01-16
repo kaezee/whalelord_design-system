@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms & Components - Compass Design System</title>
+    <title>Input Fields - Compass Design System</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="buttons.css">
-    <link rel="stylesheet" href="buttons-enhanced.css">
-    <link rel="stylesheet" href="badges.css">
-    <link rel="stylesheet" href="forms.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,368 +24,351 @@
 
     <div class="main-content">
         <div class="container-with-sidenav">
-        <header>
-            <h1>Forms & UI Components</h1>
-            <p class="hero-subtitle">Comprehensive form inputs, stepper, snackbars, accordions, cards, and interactive elements for B2B marketplace.</p>
-        </header>
+            <header>
+                <h1>Input Fields</h1>
+                <p class="hero-subtitle">Text input components for forms and data entry. Includes multiple states, sizes, and validation styles.</p>
+            </header>
 
-        <!-- BUTTON STATE TRANSITIONS -->
-        <section class="section">
-            <h2>Button State Transitions</h2>
-            <p>Buttons can transition between states to provide user feedback. Common pattern: Add to Cart → Added to Cart.</p>
-            
-            <div class="component-demo">
-                <h4>Interactive Button States</h4>
-                <div class="demo-row">
-                    <button class="btn btn-md btn-tertiary btn-icon-left" id="addToCartDemo">
-                        <span class="btn-icon">+</span>
-                        Add to Cart
-                    </button>
+            <!-- BASIC TEXT INPUTS -->
+            <section class="section">
+                <h2>Basic Text Inputs</h2>
+                <p>Standard text input fields in three sizes: small (32px), medium (40px), and large (48px).</p>
+                
+                <div class="component-demo">
+                    <div style="max-width: 500px;">
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Small Input</label>
+                            <input type="text" placeholder="Enter text..." class="w-full h-8 px-3 text-sm text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Medium Input (Default)</label>
+                            <input type="text" placeholder="Enter text..." class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Large Input</label>
+                            <input type="text" placeholder="Enter text..." class="w-full h-12 px-5 text-lg text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>// Input Component
+const Input = ({ 
+  label, 
+  size = 'md', 
+  placeholder,
+  ...props 
+}) => {
+  const sizes = {
+    sm: 'h-8 px-3 text-sm',
+    md: 'h-10 px-4 text-base',
+    lg: 'h-12 px-5 text-lg',
+  };
+
+  return (
+    &lt;div className="mb-5"&gt;
+      {label && (
+        &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
+          {label}
+        &lt;/label&gt;
+      )}
+      &lt;input
+        type="text"
+        placeholder={placeholder}
+        className={`w-full ${sizes[size]} text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all`}
+        {...props}
+      /&gt;
+    &lt;/div&gt;
+  );
+};
+
+// Usage
+&lt;Input label="Email Address" placeholder="you@example.com" /&gt;
+&lt;Input label="Company Name" size="lg" placeholder="Enter company name..." /&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- INPUT STATES -->
+            <section class="section">
+                <h2>Input States</h2>
+                <p>Different visual states for validation and user feedback.</p>
+                
+                <div class="component-demo">
+                    <div style="max-width: 500px;">
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Default State</label>
+                            <input type="text" placeholder="Normal input field" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Error State</label>
+                            <input type="email" value="invalid-email" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-crimson-500 rounded-md focus:outline-none focus:border-crimson-500 focus:ring-3 focus:ring-crimson-500/10 transition-all" />
+                            <span class="block text-xs text-crimson-500 mt-2">Please enter a valid email address</span>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Success State</label>
+                            <input type="text" value="Valid input" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-coral-500 rounded-md focus:outline-none focus:border-coral-500 focus:ring-3 focus:ring-coral-500/10 transition-all" />
+                            <span class="block text-xs text-coral-500 mt-2">Looks good!</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Disabled State</label>
+                            <input type="text" placeholder="Disabled input" disabled class="w-full h-10 px-4 text-base text-pearl-500 bg-pearl-100 border border-pearl-200 rounded-md cursor-not-allowed" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>// Input with Validation Component
+const Input = ({ 
+  label,
+  error,
+  success,
+  helperText,
+  ...props 
+}) => {
+  const getStateClasses = () => {
+    if (error) return 'border-crimson-500 focus:border-crimson-500 focus:ring-crimson-500/10';
+    if (success) return 'border-coral-500 focus:border-coral-500 focus:ring-coral-500/10';
+    return 'border-pearl-300 focus:border-kelp-500 focus:ring-kelp-500/10';
+  };
+
+  const getHelperColor = () => {
+    if (error) return 'text-crimson-500';
+    if (success) return 'text-coral-500';
+    return 'text-pearl-600';
+  };
+
+  return (
+    &lt;div className="mb-5"&gt;
+      {label && (
+        &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
+          {label}
+        &lt;/label&gt;
+      )}
+      &lt;input
+        className={`w-full h-10 px-4 text-base text-pearl-900 bg-white border rounded-md focus:outline-none focus:ring-3 transition-all disabled:bg-pearl-100 disabled:text-pearl-500 disabled:cursor-not-allowed ${getStateClasses()}`}
+        {...props}
+      /&gt;
+      {helperText && (
+        &lt;span className={`block text-xs mt-2 ${getHelperColor()}`}&gt;
+          {helperText}
+        &lt;/span&gt;
+      )}
+    &lt;/div&gt;
+  );
+};
+
+// Usage
+&lt;Input label="Email" error helperText="Invalid email address" /&gt;
+&lt;Input label="Username" success helperText="Username available!" /&gt;
+&lt;Input label="Read Only" disabled value="Cannot edit" /&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- INPUT WITH ICON -->
+            <section class="section">
+                <h2>Input with Icon</h2>
+                <p>Input fields with leading icons for enhanced visual clarity.</p>
+                
+                <div class="component-demo">
+                    <div style="max-width: 500px;">
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Search</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </div>
+                                <input type="search" placeholder="Search products..." class="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-pearl-700 mb-2">Email Address</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <input type="email" placeholder="you@example.com" class="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>// Input with Icon Component
+const InputWithIcon = ({ 
+  label,
+  icon: Icon,
+  ...props 
+}) => (
+  &lt;div className="mb-5"&gt;
+    {label && (
+      &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
+        {label}
+      &lt;/label&gt;
+    )}
+    &lt;div className="relative"&gt;
+      &lt;div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"&gt;
+        &lt;Icon className="w-5 h-5 text-pearl-500" /&gt;
+      &lt;/div&gt;
+      &lt;input
+        className="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all"
+        {...props}
+      /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+);
+
+// Usage with react-icons or lucide-react
+import { Search, Mail } from 'lucide-react';
+
+&lt;InputWithIcon 
+  label="Search" 
+  icon={Search} 
+  placeholder="Search products..." 
+/&gt;
+&lt;InputWithIcon 
+  label="Email" 
+  icon={Mail} 
+  type="email"
+  placeholder="you@example.com" 
+/&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- TEXTAREA -->
+            <section class="section">
+                <h2>Textarea</h2>
+                <p>Multi-line text input for longer content.</p>
+                
+                <div class="component-demo">
+                    <div style="max-width: 500px;">
+                        <label class="block text-sm font-medium text-pearl-700 mb-2">Message</label>
+                        <textarea 
+                            placeholder="Enter your message here..."
+                            rows="4"
+                            class="w-full px-4 py-3 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all resize-vertical"
+                        ></textarea>
+                        <span class="block text-xs text-pearl-600 mt-2">Maximum 500 characters</span>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>React + Tailwind</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>// Textarea Component
+const Textarea = ({ 
+  label,
+  helperText,
+  rows = 4,
+  ...props 
+}) => (
+  &lt;div className="mb-5"&gt;
+    {label && (
+      &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
+        {label}
+      &lt;/label&gt;
+    )}
+    &lt;textarea
+      rows={rows}
+      className="w-full px-4 py-3 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all resize-vertical"
+      {...props}
+    /&gt;
+    {helperText && (
+      &lt;span className="block text-xs text-pearl-600 mt-2"&gt;
+        {helperText}
+      &lt;/span&gt;
+    )}
+  &lt;/div&gt;
+);
+
+// Usage
+&lt;Textarea 
+  label="Message" 
+  placeholder="Enter your message..."
+  helperText="Maximum 500 characters"
+  rows={4}
+/&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- USAGE GUIDELINES -->
+            <section class="section">
+                <h2>Usage Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline do">
+                        <h4>✅ Do</h4>
+                        <ul>
+                            <li>Use clear, descriptive labels for all input fields</li>
+                            <li>Provide helpful placeholder text as examples</li>
+                            <li>Show validation feedback immediately when possible</li>
+                            <li>Use appropriate input types (email, tel, number, etc.)</li>
+                            <li>Maintain consistent spacing between form fields</li>
+                            <li>Use helper text to clarify requirements</li>
+                        </ul>
+                    </div>
                     
-                    <button class="btn btn-md btn-primary btn-icon-left" id="requestQuoteDemo">
-                        <span class="btn-icon">→</span>
-                        Request Quote
-                    </button>
-                </div>
-            </div>
-
-            <div class="code-example">
-                <div class="code-header">
-                    <span>JavaScript</span>
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                </div>
-                <pre><code>// Add to Cart Transition
-button.addEventListener('click', function() {
-  // Show loading
-  this.classList.add('btn-loading');
-  this.disabled = true;
-  
-  setTimeout(() => {
-    // Show success
-    this.classList.remove('btn-loading');
-    this.classList.add('btn-success', 'btn-success-pulse');
-    this.innerHTML = '<span class="btn-icon">✓</span>Added to Cart';
-    
-    // Reset after 2 seconds
-    setTimeout(() => {
-      this.classList.remove('btn-success', 'btn-success-pulse');
-      this.innerHTML = '<span class="btn-icon">+</span>Add to Cart';
-      this.disabled = false;
-    }, 2000);
-  }, 1000);
-});</code></pre>
-            </div>
-        </section>
-
-        <!-- INPUT FIELDS -->
-        <section class="section">
-            <h2>Input Fields</h2>
-            <p>Text inputs with various states: default, hover, focus, error, success, and disabled.</p>
-            
-            <div class="component-demo">
-                <div style="max-width: 500px;">
-                    <div class="input-group">
-                        <label class="input-label input-label-required">Email Address</label>
-                        <input type="email" class="input-field" placeholder="johndoe@example.com">
-                        <span class="input-helper">We'll never share your email with anyone else.</span>
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label">Password</label>
-                        <input type="password" class="input-field" placeholder="Enter password">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label">With Error</label>
-                        <input type="text" class="input-field error" value="invalid@email">
-                        <span class="input-error-message">Please enter a valid email address</span>
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label">With Success</label>
-                        <input type="text" class="input-field success" value="valid@email.com">
-                        <span class="input-success-message">Email verified successfully</span>
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label">Disabled</label>
-                        <input type="text" class="input-field" disabled value="Cannot edit">
-                    </div>
-
-                    <div class="input-group">
-                        <label class="input-label">Textarea</label>
-                        <textarea class="textarea-field" placeholder="Enter your message here..."></textarea>
+                    <div class="guideline dont">
+                        <h4>❌ Don't</h4>
+                        <ul>
+                            <li>Don't use placeholder text as a substitute for labels</li>
+                            <li>Don't make inputs unnecessarily small on mobile</li>
+                            <li>Don't show error states before user interaction</li>
+                            <li>Don't use vague error messages like "Invalid input"</li>
+                            <li>Don't disable inputs without explanation</li>
+                            <li>Don't make required fields unclear</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="code-example">
-                <div class="code-header">
-                    <span>HTML</span>
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                </div>
-                <pre><code>&lt;div class="input-group"&gt;
-  &lt;label class="input-label input-label-required"&gt;Email Address&lt;/label&gt;
-  &lt;input type="email" class="input-field" placeholder="<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b4dedbdcdad0dbd1f4d1ccd5d9c4d8d19ad7dbd9">[email&#160;protected]</a>"&gt;
-  &lt;span class="input-helper"&gt;We'll never share your email.&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- Error State --&gt;
-&lt;input type="text" class="input-field error" value="invalid@email"&gt;
-&lt;span class="input-error-message"&gt;Please enter a valid email&lt;/span&gt;
-
-&lt;!-- Success State --&gt;
-&lt;input type="text" class="input-field success" value="<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="047265686d60446169656d682a676b69">[email&#160;protected]</a>"&gt;
-&lt;span class="input-success-message"&gt;Email verified&lt;/span&gt;</code></pre>
-            </div>
-        </section>
-
-        <!-- STEPPER -->
-        <section class="section">
-            <h2>Stepper Component</h2>
-            <p>Multi-step form indicator showing progress through a process.</p>
-            
-            <div class="component-demo">
-                <div class="stepper">
-                    <div class="stepper-step completed">
-                        <div class="stepper-circle">✓</div>
-                        <span class="stepper-label">Account Info</span>
+            <!-- ACCESSIBILITY -->
+            <section class="section bg-primary text-white">
+                <h2>Accessibility</h2>
+                <div class="a11y-checklist">
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Labels:</strong> All inputs have associated labels for screen readers</p>
                     </div>
-                    <div class="stepper-step active">
-                        <div class="stepper-circle">2</div>
-                        <span class="stepper-label">Company Details</span>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Focus Indicators:</strong> Clear focus rings for keyboard navigation</p>
                     </div>
-                    <div class="stepper-step">
-                        <div class="stepper-circle">3</div>
-                        <span class="stepper-label">Verification</span>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Error Messages:</strong> Validation errors are announced to screen readers</p>
                     </div>
-                    <div class="stepper-step">
-                        <div class="stepper-circle">4</div>
-                        <span class="stepper-label">Complete</span>
+                    <div class="a11y-item">
+                        <span class="check">✓</span>
+                        <p><strong>Touch Targets:</strong> Minimum 44x44px tap targets on mobile</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="code-example">
-                <div class="code-header">
-                    <span>HTML</span>
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                </div>
-                <pre><code>&lt;div class="stepper"&gt;
-  &lt;div class="stepper-step completed"&gt;
-    &lt;div class="stepper-circle"&gt;âœ"&lt;/div&gt;
-    &lt;span class="stepper-label"&gt;Account Info&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="stepper-step active"&gt;
-    &lt;div class="stepper-circle"&gt;2&lt;/div&gt;
-    &lt;span class="stepper-label"&gt;Company Details&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="stepper-step"&gt;
-    &lt;div class="stepper-circle"&gt;3&lt;/div&gt;
-    &lt;span class="stepper-label"&gt;Verification&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-        </section>
-
-        <!-- SNACKBARS -->
-        <section class="section">
-            <h2>Snackbars / Toast Notifications</h2>
-            <p>Temporary messages that appear at the bottom of the screen for user feedback.</p>
-            
-            <div class="component-demo">
-                <h4>Snackbar Variants</h4>
-                <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 16px;">
-                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('default')">Show Default</button>
-                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('success')">Show Success</button>
-                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('error')">Show Error</button>
-                    <button class="btn btn-md btn-tertiary" onclick="showSnackbar('warning')">Show Warning</button>
-                </div>
-            </div>
-
-            <div class="code-example">
-                <div class="code-header">
-                    <span>HTML</span>
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                </div>
-                <pre><code>&lt;!-- Default --&gt;
-&lt;div class="snackbar"&gt;
-  &lt;span class="snackbar-message"&gt;Order successfully placed!&lt;/span&gt;
-  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;!-- Success --&gt;
-&lt;div class="snackbar snackbar-success"&gt;
-  &lt;span class="snackbar-icon"&gt;âœ"&lt;/span&gt;
-  &lt;span class="snackbar-message"&gt;Payment confirmed!&lt;/span&gt;
-  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;!-- Error --&gt;
-&lt;div class="snackbar snackbar-error"&gt;
-  &lt;span class="snackbar-icon"&gt;âœ•&lt;/span&gt;
-  &lt;span class="snackbar-message"&gt;Failed to process request&lt;/span&gt;
-  &lt;button class="snackbar-close"&gt;×&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-        </section>
-
-        <!-- ACCORDION -->
-        <section class="section">
-            <h2>Accordion</h2>
-            <p>Collapsible content panels for organizing related information.</p>
-            
-            <div class="component-demo">
-                <div class="accordion" style="max-width: 600px;">
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>What is Whalelord?</span>
-                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">
-                                Whalelord is a B2B seafood marketplace connecting buyers and suppliers. Our platform streamlines ordering, provides real-time inventory, and ensures quality through verified suppliers.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>How does pricing work?</span>
-                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">
-                                Pricing is based on market rates and order volume. Request a quote for specific products and quantities. We offer competitive pricing for bulk orders and recurring customers.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>What certifications do suppliers have?</span>
-                            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">
-                                All suppliers are verified and hold industry-standard certifications including MSC, ASC, Global GAP, and organic certifications where applicable.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CARD VARIANTS -->
-        <section class="section">
-            <h2>Card Variants</h2>
-            <p>Various card sizes and styles for different content hierarchies.</p>
-            
-            <div class="component-demo">
-                <div class="grid-3">
-                    <!-- Small Card -->
-                    <div class="card-sm card-hoverable">
-                        <h4 style="margin-bottom: 8px;">Small Card</h4>
-                        <p style="font-size: 14px; color: #718096; margin: 0;">Compact information display</p>
-                    </div>
-
-                    <!-- Medium Card -->
-                    <div class="card-md card-hoverable">
-                        <h4 style="margin-bottom: 8px;">Medium Card</h4>
-                        <p style="font-size: 14px; color: #718096; margin: 0;">Default card size for most use cases</p>
-                    </div>
-
-                    <!-- Large Card -->
-                    <div class="card-lg card-hoverable">
-                        <h4 style="margin-bottom: 8px;">Large Card</h4>
-                        <p style="font-size: 14px; color: #718096; margin: 0;">Spacious layout for detailed content</p>
-                    </div>
-                </div>
-
-                <h4 style="margin-top: 32px; margin-bottom: 16px;">Card with Image</h4>
-                <div style="max-width: 400px;">
-                    <div class="card-with-image card-hoverable">
-                        <div class="skeleton skeleton-image"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Atlantic Salmon</h3>
-                            <p class="card-description">Fresh, sustainably sourced salmon from Norwegian waters. MSC certified.</p>
-                            <button class="btn btn-md btn-tertiary btn-fluid">View Details</button>
-                        </div>
-                    </div>
-                </div>
-
-                <h4 style="margin-top: 32px; margin-bottom: 16px;">Card with Icon</h4>
-                <div class="card-with-icon card-hoverable" style="max-width: 400px;">
-                    <div class="card-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"></path>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 style="margin-bottom: 8px;">Order Confirmed</h4>
-                        <p style="font-size: 14px; color: #718096; margin: 0;">Your order #12345 has been confirmed and will ship within 24 hours.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CHIPS -->
-        <section class="section">
-            <h2>Chips / Removable Tags</h2>
-            <p>Compact elements for labels, filters, or selections that can be dismissed.</p>
-            
-            <div class="component-demo">
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <div class="chip">
-                        <span>Fresh Seafood</span>
-                        <button class="chip-remove">×</button>
-                    </div>
-                    <div class="chip chip-primary">
-                        <span>MSC Certified</span>
-                        <button class="chip-remove">×</button>
-                    </div>
-                    <div class="chip">
-                        <span>Norway</span>
-                        <button class="chip-remove">×</button>
-                    </div>
-                    <div class="chip">
-                        <span>Wholesale</span>
-                        <button class="chip-remove">×</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="code-example">
-                <div class="code-header">
-                    <span>HTML</span>
-                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                </div>
-                <pre><code>&lt;div class="chip"&gt;
-  &lt;span&gt;Fresh Seafood&lt;/span&gt;
-  &lt;button class="chip-remove"&gt;Ã—&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;div class="chip chip-primary"&gt;
-  &lt;span&gt;MSC Certified&lt;/span&gt;
-  &lt;button class="chip-remove"&gt;Ã—&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-        </section>
+            </section>
         </div>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 Compass Design System v1.0</p>
+        <p>&copy; 2026 Compass Design System v1.0</p>
     </footer>
 
     <script src="navigation.js"></script>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;
@@ -400,69 +379,6 @@ button.addEventListener('click', function() {
                 }, 2000);
             });
         }
-
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const wasActive = item.classList.contains('active');
-            
-            // Close all items
-            document.querySelectorAll('.accordion-item').forEach(i => {
-                i.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        }
-
-        // Button state demo
-        document.getElementById('addToCartDemo')?.addEventListener('click', function() {
-            const btn = this;
-            btn.classList.add('btn-loading');
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.classList.remove('btn-loading');
-                btn.classList.add('btn-success', 'btn-success-pulse');
-                btn.innerHTML = '<span class="btn-icon">✓</span>Added to Cart';
-                
-                setTimeout(() => {
-                    btn.classList.remove('btn-success', 'btn-success-pulse');
-                    btn.innerHTML = '<span class="btn-icon">+</span>Add to Cart';
-                    btn.disabled = false;
-                }, 2000);
-            }, 1000);
-        });
-
-        document.getElementById('requestQuoteDemo')?.addEventListener('click', function() {
-            const btn = this;
-            btn.classList.add('btn-loading');
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.classList.remove('btn-loading');
-                btn.classList.add('btn-success', 'btn-success-pulse');
-                btn.innerHTML = '<span class="btn-icon">✓</span>Quote Requested';
-                
-                setTimeout(() => {
-                    btn.classList.remove('btn-success', 'btn-success-pulse');
-                    btn.innerHTML = '<span class="btn-icon">→</span>Request Quote';
-                    btn.disabled = false;
-                }, 2000);
-            }, 1000);
-        });
-
-        // Snackbar demo
-        function showSnackbar(type) {
-            const messages = {
-                default: 'Order successfully placed!',
-                success: 'Payment confirmed!',
-                error: 'Failed to process request',
-                warning: 'Low stock warning'
-            };
-            
-            const snackbar = document.createElement('div');
-            snackbar.className = 'snackbar' + (type !== 'default' ? ' snackbar-' + type : '');
-            snackbar.innerHTML = `
-                <span class="snackbar-m
+    </script>
+</body>
+</html>

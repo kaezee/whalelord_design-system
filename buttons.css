@@ -46,13 +46,13 @@
 }
 
 /* ===========================
-   PRIMARY BLUE BUTTONS
-   Main CTAs - Use on light backgrounds
+   LIGHT BACKGROUNDS - BUTTON SYSTEM
    =========================== */
 
+/* PRIMARY FILLED BLUE - Main CTAs */
 .btn-primary {
   background: var(--color-primary-500);
-  color: #FFFFFF;
+  color: var(--color-text-inverse);
 }
 
 .btn-primary:hover:not(:disabled) {
@@ -66,46 +66,239 @@
 }
 
 .btn-primary:disabled {
-  background: var(--color-neutral-300);
-  color: var(--color-neutral-400);
+  background: var(--color-border-neutral);
+  color: var(--color-border-hover);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* PRIMARY OUTLINE - Blue border, Ice hover */
+.btn-primary-outline {
+  background: transparent;
+  color: var(--color-primary-500);
+  border: 1px solid var(--color-primary-500);
+  padding: 0 23px;
+}
+
+.btn-primary-outline.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-primary-outline.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-primary-outline:hover:not(:disabled) {
+  background: var(--color-surface-ice);
+  border-color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-primary-outline:active:not(:disabled) {
+  background: var(--color-surface-ice);
+}
+
+.btn-primary-outline:disabled {
+  border-color: var(--color-border-default);
+  color: var(--color-border-hover);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* SECONDARY OUTLINE - Gray border, less emphasis */
+.btn-secondary-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-neutral);
+  padding: 0 23px;
+}
+
+.btn-secondary-outline.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-secondary-outline.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-secondary-outline:hover:not(:disabled) {
+  background: var(--color-surface-base);
+  border-color: var(--color-border-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-secondary-outline:active:not(:disabled) {
+  background: var(--color-surface-base);
+}
+
+.btn-secondary-outline:disabled {
+  border-color: var(--color-border-default);
+  color: var(--color-border-hover);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* NEUTRAL WHITE - Subtle action button */
+.btn-neutral {
+  background: var(--color-surface-base);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-default);
+  padding: 0 23px;
+}
+
+.btn-neutral.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-neutral.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-neutral:hover:not(:disabled) {
+  background: var(--color-border-default);
+  border-color: var(--color-border-neutral);
+}
+
+.btn-neutral:active:not(:disabled) {
+  background: var(--color-border-default);
+}
+
+.btn-neutral:disabled {
+  background: var(--color-surface-base);
+  color: var(--color-border-hover);
   cursor: not-allowed;
   opacity: 1;
 }
 
 /* ===========================
-   LIGHT FLUID BUTTONS
-   For use on dark backgrounds (#025E96, etc)
+   DARK BACKGROUNDS - BUTTON SYSTEM
+   Use on #025E96 or darker backgrounds
    =========================== */
 
-/* Fill variant */
-.btn-light-fill {
-  background: var(--color-primary-50);
-  color: var(--color-neutral-900);
+/* PRIMARY LIGHT FILLED - Light button on dark */
+.btn-primary-light {
+  background: var(--color-surface-kelp);
+  color: var(--color-text-primary);
 }
 
-.btn-light-fill:hover:not(:disabled) {
+.btn-primary-light:hover:not(:disabled) {
   background: var(--color-primary-100);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.btn-light-fill:active:not(:disabled) {
+.btn-primary-light:active:not(:disabled) {
   background: var(--color-primary-100);
 }
 
-.btn-light-fill:disabled {
-  background: var(--color-neutral-300);
-  color: var(--color-neutral-400);
+.btn-primary-light:disabled {
+  background: var(--color-text-secondary);
+  color: var(--color-border-hover);
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 1;
 }
 
-/* Outline variant */
+/* PRIMARY LIGHT OUTLINE - Light border on dark */
+.btn-primary-light-outline {
+  background: transparent;
+  color: var(--color-surface-kelp);
+  border: 1px solid var(--color-surface-kelp);
+  padding: 0 23px;
+}
+
+.btn-primary-light-outline.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-primary-light-outline.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-primary-light-outline:hover:not(:disabled) {
+  background: rgba(230, 242, 248, 0.1);
+  border-color: var(--color-primary-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-primary-light-outline:active:not(:disabled) {
+  background: rgba(230, 242, 248, 0.15);
+}
+
+.btn-primary-light-outline:disabled {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* TERTIARY TEXT - Text only button for dark backgrounds */
+.btn-tertiary-text {
+  background: transparent;
+  color: var(--color-surface-kelp);
+  border: none;
+}
+
+.btn-tertiary-text:hover:not(:disabled) {
+  color: var(--color-primary-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-tertiary-text:active:not(:disabled) {
+  color: var(--color-primary-100);
+}
+
+.btn-tertiary-text:disabled {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* LEGACY SUPPORT - Keep old class names working */
+.btn-tertiary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-neutral);
+  padding: 0 23px;
+}
+
+.btn-tertiary.btn-sm {
+  padding: 0 15px;
+}
+
+.btn-tertiary.btn-lg {
+  padding: 0 31px;
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  background: var(--color-surface-base);
+  border-color: var(--color-border-hover);
+}
+
+.btn-tertiary:disabled {
+  border-color: var(--color-border-default);
+  color: var(--color-border-hover);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.btn-light-fill {
+  background: var(--color-surface-kelp);
+  color: var(--color-text-primary);
+}
+
+.btn-light-fill:hover:not(:disabled) {
+  background: var(--color-primary-100);
+}
+
 .btn-light-outline {
   background: transparent;
-  color: var(--color-primary-50);
-  border: 1px solid var(--color-primary-50);
-  padding: 0 23px; /* Reduced by 1px to account for border */
+  color: var(--color-surface-kelp);
+  border: 1px solid var(--color-surface-kelp);
+  padding: 0 23px;
 }
 
 .btn-light-outline.btn-sm {
@@ -118,58 +311,6 @@
 
 .btn-light-outline:hover:not(:disabled) {
   background: rgba(230, 242, 248, 0.1);
-  border-color: var(--color-primary-100);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.btn-light-outline:active:not(:disabled) {
-  background: rgba(230, 242, 248, 0.15);
-}
-
-.btn-light-outline:disabled {
-  border-color: var(--color-neutral-400);
-  color: var(--color-neutral-400);
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-/* ===========================
-   TERTIARY STROKE BUTTONS
-   Secondary actions - Use anywhere
-   =========================== */
-
-.btn-tertiary {
-  background: transparent;
-  color: var(--color-neutral-900);
-  border: 1px solid var(--color-neutral-400);
-  padding: 0 23px; /* Reduced by 1px to account for border */
-}
-
-.btn-tertiary.btn-sm {
-  padding: 0 15px;
-}
-
-.btn-tertiary.btn-lg {
-  padding: 0 31px;
-}
-
-.btn-tertiary:hover:not(:disabled) {
-  background: var(--color-neutral-100);
-  border-color: var(--color-neutral-500);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.btn-tertiary:active:not(:disabled) {
-  background: var(--color-neutral-200);
-}
-
-.btn-tertiary:disabled {
-  border-color: var(--color-neutral-300);
-  color: var(--color-neutral-400);
-  cursor: not-allowed;
-  opacity: 0.5;
 }
 
 /* ===========================

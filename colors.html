@@ -3,208 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colors - Compass Design System</title>
+    <title>Colors - Compass Design System v2.0</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .color-palette {
+        .color-grid {
             display: grid;
-            gap: var(--spacing-8);
-            margin-bottom: var(--spacing-16);
-        }
-        
-        .color-group {
-            background: white;
-            border: 1px solid var(--color-neutral-200);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-6);
-        }
-        
-        .color-group h3 {
-            margin-bottom: var(--spacing-6);
-        }
-        
-        .color-swatches {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
         }
-        
-        .color-swatch-item {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-2);
-        }
-        
-        .swatch {
-            height: 80px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--color-neutral-200);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .swatch-label {
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-neutral-700);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .swatch-hex {
-            font-family: var(--font-mono);
-            font-size: var(--font-size-sm);
-            color: var(--color-neutral-600);
-        }
-        
-        .usage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-6);
-            margin-bottom: var(--spacing-12);
-        }
-        
-        .usage-card {
-            background: white;
-            border: 1px solid var(--color-neutral-200);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-6);
-        }
-        
-        .usage-card h4 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-4);
-        }
-        
-        .usage-card ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .usage-card li {
-            padding: var(--spacing-2) 0;
-            font-size: var(--font-size-sm);
-            line-height: var(--line-height-relaxed);
-            color: var(--color-neutral-700);
-        }
-        
-        .usage-card li::before {
-            content: '→';
-            margin-right: var(--spacing-2);
-            color: var(--color-primary-500);
-            font-weight: bold;
-        }
-        
-        .contrast-checker {
-            background: white;
-            border: 1px solid var(--color-neutral-200);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-6);
-            margin-bottom: var(--spacing-12);
-        }
-        
-        .contrast-examples {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-4);
-            margin-top: var(--spacing-6);
-        }
-        
-        .contrast-item {
-            border: 1px solid var(--color-neutral-200);
+
+        .color-swatch {
             border-radius: var(--radius-md);
             overflow: hidden;
+            border: 1px solid var(--color-border-default);
         }
-        
-        .contrast-sample {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .color-preview {
+            height: 100px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: var(--spacing-4);
+            background: white;
+        }
+
+        .color-name {
             font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-lg);
-        }
-        
-        .contrast-info {
-            padding: var(--spacing-3);
-            background: var(--color-neutral-50);
-            text-align: center;
-        }
-        
-        .contrast-ratio {
-            font-family: var(--font-mono);
             font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-neutral-700);
+            margin-bottom: var(--spacing-1);
         }
-        
-        .pass-badge {
-            display: inline-block;
+
+        .color-value {
+            font-family: var(--font-mono);
             font-size: var(--font-size-xs);
-            padding: 2px 8px;
+            color: var(--color-text-secondary);
+        }
+
+        .section-intro {
+            background: var(--color-surface-ice);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-8);
+            border-left: 4px solid var(--color-primary-500);
+        }
+
+        .usage-note {
+            background: var(--color-surface-sand);
+            padding: var(--spacing-4);
             border-radius: var(--radius-sm);
-            margin-top: var(--spacing-1);
-            font-weight: var(--font-weight-semibold);
-        }
-        
-        .pass-badge.aa {
-            background: #D1FAE5;
-            color: #065F46;
-        }
-        
-        .pass-badge.aaa {
-            background: #DBEAFE;
-            color: #1E40AF;
-        }
-        
-        .semantic-colors {
-            display: grid;
-            gap: var(--spacing-6);
-        }
-        
-        .semantic-group {
-            background: white;
-            border: 1px solid var(--color-neutral-200);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-6);
-        }
-        
-        .semantic-preview {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-3);
+            font-size: var(--font-size-sm);
             margin-top: var(--spacing-4);
-        }
-        
-        .do-dont-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-6);
-        }
-        
-        .example-card {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: var(--spacing-6);
-            border: 2px solid;
-        }
-        
-        .example-card.do {
-            border-color: var(--color-info-500);
-            background: #F0FAFF;
-        }
-        
-        .example-card.dont {
-            border-color: var(--color-error-500);
-            background: #FFF5F5;
-        }
-        
-        .example-card h4 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-4);
         }
     </style>
 </head>
@@ -215,426 +68,267 @@
                 <img src="Logo.svg" alt="Whalelord" width="40" height="40">
                 <div class="nav-logo-text">
                     <div class="nav-logo-brand">WHALELORD</div>
-                    <div class="nav-logo-subtitle">Compass Design System</div>
+                    <div class="nav-logo-subtitle">Compass Design System v2.0</div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <div class="sidenav" id="sidenav"></div>
+
     <div class="main-content">
         <div class="container-with-sidenav">
-        <header>
-            <h1>Color System</h1>
-            <p class="text-lg">Comprehensive color palette with primary blues, semantic colors, and neutral grays. All combinations meet WCAG AA accessibility standards.</p>
-        </header>
+            <header class="hero">
+                <h1>Colors — Hybrid System v2.0</h1>
+                <p class="hero-subtitle">Ocean-inspired palette with semantic surfaces, clear hierarchy, and micro-use signals.</p>
+            </header>
 
-        <!-- PRIMARY BLUES -->
-        <section class="section">
-            <h2>Ocean Blue (Primary)</h2>
-            <p>Core brand colors ranging from light backgrounds to deep navy. Use #025E96 (Ocean Blue 500) as the primary brand color.</p>
-            
-            <div class="color-group">
-                <div class="color-swatches">
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #E6F2F8;"></div>
-                        <span class="swatch-label">Ocean Blue 50</span>
-                        <span class="swatch-hex">#E6F2F8</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #CCE5F1;"></div>
-                        <span class="swatch-label">Ocean Blue 100</span>
-                        <span class="swatch-hex">#CCE5F1</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #99CBE3;"></div>
-                        <span class="swatch-label">Ocean Blue 200</span>
-                        <span class="swatch-hex">#99CBE3</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #66B1D5;"></div>
-                        <span class="swatch-label">Ocean Blue 300</span>
-                        <span class="swatch-hex">#66B1D5</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #3397C7;"></div>
-                        <span class="swatch-label">Ocean Blue 400</span>
-                        <span class="swatch-hex">#3397C7</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #025E96; border: 3px solid #000000; box-shadow: inset 0 0 0 6px #025E96;"></div>
-                        <span class="swatch-label"><strong>Ocean Blue 500</strong></span>
-                        <span class="swatch-hex">#025E96</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #024B78;"></div>
-                        <span class="swatch-label">Ocean Blue 600</span>
-                        <span class="swatch-hex">#024B78</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #01385A;"></div>
-                        <span class="swatch-label">Ocean Blue 700</span>
-                        <span class="swatch-hex">#01385A</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #01253C;"></div>
-                        <span class="swatch-label">Ocean Blue 800</span>
-                        <span class="swatch-hex">#01253C</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #01121E;"></div>
-                        <span class="swatch-label">Ocean Blue 900</span>
-                        <span class="swatch-hex">#01121E</span>
-                    </div>
-                </div>
+            <div class="section-intro">
+                <p><strong>One-Line Principle:</strong> Surfaces carry tone. Buttons carry intent. Color carries meaning.</p>
             </div>
-        </section>
 
-        <!-- SEMANTIC COLORS -->
-        <section class="section">
-            <h2>Semantic Colors</h2>
-            <p>Purpose-driven colors for success, warnings, errors, and informational messages.</p>
-            
-            <div class="semantic-colors">
-                <div class="semantic-group">
-                    <h3>Success</h3>
-                    <p>Use for success messages, confirmations, and completed states.</p>
-                    <div class="semantic-preview">
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #E6F9F0;"></div>
-                            <span class="swatch-label">Success 50</span>
-                            <span class="swatch-hex">#E6F9F0</span>
+            <!-- PRIMARY BRAND -->
+            <section class="section">
+                <h2>Primary / Brand Blue</h2>
+                <p>Kelp blues — Main brand color for CTAs, links, and emphasis.</p>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E6F2F8"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp 50</div>
+                            <div class="color-value">#E6F2F8</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #48BB78;"></div>
-                            <span class="swatch-label">Success 500</span>
-                            <span class="swatch-hex">#48BB78</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #CCE5F1"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp 100</div>
+                            <div class="color-value">#CCE5F1</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #0F2518;"></div>
-                            <span class="swatch-label">Success 900</span>
-                            <span class="swatch-hex">#0F2518</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #025E96"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp 500</div>
+                            <div class="color-value">#025E96</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #01385A"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp 700</div>
+                            <div class="color-value">#01385A</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #01121E"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp 900</div>
+                            <div class="color-value">#01121E</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SURFACES -->
+            <section class="section">
+                <h2>Surfaces (Semantic Whites) — NEW</h2>
+                <p>These are NOT accents — they are surface layers that carry tone.</p>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #F7FAFC"></div>
+                        <div class="color-info">
+                            <div class="color-name">Base / Neutral White</div>
+                            <div class="color-value">#F7FAFC</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #D9F0F2"></div>
+                        <div class="color-info">
+                            <div class="color-name">Ice (Cool Surface)</div>
+                            <div class="color-value">#D9F0F2</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #EDE6D8"></div>
+                        <div class="color-info">
+                            <div class="color-name">Sand (Warm Surface)</div>
+                            <div class="color-value">#EDE6D8</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E6F2F8"></div>
+                        <div class="color-info">
+                            <div class="color-name">Kelp (Light Surface)</div>
+                            <div class="color-value">#E6F2F8</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="semantic-group">
-                    <h3>Warning</h3>
-                    <p>Use for caution messages, pending states, and important notices.</p>
-                    <div class="semantic-preview">
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #FFFBEA;"></div>
-                            <span class="swatch-label">Warning 50</span>
-                            <span class="swatch-hex">#FFFBEA</span>
+                <div class="usage-note">
+                    <strong>Usage:</strong><br>
+                    • <strong>Base:</strong> Default canvas, cards, modals<br>
+                    • <strong>Ice:</strong> Secondary sections, data tables, outline button hovers<br>
+                    • <strong>Sand:</strong> Editorial sections, empty states, footers<br>
+                    • <strong>Kelp:</strong> Light buttons on dark backgrounds
+                </div>
+            </section>
+
+            <!-- BORDERS -->
+            <section class="section">
+                <h2>Borders & Dividers — NEW</h2>
+                <p>Clear hierarchy for borders, strokes, and dividers.</p>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E2E8F0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Default Border</div>
+                            <div class="color-value">#E2E8F0</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #FFD12D;"></div>
-                            <span class="swatch-label">Warning 500</span>
-                            <span class="swatch-hex">#FFD12D</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #CBD5E0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Neutral Border</div>
+                            <div class="color-value">#CBD5E0</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #4D3D00;"></div>
-                            <span class="swatch-label">Warning 900</span>
-                            <span class="swatch-hex">#4D3D00</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #A0AEC0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Hover Border</div>
+                            <div class="color-value">#A0AEC0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEMANTIC SIGNALS -->
+            <section class="section">
+                <h2>Semantic Signals (Micro-use Only) — UPDATED</h2>
+                <p>Never used as primary button fills — icons, badges, subtle highlights only.</p>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #48BB78"></div>
+                        <div class="color-info">
+                            <div class="color-name">Success</div>
+                            <div class="color-value">#48BB78</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #C24E3A"></div>
+                        <div class="color-info">
+                            <div class="color-name">Error</div>
+                            <div class="color-value">#C24E3A</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #F59E0B"></div>
+                        <div class="color-info">
+                            <div class="color-name">Warning</div>
+                            <div class="color-value">#F59E0B</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #025E96"></div>
+                        <div class="color-info">
+                            <div class="color-name">Info</div>
+                            <div class="color-value">#025E96</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="semantic-group">
-                    <h3>Error</h3>
-                    <p>Use for error messages, destructive actions, and critical alerts.</p>
-                    <div class="semantic-preview">
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #FEE9E9;"></div>
-                            <span class="swatch-label">Error 50</span>
-                            <span class="swatch-hex">#FEE9E9</span>
+                <div class="usage-note">
+                    <strong>Key Rule:</strong> Semantic colors support meaning, never dominance. Use for icons, badges, and highlights only — not for primary button fills.
+                </div>
+            </section>
+
+            <!-- TEXT COLORS -->
+            <section class="section">
+                <h2>Text Colors</h2>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #1A202C"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Text (Ink)</div>
+                            <div class="color-value">#1A202C</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #E53E3E;"></div>
-                            <span class="swatch-label">Error 500</span>
-                            <span class="swatch-hex">#E53E3E</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #718096"></div>
+                        <div class="color-info">
+                            <div class="color-name">Secondary Text</div>
+                            <div class="color-value">#718096</div>
                         </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #400E0E;"></div>
-                            <span class="swatch-label">Error 900</span>
-                            <span class="swatch-hex">#400E0E</span>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #FFFFFF; border: 2px solid #E2E8F0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Inverse Text</div>
+                            <div class="color-value">#FFFFFF</div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="semantic-group">
-                    <h3>Info</h3>
-                    <p>Use for helpful tips, informational messages, and neutral states.</p>
-                    <div class="semantic-preview">
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #E6F7FB;"></div>
-                            <span class="swatch-label">Info 50</span>
-                            <span class="swatch-hex">#E6F7FB</span>
-                        </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #00B4D8;"></div>
-                            <span class="swatch-label">Info 500</span>
-                            <span class="swatch-hex">#00B4D8</span>
-                        </div>
-                        <div class="color-swatch-item">
-                            <div class="swatch" style="background: #00242C;"></div>
-                            <span class="swatch-label">Info 900</span>
-                            <span class="swatch-hex">#00242C</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <!-- NEUTRAL COLORS -->
+            <section class="section">
+                <h2>Neutral Colors (Pearl)</h2>
+                <p>Legacy support — Use new semantic names (surfaces, borders, text) when possible.</p>
 
-        <!-- NEUTRAL GRAYS -->
-        <section class="section">
-            <h2>Seafoam (Neutral)</h2>
-            <p>Versatile grayscale for text, backgrounds, borders, and UI elements.</p>
-            
-            <div class="color-group">
-                <div class="color-swatches">
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #F7FAFC;"></div>
-                        <span class="swatch-label">Seafoam 50</span>
-                        <span class="swatch-hex">#F7FAFC</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #EDF2F7;"></div>
-                        <span class="swatch-label">Seafoam 100</span>
-                        <span class="swatch-hex">#EDF2F7</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #E2E8F0;"></div>
-                        <span class="swatch-label">Seafoam 200</span>
-                        <span class="swatch-hex">#E2E8F0</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #CBD5E0;"></div>
-                        <span class="swatch-label">Seafoam 300</span>
-                        <span class="swatch-hex">#CBD5E0</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #A0AEC0;"></div>
-                        <span class="swatch-label">Seafoam 400</span>
-                        <span class="swatch-hex">#A0AEC0</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #718096;"></div>
-                        <span class="swatch-label">Seafoam 500</span>
-                        <span class="swatch-hex">#718096</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #4A5568;"></div>
-                        <span class="swatch-label">Seafoam 600</span>
-                        <span class="swatch-hex">#4A5568</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #2D3748;"></div>
-                        <span class="swatch-label">Seafoam 700</span>
-                        <span class="swatch-hex">#2D3748</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #1A202C;"></div>
-                        <span class="swatch-label">Seafoam 800</span>
-                        <span class="swatch-hex">#1A202C</span>
-                    </div>
-                    <div class="color-swatch-item">
-                        <div class="swatch" style="background: #171923;"></div>
-                        <span class="swatch-label">Seafoam 900</span>
-                        <span class="swatch-hex">#171923</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- USAGE GUIDELINES -->
-        <section class="section">
-            <h2>Usage Guidelines</h2>
-            <div class="usage-grid">
-                <div class="usage-card">
-                    <h4>🎨 Primary Actions</h4>
-                    <ul>
-                        <li>Primary 500 for main CTAs</li>
-                        <li>Primary 700 for hover states</li>
-                        <li>Primary 50/100 for light backgrounds</li>
-                        <li>Never use primary colors for text alone</li>
-                    </ul>
-                </div>
-
-                <div class="usage-card">
-                    <h4>📝 Text Colors</h4>
-                    <ul>
-                        <li>Neutral 900 for body text</li>
-                        <li>Neutral 600/700 for secondary text</li>
-                        <li>Neutral 400/500 for disabled text</li>
-                        <li>White (#FFFFFF) on dark backgrounds only</li>
-                    </ul>
-                </div>
-
-                <div class="usage-card">
-                    <h4>🔲 Backgrounds</h4>
-                    <ul>
-                        <li>Neutral 50 for page backgrounds</li>
-                        <li>White (#FFFFFF) for cards and panels</li>
-                        <li>Primary 50 for subtle highlights</li>
-                        <li>Primary 500 for hero sections</li>
-                    </ul>
-                </div>
-
-                <div class="usage-card">
-                    <h4>📐 Borders & Dividers</h4>
-                    <ul>
-                        <li>Neutral 200 for standard borders</li>
-                        <li>Neutral 300 for stronger dividers</li>
-                        <li>Primary 200 for active/hover borders</li>
-                        <li>Keep borders subtle and minimal</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ACCESSIBILITY -->
-        <section class="section">
-            <h2>Accessibility & Contrast</h2>
-            <p>All color combinations tested for WCAG AA compliance (4.5:1 for text, 3:1 for UI components).</p>
-            
-            <div class="contrast-checker">
-                <h3>Approved Text Combinations</h3>
-                <div class="contrast-examples">
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #025E96; color: #FFFFFF;">
-                            Primary Text
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">7.2:1</div>
-                            <div class="pass-badge aa">AA</div>
-                            <div class="pass-badge aaa">AAA</div>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #F7FAFC"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 50</div>
+                            <div class="color-value">#F7FAFC</div>
                         </div>
                     </div>
-
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #F7FAFC; color: #1A202C;">
-                            Body Text
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">12.6:1</div>
-                            <div class="pass-badge aa">AA</div>
-                            <div class="pass-badge aaa">AAA</div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E2E8F0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 200</div>
+                            <div class="color-value">#E2E8F0</div>
                         </div>
                     </div>
-
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #FFFFFF; color: #4A5568;">
-                            Secondary Text
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">6.8:1</div>
-                            <div class="pass-badge aa">AA</div>
-                            <div class="pass-badge aaa">AAA</div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #CBD5E0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 300</div>
+                            <div class="color-value">#CBD5E0</div>
                         </div>
                     </div>
-
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #E53E3E; color: #FFFFFF;">
-                            Error Text
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">5.1:1</div>
-                            <div class="pass-badge aa">AA</div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #A0AEC0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 400</div>
+                            <div class="color-value">#A0AEC0</div>
                         </div>
                     </div>
-
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #01385A; color: #E6F2F8;">
-                            Light on Dark
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">10.8:1</div>
-                            <div class="pass-badge aa">AA</div>
-                            <div class="pass-badge aaa">AAA</div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #718096"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 500</div>
+                            <div class="color-value">#718096</div>
                         </div>
                     </div>
-
-                    <div class="contrast-item">
-                        <div class="contrast-sample" style="background: #00B4D8; color: #00242C;">
-                            Info Colors
-                        </div>
-                        <div class="contrast-info">
-                            <div class="contrast-ratio">8.4:1</div>
-                            <div class="pass-badge aa">AA</div>
-                            <div class="pass-badge aaa">AAA</div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #1A202C"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 800</div>
+                            <div class="color-value">#1A202C</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- DO'S AND DON'TS -->
-        <section class="section">
-            <h2>Do's and Don'ts</h2>
-            <div class="do-dont-grid">
-                <div class="example-card do">
-                    <h4>✅ Do</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 8px 0;">Use Primary 500 (#025E96) as main brand color</li>
-                        <li style="padding: 8px 0;">Maintain high contrast for text (4.5:1 minimum)</li>
-                        <li style="padding: 8px 0;">Use semantic colors for their intended purpose</li>
-                        <li style="padding: 8px 0;">Test color combinations with accessibility tools</li>
-                        <li style="padding: 8px 0;">Use neutral grays for most UI elements</li>
-                    </ul>
-                </div>
-
-                <div class="example-card dont">
-                    <h4>❌ Don't</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 8px 0;">Use light blue (#E6F2F8) on white backgrounds</li>
-                        <li style="padding: 8px 0;">Mix semantic colors (red + green together)</li>
-                        <li style="padding: 8px 0;">Use color as the only indicator of state</li>
-                        <li style="padding: 8px 0;">Override primary brand color with custom blues</li>
-                        <li style="padding: 8px 0;">Use pure black (#000000) for text</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- CSS USAGE -->
-        <section class="section">
-            <h2>Implementation</h2>
-            <p>Use CSS custom properties for consistent color application:</p>
-            
-            <div class="code-block">
-                <pre><code>/* Primary Blues */
-.btn-primary {
-  background: var(--color-primary-500);
-  color: #FFFFFF;
-}
-
-.btn-primary:hover {
-  background: var(--color-primary-700);
-}
-
-/* Semantic Colors */
-.alert-warning {
-  background: var(--color-warning-50);
-  color: var(--color-warning-900);
-  border: 1px solid var(--color-warning-500);
-}
-
-/* Text Colors */
-.text-body {
-  color: var(--color-neutral-900);
-}
-
-.text-secondary {
-  color: var(--color-neutral-600);
-}</code></pre>
-            </div>
-        </section>
         </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2025 Compass Design System v1.0</p>
-    </footer>
 
     <script src="navigation.js"></script>
 </body>

@@ -3,67 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buttons - Compass Design System</title>
+    <title>Buttons - Compass Design System v2.0</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Tab Navigation */
-        .tab-nav {
-            display: flex;
-            gap: 0;
-            border-bottom: 2px solid var(--color-neutral-200);
-            margin-bottom: var(--spacing-6);
-        }
-        
-        .tab-btn {
-            padding: var(--spacing-3) var(--spacing-5);
-            background: none;
-            border: none;
-            font-family: var(--font-body);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-            color: var(--color-neutral-600);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.2s;
-        }
-        
-        .tab-btn:hover {
-            color: var(--color-primary-500);
-        }
-        
-        .tab-btn.active {
-            color: var(--color-primary-500);
-            border-bottom-color: var(--color-primary-500);
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        /* Preview Box */
         .preview-box {
             background: white;
-            border: 1px solid var(--color-neutral-200);
+            border: 1px solid var(--color-border-default);
             border-radius: var(--radius-lg);
             padding: var(--spacing-8);
             margin-bottom: var(--spacing-6);
             display: flex;
             align-items: center;
-            justify-content: center;
-            min-height: 120px;
             gap: var(--spacing-4);
+            flex-wrap: wrap;
         }
         
         .preview-box.dark {
             background: var(--color-primary-500);
+        }
+
+        .section-intro {
+            background: var(--color-surface-ice);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-8);
+            border-left: 4px solid var(--color-primary-500);
+        }
+
+        .section-intro p {
+            margin: 0;
+            color: var(--color-text-primary);
+        }
+
+        .variant-group {
+            margin-bottom: var(--spacing-12);
+        }
+
+        .variant-group h3 {
+            margin-bottom: var(--spacing-4);
         }
     </style>
 </head>
@@ -74,500 +55,243 @@
                 <img src="Logo.svg" alt="Whalelord" width="40" height="40">
                 <div class="nav-logo-text">
                     <div class="nav-logo-brand">WHALELORD</div>
-                    <div class="nav-logo-subtitle">Compass Design System</div>
+                    <div class="nav-logo-subtitle">Compass Design System v2.0</div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <div class="sidenav" id="sidenav"></div>
+
     <div class="main-content">
         <div class="container-with-sidenav">
-            <header>
-                <h1>Buttons</h1>
-                <p class="hero-subtitle">Primary interaction elements with complete state specifications. Available in multiple sizes and variants optimized for Tailwind + React.</p>
+            <header class="hero">
+                <h1>Buttons — Hybrid System v2.0</h1>
+                <p class="hero-subtitle">Complete button hierarchy with Ice hover states, surface-aware variants, and dark background support.</p>
             </header>
+
+            <div class="section-intro">
+                <p><strong>One-Line Principle:</strong> Surfaces carry tone. Buttons carry intent. Color carries meaning.</p>
+            </div>
+
+            <!-- LIGHT BACKGROUNDS -->
+            <section class="section">
+                <h2>Light Backgrounds</h2>
+                <p>Use these button variants on white, light gray, or Ice/Sand surfaces.</p>
+
+                <!-- PRIMARY FILLED -->
+                <div class="variant-group">
+                    <h3>Primary (Filled Blue)</h3>
+                    <p>Main CTAs — Use for primary actions like "Submit", "Continue", "Buy Now"</p>
+                    
+                    <div class="preview-box">
+                        <button class="btn btn-sm btn-primary">Small Button</button>
+                        <button class="btn btn-md btn-primary">Medium Button</button>
+                        <button class="btn btn-lg btn-primary">Large Button</button>
+                        <button class="btn btn-md btn-primary" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-primary"&gt;Primary Button&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- PRIMARY OUTLINE -->
+                <div class="variant-group">
+                    <h3>Primary Outline</h3>
+                    <p>Secondary CTAs with blue emphasis — Hovers to Ice surface (#D9F0F2)</p>
+                    
+                    <div class="preview-box">
+                        <button class="btn btn-sm btn-primary-outline">Small Button</button>
+                        <button class="btn btn-md btn-primary-outline">Medium Button</button>
+                        <button class="btn btn-lg btn-primary-outline">Large Button</button>
+                        <button class="btn btn-md btn-primary-outline" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-primary-outline"&gt;Primary Outline&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- SECONDARY OUTLINE -->
+                <div class="variant-group">
+                    <h3>Secondary Outline</h3>
+                    <p>Tertiary actions with minimal emphasis — Gray border, subtle hover</p>
+                    
+                    <div class="preview-box">
+                        <button class="btn btn-sm btn-secondary-outline">Small Button</button>
+                        <button class="btn btn-md btn-secondary-outline">Medium Button</button>
+                        <button class="btn btn-lg btn-secondary-outline">Large Button</button>
+                        <button class="btn btn-md btn-secondary-outline" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-secondary-outline"&gt;Secondary Outline&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- NEUTRAL -->
+                <div class="variant-group">
+                    <h3>Neutral (White)</h3>
+                    <p>Minimal emphasis actions — Use for less important actions</p>
+                    
+                    <div class="preview-box">
+                        <button class="btn btn-sm btn-neutral">Small Button</button>
+                        <button class="btn btn-md btn-neutral">Medium Button</button>
+                        <button class="btn btn-lg btn-neutral">Large Button</button>
+                        <button class="btn btn-md btn-neutral" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-neutral"&gt;Neutral Button&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- DARK BACKGROUNDS -->
+            <section class="section">
+                <h2>Dark Backgrounds</h2>
+                <p>Use these button variants on primary blue (#025E96) or darker backgrounds.</p>
+
+                <!-- PRIMARY LIGHT -->
+                <div class="variant-group">
+                    <h3>Primary Light (Filled)</h3>
+                    <p>Light buttons on dark — Kelp 50 fill (#E6F2F8)</p>
+                    
+                    <div class="preview-box dark">
+                        <button class="btn btn-sm btn-primary-light">Small Button</button>
+                        <button class="btn btn-md btn-primary-light">Medium Button</button>
+                        <button class="btn btn-lg btn-primary-light">Large Button</button>
+                        <button class="btn btn-md btn-primary-light" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-primary-light"&gt;Primary Light&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- PRIMARY LIGHT OUTLINE -->
+                <div class="variant-group">
+                    <h3>Primary Light Outline</h3>
+                    <p>Light outline on dark — Subtle contrast with rgba hover</p>
+                    
+                    <div class="preview-box dark">
+                        <button class="btn btn-sm btn-primary-light-outline">Small Button</button>
+                        <button class="btn btn-md btn-primary-light-outline">Medium Button</button>
+                        <button class="btn btn-lg btn-primary-light-outline">Large Button</button>
+                        <button class="btn btn-md btn-primary-light-outline" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-primary-light-outline"&gt;Primary Light Outline&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- TERTIARY TEXT -->
+                <div class="variant-group">
+                    <h3>Tertiary (Text Only)</h3>
+                    <p>Text-only buttons for dark backgrounds — Minimal visual weight</p>
+                    
+                    <div class="preview-box dark">
+                        <button class="btn btn-sm btn-tertiary-text">Small Button</button>
+                        <button class="btn btn-md btn-tertiary-text">Medium Button</button>
+                        <button class="btn btn-lg btn-tertiary-text">Large Button</button>
+                        <button class="btn btn-md btn-tertiary-text" disabled>Disabled</button>
+                    </div>
+
+                    <pre><code>&lt;button class="btn btn-md btn-tertiary-text"&gt;Tertiary Text&lt;/button&gt;</code></pre>
+                </div>
+            </section>
 
             <!-- BUTTON SIZES -->
             <section class="section">
                 <h2>Button Sizes</h2>
-                <p>Buttons come in five sizes: xsmall (28px), small (32px), medium (40px), large (48px), and xlarge (56px).</p>
                 
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'sizes-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'sizes-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'sizes-react')">React + Tailwind</button>
+                <div class="specs">
+                    <table class="spec-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Class</th>
+                                <th>Height</th>
+                                <th>Padding (H)</th>
+                                <th>Font Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Small</td>
+                                <td><code>btn-sm</code></td>
+                                <td>32px</td>
+                                <td>16px</td>
+                                <td>14px</td>
+                            </tr>
+                            <tr>
+                                <td>Medium (default)</td>
+                                <td><code>btn-md</code></td>
+                                <td>40px</td>
+                                <td>24px</td>
+                                <td>16px</td>
+                            </tr>
+                            <tr>
+                                <td>Large</td>
+                                <td><code>btn-lg</code></td>
+                                <td>48px</td>
+                                <td>32px</td>
+                                <td>18px</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                
-                <div id="sizes-preview" class="tab-content active">
-                    <div class="preview-box">
-                        <button class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Xsmall
-                        </button>
-                        <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Small
-                        </button>
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Medium
-                        </button>
-                        <button class="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Large
-                        </button>
-                        <button class="inline-flex items-center justify-center px-10 py-3.5 text-xl font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Xlarge
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="sizes-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- Xsmall (28px) --&gt;
-&lt;button class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700"&gt;
-  Xsmall
-&lt;/button&gt;
 
-&lt;!-- Small (32px) --&gt;
-&lt;button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700"&gt;
-  Small
-&lt;/button&gt;
-
-&lt;!-- Medium (40px) - Default --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700"&gt;
-  Medium
-&lt;/button&gt;
-
-&lt;!-- Large (48px) --&gt;
-&lt;button class="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700"&gt;
-  Large
-&lt;/button&gt;
-
-&lt;!-- Xlarge (56px) --&gt;
-&lt;button class="inline-flex items-center justify-center px-10 py-3.5 text-xl font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700"&gt;
-  Xlarge
-&lt;/button&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="sizes-react" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>React + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>const Button = ({ size = 'md', children, ...props }) => {
-  const sizes = {
-    xs: 'px-3 py-1.5 text-xs',
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-2.5 text-base',
-    lg: 'px-8 py-3 text-lg',
-    xl: 'px-10 py-3.5 text-xl',
-  };
-
-  return (
-    &lt;button
-      className={`inline-flex items-center justify-center ${sizes[size]} font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors`}
-      {...props}
-    &gt;
-      {children}
-    &lt;/button&gt;
-  );
-};
-
-// Usage
-&lt;Button size="xs"&gt;Xsmall&lt;/Button&gt;
-&lt;Button size="sm"&gt;Small&lt;/Button&gt;
-&lt;Button size="md"&gt;Medium&lt;/Button&gt;
-&lt;Button size="lg"&gt;Large&lt;/Button&gt;
-&lt;Button size="xl"&gt;Xlarge&lt;/Button&gt;</code></pre>
-                    </div>
-                </div>
+                <p><strong>Note:</strong> Outline buttons reduce horizontal padding by 1px to account for border width.</p>
             </section>
 
-            <!-- BUTTON VARIANTS -->
+            <!-- USAGE GUIDELINES -->
             <section class="section">
-                <h2>Button Variants</h2>
-                <p>Primary buttons for main actions, secondary for alternative actions, and outline for tertiary actions.</p>
+                <h2>Usage Guidelines</h2>
                 
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'variants-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'variants-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'variants-react')">React + Tailwind</button>
-                </div>
-                
-                <div id="variants-preview" class="tab-content active">
-                    <div class="preview-box">
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                            Primary
-                        </button>
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-pearl-100 rounded-md hover:bg-pearl-200 transition-colors">
-                            Secondary
-                        </button>
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors">
-                            Outline
-                        </button>
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md hover:bg-kelp-50 transition-colors">
-                            Ghost
-                        </button>
+                <div class="guidelines-grid">
+                    <div class="guideline do">
+                        <h4>✓ Do</h4>
+                        <ul>
+                            <li>Use Primary for main actions</li>
+                            <li>Use Primary Outline for secondary CTAs with emphasis</li>
+                            <li>Use Ice hover (#D9F0F2) for outline buttons</li>
+                            <li>Maintain visual hierarchy (filled > outline > text)</li>
+                            <li>Test on actual background colors</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div id="variants-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- Primary --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"&gt;
-  Primary
-&lt;/button&gt;
 
-&lt;!-- Secondary --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-pearl-100 rounded-md hover:bg-pearl-200 transition-colors"&gt;
-  Secondary
-&lt;/button&gt;
-
-&lt;!-- Outline --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors"&gt;
-  Outline
-&lt;/button&gt;
-
-&lt;!-- Ghost --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md hover:bg-kelp-50 transition-colors"&gt;
-  Ghost
-&lt;/button&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="variants-react" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>React + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>const Button = ({ variant = 'primary', children, ...props }) => {
-  const variants = {
-    primary: 'text-white bg-kelp-500 hover:bg-kelp-700',
-    secondary: 'text-pearl-900 bg-pearl-100 hover:bg-pearl-200',
-    outline: 'text-pearl-900 bg-transparent border border-pearl-300 hover:bg-pearl-50',
-    ghost: 'text-kelp-500 bg-transparent hover:bg-kelp-50',
-  };
-
-  return (
-    &lt;button
-      className={`inline-flex items-center justify-center px-6 py-2.5 text-base font-medium rounded-md transition-colors ${variants[variant]}`}
-      {...props}
-    &gt;
-      {children}
-    &lt;/button&gt;
-  );
-};
-
-// Usage
-&lt;Button variant="primary"&gt;Primary&lt;/Button&gt;
-&lt;Button variant="secondary"&gt;Secondary&lt;/Button&gt;
-&lt;Button variant="outline"&gt;Outline&lt;/Button&gt;
-&lt;Button variant="ghost"&gt;Ghost&lt;/Button&gt;</code></pre>
+                    <div class="guideline dont">
+                        <h4>✗ Don't</h4>
+                        <ul>
+                            <li>Don't use more than one Primary button in a view</li>
+                            <li>Don't use light buttons on light backgrounds</li>
+                            <li>Don't create custom button colors outside the system</li>
+                            <li>Don't skip disabled states</li>
+                            <li>Don't use buttons for navigation (use links)</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- BUTTONS WITH ICONS -->
+            <!-- REACT + TAILWIND -->
             <section class="section">
-                <h2>Buttons with Icons</h2>
-                <p>Buttons can include icons on either side. Icons should be 16×16px and use consistent stroke weight.</p>
+                <h2>React + Tailwind Implementation</h2>
                 
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'icons-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'icons-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'icons-react')">React + Tailwind</button>
-                </div>
-                
-                <div id="icons-preview" class="tab-content active">
-                    <div class="preview-box" style="background: #F7FAFC;">
-                        <div style="margin-bottom: 24px;">
-                            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Icon Left</h4>
-                            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                                    <span style="font-size: 16px;">→</span>
-                                    Request Quote
-                                </button>
-                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors">
-                                    <span style="font-size: 16px;">+</span>
-                                    Add to Cart
-                                </button>
-                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md hover:bg-kelp-50 transition-colors">
-                                    <span style="font-size: 16px;">⊕</span>
-                                    View Details
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Icon Right</h4>
-                            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
-                                    Continue
-                                    <span style="font-size: 16px;">→</span>
-                                </button>
-                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors">
-                                    Export
-                                    <span style="font-size: 16px;">↓</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="icons-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- Icon Left --&gt;
-&lt;button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"&gt;
-  &lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
-    &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"&gt;&lt;/path&gt;
-  &lt;/svg&gt;
-  Request Quote
+                <pre><code>// Primary Button
+&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
+  Primary Button
 &lt;/button&gt;
 
-&lt;!-- Icon Right --&gt;
-&lt;button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"&gt;
-  Continue
-  &lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
-    &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"&gt;&lt;/path&gt;
-  &lt;/svg&gt;
-&lt;/button&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="icons-react" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>React + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>import { ArrowRight, Plus, Eye, Download } from 'lucide-react';
-
-const IconButton = ({ icon: Icon, iconPosition = 'left', children, ...props }) => (
-  &lt;button
-    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"
-    {...props}
-  &gt;
-    {iconPosition === 'left' && Icon && &lt;Icon className="w-4 h-4" /&gt;}
-    {children}
-    {iconPosition === 'right' && Icon && &lt;Icon className="w-4 h-4" /&gt;}
-  &lt;/button&gt;
-);
-
-// Usage
-&lt;IconButton icon={ArrowRight} iconPosition="left"&gt;
-  Request Quote
-&lt;/IconButton&gt;
-
-&lt;IconButton icon={ArrowRight} iconPosition="right"&gt;
-  Continue
-&lt;/IconButton&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- LOADING STATES -->
-            <section class="section">
-                <h2>Loading States</h2>
-                <p>Show loading spinners during asynchronous operations.</p>
-                
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'loading-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'loading-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'loading-react')">React + Tailwind</button>
-                </div>
-                
-                <div id="loading-preview" class="tab-content active">
-                    <div class="preview-box" style="background: #F7FAFC;">
-                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md relative" disabled>
-                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <span style="opacity: 0.7;">Loading...</span>
-                        </button>
-                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md relative" disabled>
-                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <span style="opacity: 0.7;">Processing...</span>
-                        </button>
-                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md relative" disabled>
-                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <span style="opacity: 0.7;">Loading...</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="loading-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;button disabled class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md"&gt;
-  &lt;svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"&gt;
-    &lt;circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"&gt;&lt;/circle&gt;
-    &lt;path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"&gt;&lt;/path&gt;
-  &lt;/svg&gt;
-  Loading...
-&lt;/button&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="loading-react" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>React + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>const Button = ({ loading, children, ...props }) => (
-  &lt;button
-    disabled={loading}
-    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 disabled:opacity-70 transition-colors"
-    {...props}
-  &gt;
-    {loading && (
-      &lt;svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"&gt;
-        &lt;circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"&gt;&lt;/circle&gt;
-        &lt;path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"&gt;&lt;/path&gt;
-      &lt;/svg&gt;
-    )}
-    {children}
-  &lt;/button&gt;
-);
-
-// Usage
-&lt;Button loading={isSubmitting}&gt;
-  {isSubmitting ? 'Submitting...' : 'Submit'}
-&lt;/Button&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ON DARK BACKGROUND -->
-            <section class="section">
-                <h2>Buttons on Dark Background</h2>
-                <p>Light variants optimized for use on dark blue (#025E96) backgrounds.</p>
-                
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'dark-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'dark-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'dark-react')">React + Tailwind</button>
-                </div>
-                
-                <div id="dark-preview" class="tab-content active">
-                    <div class="preview-box dark">
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-kelp-50 rounded-md hover:bg-kelp-100 transition-colors">
-                            Light Fill
-                        </button>
-                        <button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-kelp-50 bg-transparent border border-kelp-50 rounded-md hover:bg-kelp-900/20 transition-colors">
-                            Light Outline
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="dark-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- Light Fill --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-pearl-900 bg-kelp-50 rounded-md hover:bg-kelp-100 transition-colors"&gt;
-  Light Fill
+// Primary Outline Button with Ice Hover
+&lt;button className="bg-transparent hover:bg-surface-ice border border-kelp-500 hover:border-kelp-700 text-kelp-500 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
+  Primary Outline
 &lt;/button&gt;
 
-&lt;!-- Light Outline --&gt;
-&lt;button class="inline-flex items-center justify-center px-6 py-2.5 text-base font-medium text-kelp-50 bg-transparent border border-kelp-50 rounded-md hover:bg-kelp-900/20 transition-colors"&gt;
-  Light Outline
+// Secondary Outline Button
+&lt;button className="bg-transparent hover:bg-surface-base border border-border-neutral hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
+  Secondary Outline
+&lt;/button&gt;
+
+// Primary Light for Dark Backgrounds
+&lt;button className="bg-surface-kelp hover:bg-kelp-100 text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
+  Primary Light
 &lt;/button&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="dark-react" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>React + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>// For use on dark backgrounds
-const LightButton = ({ variant = 'fill', children, ...props }) => {
-  const variants = {
-    fill: 'text-pearl-900 bg-kelp-50 hover:bg-kelp-100',
-    outline: 'text-kelp-50 bg-transparent border border-kelp-50 hover:bg-kelp-900/20',
-  };
-
-  return (
-    &lt;button
-      className={`inline-flex items-center justify-center px-6 py-2.5 text-base font-medium rounded-md transition-colors ${variants[variant]}`}
-      {...props}
-    &gt;
-      {children}
-    &lt;/button&gt;
-  );
-};
-
-// Usage
-&lt;LightButton variant="fill"&gt;Light Fill&lt;/LightButton&gt;
-&lt;LightButton variant="outline"&gt;Light Outline&lt;/LightButton&gt;</code></pre>
-                    </div>
-                </div>
             </section>
+
         </div>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 Compass Design System v1.0</p>
-    </footer>
-
     <script src="navigation.js"></script>
-    <script>
-        function switchTab(event, tabId) {
-            // Get the parent section
-            const section = event.target.closest('.section');
-            
-            // Hide all tab contents in this section
-            section.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all tab buttons in this section
-            section.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show the selected tab content
-            document.getElementById(tabId).classList.add('active');
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-        
-        function copyCode(btn) {
-            const codeBlock = btn.closest('.code-example').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html>

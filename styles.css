@@ -3,9 +3,11 @@
    CSS Custom Properties & Styles
    =========================== */
 
-/* DESIGN TOKENS */
+/* DESIGN TOKENS - HYBRID SYSTEM v2.0 */
 :root {
-  /* Primary Colors (Blues) */
+  /* ===========================
+     PRIMARY / BRAND BLUE
+     =========================== */
   --color-primary-50: #E6F2F8;
   --color-primary-100: #CCE5F1;
   --color-primary-200: #99CBE3;
@@ -17,34 +19,57 @@
   --color-primary-800: #01253C;
   --color-primary-900: #01121E;
 
-  /* Semantic - Success */
-  --color-success-50: #E6F9F0;
-  --color-success-100: #CDF3E1;
-  --color-success-200: #9BE7C3;
-  --color-success-300: #69DBA5;
-  --color-success-400: #5ACC94;
+  /* ===========================
+     TEXT COLORS
+     =========================== */
+  --color-text-primary: #1A202C;
+  --color-text-secondary: #718096;
+  --color-text-inverse: #FFFFFF;
+
+  /* ===========================
+     SURFACES (Semantic Whites)
+     These are NOT accents - they are surface layers
+     =========================== */
+  --color-surface-base: #F7FAFC;      /* Neutral White */
+  --color-surface-ice: #D9F0F2;       /* Cool Surface - NEW */
+  --color-surface-sand: #EDE6D8;      /* Warm Surface - NEW */
+  --color-surface-kelp: #E6F2F8;      /* Light Surface (Kelp 50) */
+
+  /* ===========================
+     BORDERS & DIVIDERS
+     =========================== */
+  --color-border-default: #E2E8F0;
+  --color-border-neutral: #CBD5E0;
+  --color-border-hover: #A0AEC0;
+
+  /* ===========================
+     SEMANTIC SIGNALS (Micro-use only)
+     Never used as primary button fills
+     =========================== */
+  --color-success: #48BB78;
   --color-success-500: #48BB78;
   --color-success-600: #3A9560;
   --color-success-700: #2C7048;
-  --color-success-800: #1E4A30;
-  --color-success-900: #0F2518;
+  
+  --color-error: #C24E3A;
+  --color-error-500: #C24E3A;
+  --color-error-600: #9B3E2E;
+  --color-error-700: #742F22;
+  
+  --color-warning: #F59E0B;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+  
+  --color-info: #025E96;
+  --color-info-500: #025E96;
+  --color-info-600: #024B78;
+  --color-info-700: #01385A;
 
-  /* Semantic - Warning */
-  --color-warning-50: #FFFBEA;
-  --color-warning-500: #FFD12D;
-  --color-warning-900: #4D3D00;
-
-  /* Semantic - Error */
-  --color-error-50: #FEE9E9;
-  --color-error-500: #E53E3E;
-  --color-error-900: #400E0E;
-
-  /* Semantic - Info */
-  --color-info-50: #E6F7FB;
-  --color-info-500: #00B4D8;
-  --color-info-900: #00242C;
-
-  /* Neutral Colors */
+  /* ===========================
+     LEGACY NEUTRAL COLORS
+     Maintained for backward compatibility
+     =========================== */
   --color-neutral-50: #F7FAFC;
   --color-neutral-100: #EDF2F7;
   --color-neutral-200: #E2E8F0;

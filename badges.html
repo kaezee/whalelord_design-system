@@ -3,11 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badges & Tags - Compass Design System</title>
+    <title>Badges - Compass Design System</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--color-neutral-200);
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .tab-btn {
+            padding: var(--spacing-3) var(--spacing-5);
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-600);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            color: var(--color-primary-500);
+        }
+        
+        .tab-btn.active {
+            color: var(--color-primary-500);
+            border-bottom-color: var(--color-primary-500);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .preview-box {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-4);
+        }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -26,7 +77,7 @@
         <div class="container-with-sidenav">
             <header>
                 <h1>Badges & Tags</h1>
-                <p class="hero-subtitle">Visual labels for status indicators, certifications, and categorical information. Includes variants with icon support.</p>
+                <p class="hero-subtitle">Visual labels for status indicators, certifications, and categorical information. Compact elements optimized for displaying metadata.</p>
             </header>
 
             <!-- STATUS BADGES -->
@@ -34,46 +85,66 @@
                 <h2>Status Badges</h2>
                 <p>Used on product cards to highlight special characteristics or urgency.</p>
                 
-                <div class="component-demo">
-                    <div class="demo-row">
-                        <div class="demo-item">
-                            <label>Popular</label>
-                            <span class="inline-flex items-center gap-1 bg-red-50 text-red-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">⭐</span>
-                                POPULAR
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>New</label>
-                            <span class="inline-flex items-center gap-1 bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">✨</span>
-                                NEW
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Limited</label>
-                            <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">⏰</span>
-                                LIMITED
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Seasonal</label>
-                            <span class="inline-flex items-center gap-1 bg-lime-100 text-lime-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">🍃</span>
-                                SEASONAL
-                            </span>
-                        </div>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'status-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'status-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'status-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="status-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <span class="inline-flex items-center gap-1 bg-red-50 text-red-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">⭐</span>
+                            POPULAR
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">✨</span>
+                            NEW
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">⏰</span>
+                            LIMITED
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-lime-100 text-lime-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">🍃</span>
+                            SEASONAL
+                        </span>
                     </div>
                 </div>
+                
+                <div id="status-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Popular --&gt;
+&lt;span class="inline-flex items-center gap-1 bg-red-50 text-red-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider"&gt;
+  &lt;span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current"&gt;⭐&lt;/span&gt;
+  POPULAR
+&lt;/span&gt;
 
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+&lt;!-- New --&gt;
+&lt;span class="inline-flex items-center gap-1 bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider"&gt;
+  &lt;span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current"&gt;✨&lt;/span&gt;
+  NEW
+&lt;/span&gt;
+
+&lt;!-- Limited --&gt;
+&lt;span class="inline-flex items-center gap-1 bg-amber-50 text-amber-800 text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider"&gt;
+  &lt;span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current"&gt;⏰&lt;/span&gt;
+  LIMITED
+&lt;/span&gt;</code></pre>
                     </div>
-                    <pre><code>// Status Badge Component
-const StatusBadge = ({ variant, icon, children }) => {
+                </div>
+                
+                <div id="status-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const StatusBadge = ({ variant, icon, children }) => {
   const variants = {
     popular: 'bg-red-50 text-red-800',
     new: 'bg-sky-100 text-sky-800',
@@ -95,79 +166,66 @@ const StatusBadge = ({ variant, icon, children }) => {
 
 // Usage
 &lt;StatusBadge variant="popular" icon="⭐"&gt;POPULAR&lt;/StatusBadge&gt;
-&lt;StatusBadge variant="new" icon="✨"&gt;NEW&lt;/StatusBadge&gt;</code></pre>
-                </div>
-
-                <div class="specs">
-                    <h4>Status Badge Specifications</h4>
-                    <table class="spec-table">
-                        <tr>
-                            <th>Type</th>
-                            <th>Tailwind Classes</th>
-                            <th>Use Case</th>
-                        </tr>
-                        <tr>
-                            <td>Popular</td>
-                            <td>bg-red-50 text-red-800</td>
-                            <td>High demand items</td>
-                        </tr>
-                        <tr>
-                            <td>New</td>
-                            <td>bg-sky-100 text-sky-800</td>
-                            <td>Recently added products</td>
-                        </tr>
-                        <tr>
-                            <td>Limited</td>
-                            <td>bg-amber-50 text-amber-800</td>
-                            <td>Low stock or time-limited</td>
-                        </tr>
-                        <tr>
-                            <td>Seasonal</td>
-                            <td>bg-lime-100 text-lime-800</td>
-                            <td>Seasonal availability</td>
-                        </tr>
-                    </table>
+&lt;StatusBadge variant="new" icon="✨"&gt;NEW&lt;/StatusBadge&gt;
+&lt;StatusBadge variant="limited" icon="⏰"&gt;LIMITED&lt;/StatusBadge&gt;</code></pre>
+                    </div>
                 </div>
             </section>
 
             <!-- CERTIFICATION BADGES -->
             <section class="section">
                 <h2>Certification Badges</h2>
-                <p>Display sustainability certifications and quality standards. Always include icon space for official certification logos.</p>
+                <p>Display sustainability certifications and quality standards with icon space for official logos.</p>
                 
-                <div class="component-demo">
-                    <div class="demo-row">
-                        <div class="demo-item">
-                            <label>With Icon Space</label>
-                            <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🌊</span>
-                                GLOBAL AP
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>MSC Certified</label>
-                            <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🐟</span>
-                                MSC
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>ASC Certified</label>
-                            <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
-                                <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🦐</span>
-                                ASC
-                            </span>
-                        </div>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'cert-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'cert-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'cert-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="cert-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🌊</span>
+                            GLOBAL AP
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🐟</span>
+                            MSC
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🦐</span>
+                            ASC
+                        </span>
+                        <span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider">
+                            <span class="inline-flex items-center justify-center w-4 h-4 text-xs bg-black/10 rounded-sm border border-current">🌱</span>
+                            ORGANIC
+                        </span>
                     </div>
                 </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                
+                <div id="cert-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;span class="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider"&gt;
+  &lt;span class="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current overflow-hidden"&gt;
+    &lt;img src="path/to/cert-logo.svg" alt="MSC" class="w-full h-full object-contain" /&gt;
+  &lt;/span&gt;
+  MSC
+&lt;/span&gt;</code></pre>
                     </div>
-                    <pre><code>// Certification Badge Component
-const CertBadge = ({ icon, logoSrc, children }) => (
+                </div>
+                
+                <div id="cert-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const CertBadge = ({ icon, logoSrc, children }) => (
   &lt;span className="inline-flex items-center gap-1 bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1 rounded uppercase tracking-wider"&gt;
     &lt;span className="inline-flex items-center justify-center w-4 h-4 bg-black/10 rounded-sm border border-current overflow-hidden"&gt;
       {logoSrc ? (
@@ -183,78 +241,53 @@ const CertBadge = ({ icon, logoSrc, children }) => (
 // Usage
 &lt;CertBadge logoSrc="/logos/msc.svg"&gt;MSC&lt;/CertBadge&gt;
 &lt;CertBadge icon="🌊"&gt;GLOBAL AP&lt;/CertBadge&gt;</code></pre>
-                </div>
-
-                <div class="specs">
-                    <h4>Certification Badge Specifications</h4>
-                    <table class="spec-table">
-                        <tr>
-                            <th>Property</th>
-                            <th>Tailwind Classes</th>
-                            <th>Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Background</td>
-                            <td>bg-kelp-50</td>
-                            <td>Primary-50 from Compass palette</td>
-                        </tr>
-                        <tr>
-                            <td>Text Color</td>
-                            <td>text-kelp-700</td>
-                            <td>Primary-700 for contrast</td>
-                        </tr>
-                        <tr>
-                            <td>Icon Size</td>
-                            <td>w-4 h-4</td>
-                            <td>16x16px square aspect ratio</td>
-                        </tr>
-                        <tr>
-                            <td>Height</td>
-                            <td>py-1</td>
-                            <td>Approx 28px total height</td>
-                        </tr>
-                    </table>
+                    </div>
                 </div>
             </section>
 
-            <!-- ORDER STATUS BADGES -->
+            <!-- ORDER STATUS -->
             <section class="section">
                 <h2>Order Status Badges</h2>
                 <p>Used in messaging and order tracking interfaces to show current state.</p>
                 
-                <div class="component-demo">
-                    <div class="demo-row">
-                        <div class="demo-item">
-                            <label>Quote Received</label>
-                            <span class="inline-flex items-center bg-sky-100 text-sky-800 text-xs font-medium px-3 py-1.5 rounded-md">Quote Received</span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Quote Pending</label>
-                            <span class="inline-flex items-center bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-md">Quote Pending</span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Order Confirmed</label>
-                            <span class="inline-flex items-center bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md">Order Confirmed</span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Order Complete</label>
-                            <span class="inline-flex items-center bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md">Order Complete</span>
-                        </div>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'order-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'order-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'order-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="order-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <span class="inline-flex items-center bg-sky-100 text-sky-800 text-xs font-medium px-3 py-1.5 rounded-md">Quote Received</span>
+                        <span class="inline-flex items-center bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-md">Quote Pending</span>
+                        <span class="inline-flex items-center bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md">Order Confirmed</span>
+                        <span class="inline-flex items-center bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md">Order Complete</span>
                     </div>
                 </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                
+                <div id="order-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;span class="inline-flex items-center bg-sky-100 text-sky-800 text-xs font-medium px-3 py-1.5 rounded-md"&gt;Quote Received&lt;/span&gt;
+&lt;span class="inline-flex items-center bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-md"&gt;Quote Pending&lt;/span&gt;
+&lt;span class="inline-flex items-center bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md"&gt;Order Confirmed&lt;/span&gt;</code></pre>
                     </div>
-                    <pre><code>// Order Status Badge Component
-const OrderStatusBadge = ({ status, children }) => {
+                </div>
+                
+                <div id="order-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const OrderStatusBadge = ({ status, children }) => {
   const statusStyles = {
     info: 'bg-sky-100 text-sky-800',
     warning: 'bg-amber-50 text-amber-800',
     success: 'bg-emerald-100 text-emerald-800',
-    complete: 'bg-emerald-100 text-emerald-800',
   };
 
   return (
@@ -268,122 +301,6 @@ const OrderStatusBadge = ({ status, children }) => {
 &lt;OrderStatusBadge status="info"&gt;Quote Received&lt;/OrderStatusBadge&gt;
 &lt;OrderStatusBadge status="warning"&gt;Quote Pending&lt;/OrderStatusBadge&gt;
 &lt;OrderStatusBadge status="success"&gt;Order Confirmed&lt;/OrderStatusBadge&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- SUPPLIER TYPE BADGES -->
-            <section class="section">
-                <h2>Supplier Type Badges</h2>
-                <p>Identify business types and specializations on supplier profiles.</p>
-                
-                <div class="component-demo">
-                    <div class="demo-row">
-                        <div class="demo-item">
-                            <label>Exporter</label>
-                            <span class="inline-flex items-center bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1.5 rounded-md">Exporter</span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Wholesale</label>
-                            <span class="inline-flex items-center bg-kelp-50 text-kelp-700 text-xs font-medium px-3 py-1.5 rounded-md">Wholesale</span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Top Rated</label>
-                            <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-md">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">⭐</span>
-                                Top Rated
-                            </span>
-                        </div>
-                        <div class="demo-item">
-                            <label>Verified</label>
-                            <span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 text-xs font-medium px-3 py-1.5 rounded-md">
-                                <span class="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current">✓</span>
-                                Verified
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>// Supplier Badge Component
-const SupplierBadge = ({ type, icon, children }) => {
-  const types = {
-    default: 'bg-kelp-50 text-kelp-700',
-    topRated: 'bg-amber-50 text-amber-800',
-    verified: 'bg-emerald-100 text-emerald-800',
-  };
-
-  return (
-    &lt;span className={`inline-flex items-center gap-1 ${types[type] || types.default} text-xs font-medium px-3 py-1.5 rounded-md`}&gt;
-      {icon && (
-        &lt;span className="inline-flex items-center justify-center w-3.5 h-3.5 text-[10px] bg-black/10 rounded-sm border border-current"&gt;
-          {icon}
-        &lt;/span&gt;
-      )}
-      {children}
-    &lt;/span&gt;
-  );
-};
-
-// Usage
-&lt;SupplierBadge type="default"&gt;Exporter&lt;/SupplierBadge&gt;
-&lt;SupplierBadge type="topRated" icon="⭐"&gt;Top Rated&lt;/SupplierBadge&gt;
-&lt;SupplierBadge type="verified" icon="✓"&gt;Verified&lt;/SupplierBadge&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Use status badges sparingly - maximum 1-2 per product card</li>
-                            <li>Always provide icon space for certification logos</li>
-                            <li>Use uppercase text for status badges (POPULAR, NEW, LIMITED)</li>
-                            <li>Use title case for order status badges (Quote Received)</li>
-                            <li>Group certification badges together</li>
-                            <li>Ensure sufficient color contrast for accessibility</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't use more than 2 status badges per product</li>
-                            <li>Don't use certification badges without proper licensing</li>
-                            <li>Don't make badges interactive unless they filter/navigate</li>
-                            <li>Don't use custom colors outside the defined palette</li>
-                            <li>Don't stretch badges - let content define width</li>
-                            <li>Don't use badges for general text labels</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Color Contrast:</strong> All badge combinations meet WCAG AA standards (4.5:1 minimum)</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Icon Alt Text:</strong> Provide meaningful alt text for certification logo images</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Semantic HTML:</strong> Use &lt;span&gt; for non-interactive badges, &lt;button&gt; if clickable</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Screen Readers:</strong> Badge text is concise and descriptive</p>
                     </div>
                 </div>
             </section>
@@ -396,6 +313,18 @@ const SupplierBadge = ({ type, icon, children }) => {
 
     <script src="navigation.js"></script>
     <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            section.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;

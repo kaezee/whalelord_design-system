@@ -8,6 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--color-neutral-200);
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .tab-btn {
+            padding: var(--spacing-3) var(--spacing-5);
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-600);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            color: var(--color-primary-500);
+        }
+        
+        .tab-btn.active {
+            color: var(--color-primary-500);
+            border-bottom-color: var(--color-primary-500);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .preview-box {
+            background: white;
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-6);
+        }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -29,40 +76,60 @@
                 <p class="hero-subtitle">Text input components for forms and data entry. Includes multiple states, sizes, and validation styles.</p>
             </header>
 
-            <!-- BASIC TEXT INPUTS -->
+            <!-- BASIC INPUTS -->
             <section class="section">
-                <h2>Basic Text Inputs</h2>
-                <p>Standard text input fields in three sizes: small (32px), medium (40px), and large (48px).</p>
+                <h2>Input Sizes</h2>
+                <p>Text input fields in three sizes: small (32px), medium (40px), and large (48px).</p>
                 
-                <div class="component-demo">
-                    <div style="max-width: 500px;">
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Small Input</label>
-                            <input type="text" placeholder="Enter text..." class="w-full h-8 px-3 text-sm text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Medium Input (Default)</label>
-                            <input type="text" placeholder="Enter text..." class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Large Input</label>
-                            <input type="text" placeholder="Enter text..." class="w-full h-12 px-5 text-lg text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'sizes-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'sizes-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'sizes-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="sizes-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 500px;">
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Small Input</label>
+                                <input type="text" placeholder="Enter text..." style="width: 100%; height: 32px; padding: 0 12px; font-size: 14px; color: #171923; background: white; border: 1px solid #CBD5E0; border-radius: 8px; outline: none; transition: all 0.2s;" />
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Medium Input (Default)</label>
+                                <input type="text" placeholder="Enter text..." style="width: 100%; height: 40px; padding: 0 16px; font-size: 16px; color: #171923; background: white; border: 1px solid #CBD5E0; border-radius: 8px; outline: none; transition: all 0.2s;" />
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Large Input</label>
+                                <input type="text" placeholder="Enter text..." style="width: 100%; height: 48px; padding: 0 20px; font-size: 18px; color: #171923; background: white; border: 1px solid #CBD5E0; border-radius: 8px; outline: none; transition: all 0.2s;" />
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <div id="sizes-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Small --&gt;
+&lt;input type="text" placeholder="Enter text..." class="w-full h-8 px-3 text-sm text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10" /&gt;
 
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+&lt;!-- Medium (Default) --&gt;
+&lt;input type="text" placeholder="Enter text..." class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10" /&gt;
+
+&lt;!-- Large --&gt;
+&lt;input type="text" placeholder="Enter text..." class="w-full h-12 px-5 text-lg text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10" /&gt;</code></pre>
                     </div>
-                    <pre><code>// Input Component
-const Input = ({ 
-  label, 
-  size = 'md', 
-  placeholder,
-  ...props 
-}) => {
+                </div>
+                
+                <div id="sizes-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const Input = ({ label, size = 'md', placeholder, ...props }) => {
   const sizes = {
     sm: 'h-8 px-3 text-sm',
     md: 'h-10 px-4 text-base',
@@ -89,6 +156,7 @@ const Input = ({
 // Usage
 &lt;Input label="Email Address" placeholder="you@example.com" /&gt;
 &lt;Input label="Company Name" size="lg" placeholder="Enter company name..." /&gt;</code></pre>
+                    </div>
                 </div>
             </section>
 
@@ -97,42 +165,63 @@ const Input = ({
                 <h2>Input States</h2>
                 <p>Different visual states for validation and user feedback.</p>
                 
-                <div class="component-demo">
-                    <div style="max-width: 500px;">
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Default State</label>
-                            <input type="text" placeholder="Normal input field" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Error State</label>
-                            <input type="email" value="invalid-email" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-crimson-500 rounded-md focus:outline-none focus:border-crimson-500 focus:ring-3 focus:ring-crimson-500/10 transition-all" />
-                            <span class="block text-xs text-crimson-500 mt-2">Please enter a valid email address</span>
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Success State</label>
-                            <input type="text" value="Valid input" class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-coral-500 rounded-md focus:outline-none focus:border-coral-500 focus:ring-3 focus:ring-coral-500/10 transition-all" />
-                            <span class="block text-xs text-coral-500 mt-2">Looks good!</span>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Disabled State</label>
-                            <input type="text" placeholder="Disabled input" disabled class="w-full h-10 px-4 text-base text-pearl-500 bg-pearl-100 border border-pearl-200 rounded-md cursor-not-allowed" />
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'states-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'states-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'states-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="states-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 500px;">
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Default State</label>
+                                <input type="text" placeholder="Normal input field" style="width: 100%; height: 40px; padding: 0 16px; font-size: 16px; color: #171923; background: white; border: 1px solid #CBD5E0; border-radius: 8px;" />
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Error State</label>
+                                <input type="email" value="invalid-email" style="width: 100%; height: 40px; padding: 0 16px; font-size: 16px; color: #171923; background: white; border: 1px solid #E53E3E; border-radius: 8px;" />
+                                <span style="display: block; font-size: 12px; color: #E53E3E; margin-top: 8px;">Please enter a valid email address</span>
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Success State</label>
+                                <input type="text" value="Valid input" style="width: 100%; height: 40px; padding: 0 16px; font-size: 16px; color: #171923; background: white; border: 1px solid #48BB78; border-radius: 8px;" />
+                                <span style="display: block; font-size: 12px; color: #48BB78; margin-top: 8px;">Looks good!</span>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Disabled State</label>
+                                <input type="text" placeholder="Disabled input" disabled style="width: 100%; height: 40px; padding: 0 16px; font-size: 16px; color: #718096; background: #EDF2F7; border: 1px solid #E2E8F0; border-radius: 8px; cursor: not-allowed;" />
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <div id="states-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Error State --&gt;
+&lt;input class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-crimson-500 rounded-md focus:outline-none focus:border-crimson-500 focus:ring-3 focus:ring-crimson-500/10" /&gt;
+&lt;span class="block text-xs text-crimson-500 mt-2"&gt;Error message&lt;/span&gt;
 
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+&lt;!-- Success State --&gt;
+&lt;input class="w-full h-10 px-4 text-base text-pearl-900 bg-white border border-coral-500 rounded-md focus:outline-none focus:border-coral-500 focus:ring-3 focus:ring-coral-500/10" /&gt;
+&lt;span class="block text-xs text-coral-500 mt-2"&gt;Success message&lt;/span&gt;
+
+&lt;!-- Disabled --&gt;
+&lt;input disabled class="w-full h-10 px-4 text-base text-pearl-500 bg-pearl-100 border border-pearl-200 rounded-md cursor-not-allowed" /&gt;</code></pre>
                     </div>
-                    <pre><code>// Input with Validation Component
-const Input = ({ 
-  label,
-  error,
-  success,
-  helperText,
-  ...props 
-}) => {
+                </div>
+                
+                <div id="states-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const Input = ({ label, error, success, helperText, ...props }) => {
   const getStateClasses = () => {
     if (error) return 'border-crimson-500 focus:border-crimson-500 focus:ring-crimson-500/10';
     if (success) return 'border-coral-500 focus:border-coral-500 focus:ring-coral-500/10';
@@ -163,90 +252,8 @@ const Input = ({
       )}
     &lt;/div&gt;
   );
-};
-
-// Usage
-&lt;Input label="Email" error helperText="Invalid email address" /&gt;
-&lt;Input label="Username" success helperText="Username available!" /&gt;
-&lt;Input label="Read Only" disabled value="Cannot edit" /&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- INPUT WITH ICON -->
-            <section class="section">
-                <h2>Input with Icon</h2>
-                <p>Input fields with leading icons for enhanced visual clarity.</p>
-                
-                <div class="component-demo">
-                    <div style="max-width: 500px;">
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Search</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                    </svg>
-                                </div>
-                                <input type="search" placeholder="Search products..." class="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-sm font-medium text-pearl-700 mb-2">Email Address</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <input type="email" placeholder="you@example.com" class="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all" />
-                            </div>
-                        </div>
+};</code></pre>
                     </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>// Input with Icon Component
-const InputWithIcon = ({ 
-  label,
-  icon: Icon,
-  ...props 
-}) => (
-  &lt;div className="mb-5"&gt;
-    {label && (
-      &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
-        {label}
-      &lt;/label&gt;
-    )}
-    &lt;div className="relative"&gt;
-      &lt;div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"&gt;
-        &lt;Icon className="w-5 h-5 text-pearl-500" /&gt;
-      &lt;/div&gt;
-      &lt;input
-        className="w-full h-10 pl-10 pr-4 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all"
-        {...props}
-      /&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-);
-
-// Usage with react-icons or lucide-react
-import { Search, Mail } from 'lucide-react';
-
-&lt;InputWithIcon 
-  label="Search" 
-  icon={Search} 
-  placeholder="Search products..." 
-/&gt;
-&lt;InputWithIcon 
-  label="Email" 
-  icon={Mail} 
-  type="email"
-  placeholder="you@example.com" 
-/&gt;</code></pre>
                 </div>
             </section>
 
@@ -255,30 +262,47 @@ import { Search, Mail } from 'lucide-react';
                 <h2>Textarea</h2>
                 <p>Multi-line text input for longer content.</p>
                 
-                <div class="component-demo">
-                    <div style="max-width: 500px;">
-                        <label class="block text-sm font-medium text-pearl-700 mb-2">Message</label>
-                        <textarea 
-                            placeholder="Enter your message here..."
-                            rows="4"
-                            class="w-full px-4 py-3 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all resize-vertical"
-                        ></textarea>
-                        <span class="block text-xs text-pearl-600 mt-2">Maximum 500 characters</span>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'textarea-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'textarea-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'textarea-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="textarea-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 500px; width: 100%;">
+                            <label style="display: block; font-size: 14px; font-weight: 500; color: #2D3748; margin-bottom: 8px;">Message</label>
+                            <textarea 
+                                placeholder="Enter your message here..."
+                                rows="4"
+                                style="width: 100%; padding: 12px 16px; font-size: 16px; color: #171923; background: white; border: 1px solid #CBD5E0; border-radius: 8px; resize: vertical; font-family: Inter, sans-serif;"
+                            ></textarea>
+                            <span style="display: block; font-size: 12px; color: #718096; margin-top: 8px;">Maximum 500 characters</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                
+                <div id="textarea-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;textarea 
+  rows="4"
+  placeholder="Enter your message..."
+  class="w-full px-4 py-3 text-base text-pearl-900 bg-white border border-pearl-300 rounded-md focus:outline-none focus:border-kelp-500 focus:ring-3 focus:ring-kelp-500/10 transition-all resize-vertical"
+&gt;&lt;/textarea&gt;</code></pre>
                     </div>
-                    <pre><code>// Textarea Component
-const Textarea = ({ 
-  label,
-  helperText,
-  rows = 4,
-  ...props 
-}) => (
+                </div>
+                
+                <div id="textarea-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const Textarea = ({ label, helperText, rows = 4, ...props }) => (
   &lt;div className="mb-5"&gt;
     {label && (
       &lt;label className="block text-sm font-medium text-pearl-700 mb-2"&gt;
@@ -305,58 +329,6 @@ const Textarea = ({
   helperText="Maximum 500 characters"
   rows={4}
 /&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Use clear, descriptive labels for all input fields</li>
-                            <li>Provide helpful placeholder text as examples</li>
-                            <li>Show validation feedback immediately when possible</li>
-                            <li>Use appropriate input types (email, tel, number, etc.)</li>
-                            <li>Maintain consistent spacing between form fields</li>
-                            <li>Use helper text to clarify requirements</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't use placeholder text as a substitute for labels</li>
-                            <li>Don't make inputs unnecessarily small on mobile</li>
-                            <li>Don't show error states before user interaction</li>
-                            <li>Don't use vague error messages like "Invalid input"</li>
-                            <li>Don't disable inputs without explanation</li>
-                            <li>Don't make required fields unclear</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Labels:</strong> All inputs have associated labels for screen readers</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Focus Indicators:</strong> Clear focus rings for keyboard navigation</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Error Messages:</strong> Validation errors are announced to screen readers</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Touch Targets:</strong> Minimum 44x44px tap targets on mobile</p>
                     </div>
                 </div>
             </section>
@@ -369,6 +341,18 @@ const Textarea = ({
 
     <script src="navigation.js"></script>
     <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            section.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;

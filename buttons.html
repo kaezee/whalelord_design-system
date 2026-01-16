@@ -275,6 +275,190 @@
                 </div>
             </section>
 
+            <!-- BUTTONS WITH ICONS -->
+            <section class="section">
+                <h2>Buttons with Icons</h2>
+                <p>Buttons can include icons on either side. Icons should be 16×16px and use consistent stroke weight.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'icons-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'icons-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'icons-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="icons-preview" class="tab-content active">
+                    <div class="preview-box" style="background: #F7FAFC;">
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Icon Left</h4>
+                            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
+                                    <span style="font-size: 16px;">→</span>
+                                    Request Quote
+                                </button>
+                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors">
+                                    <span style="font-size: 16px;">+</span>
+                                    Add to Cart
+                                </button>
+                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md hover:bg-kelp-50 transition-colors">
+                                    <span style="font-size: 16px;">⊕</span>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Icon Right</h4>
+                            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors">
+                                    Continue
+                                    <span style="font-size: 16px;">→</span>
+                                </button>
+                                <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md hover:bg-pearl-50 transition-colors">
+                                    Export
+                                    <span style="font-size: 16px;">↓</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="icons-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Icon Left --&gt;
+&lt;button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"&gt;
+  &lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+    &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+  Request Quote
+&lt;/button&gt;
+
+&lt;!-- Icon Right --&gt;
+&lt;button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"&gt;
+  Continue
+  &lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+    &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="icons-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>import { ArrowRight, Plus, Eye, Download } from 'lucide-react';
+
+const IconButton = ({ icon: Icon, iconPosition = 'left', children, ...props }) => (
+  &lt;button
+    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 transition-colors"
+    {...props}
+  &gt;
+    {iconPosition === 'left' && Icon && &lt;Icon className="w-4 h-4" /&gt;}
+    {children}
+    {iconPosition === 'right' && Icon && &lt;Icon className="w-4 h-4" /&gt;}
+  &lt;/button&gt;
+);
+
+// Usage
+&lt;IconButton icon={ArrowRight} iconPosition="left"&gt;
+  Request Quote
+&lt;/IconButton&gt;
+
+&lt;IconButton icon={ArrowRight} iconPosition="right"&gt;
+  Continue
+&lt;/IconButton&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOADING STATES -->
+            <section class="section">
+                <h2>Loading States</h2>
+                <p>Show loading spinners during asynchronous operations.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'loading-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'loading-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'loading-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="loading-preview" class="tab-content active">
+                    <div class="preview-box" style="background: #F7FAFC;">
+                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md relative" disabled>
+                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span style="opacity: 0.7;">Loading...</span>
+                        </button>
+                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-pearl-900 bg-transparent border border-pearl-300 rounded-md relative" disabled>
+                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span style="opacity: 0.7;">Processing...</span>
+                        </button>
+                        <button class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-kelp-500 bg-transparent rounded-md relative" disabled>
+                            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span style="opacity: 0.7;">Loading...</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loading-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;button disabled class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md"&gt;
+  &lt;svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"&gt;
+    &lt;circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"&gt;&lt;/circle&gt;
+    &lt;path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"&gt;&lt;/path&gt;
+  &lt;/svg&gt;
+  Loading...
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="loading-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const Button = ({ loading, children, ...props }) => (
+  &lt;button
+    disabled={loading}
+    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-base font-medium text-white bg-kelp-500 rounded-md hover:bg-kelp-700 disabled:opacity-70 transition-colors"
+    {...props}
+  &gt;
+    {loading && (
+      &lt;svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"&gt;
+        &lt;circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"&gt;&lt;/circle&gt;
+        &lt;path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"&gt;&lt;/path&gt;
+      &lt;/svg&gt;
+    )}
+    {children}
+  &lt;/button&gt;
+);
+
+// Usage
+&lt;Button loading={isSubmitting}&gt;
+  {isSubmitting ? 'Submitting...' : 'Submit'}
+&lt;/Button&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
             <!-- ON DARK BACKGROUND -->
             <section class="section">
                 <h2>Buttons on Dark Background</h2>

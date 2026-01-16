@@ -9,20 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        .accordion-item.active .accordion-content {
-            max-height: 500px;
-        }
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
+        .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--color-neutral-200); margin-bottom: var(--spacing-6); }
+        .tab-btn { padding: var(--spacing-3) var(--spacing-5); background: none; border: none; font-family: var(--font-body); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--color-primary-500); }
+        .tab-btn.active { color: var(--color-primary-500); border-bottom-color: var(--color-primary-500); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .preview-box { background: white; border: 1px solid var(--color-neutral-200); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .accordion-item.active .accordion-content { max-height: 500px; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); }
     </style>
 </head>
 <body>
@@ -45,101 +42,90 @@
                 <p class="hero-subtitle">Collapsible content panels for organizing information hierarchically. Perfect for FAQs, product details, and settings.</p>
             </header>
 
-            <!-- BASIC ACCORDION -->
             <section class="section">
                 <h2>Basic Accordion</h2>
                 <p>Standard accordion with single or multiple panels that can be expanded.</p>
                 
-                <div class="component-demo">
-                    <div style="max-width: 700px;">
-                        <div class="border border-pearl-200 rounded-md overflow-hidden">
-                            <!-- Item 1 -->
-                            <div class="accordion-item border-b border-pearl-200 last:border-b-0">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>What is your return policy?</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4 text-pearl-700 leading-relaxed">
-                                        We accept returns within 30 days of delivery for most products. Items must be unused and in their original packaging. Perishable seafood products cannot be returned once delivered.
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'accordion-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'accordion-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'accordion-react')">React + Tailwind</button>
+                </div>
+                
+                <div id="accordion-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 700px; width: 100%;">
+                            <div style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
+                                <div class="accordion-item" style="border-bottom: 1px solid #E2E8F0;">
+                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: white; border: none; text-align: left; font-size: 16px; font-weight: 600; color: #171923; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                        <span>What is your return policy?</span>
+                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: #718096;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="accordion-content">
+                                        <div style="padding: 0 20px 16px; color: #2D3748; line-height: 1.75;">
+                                            We accept returns within 30 days of delivery for most products. Items must be unused and in their original packaging.
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="accordion-item border-b border-pearl-200 last:border-b-0">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>How do I track my order?</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4 text-pearl-700 leading-relaxed">
-                                        Once your order ships, you'll receive a tracking number via email. You can also view your order status by logging into your account and visiting the Orders page.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="accordion-item">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>What certifications do you offer?</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4 text-pearl-700 leading-relaxed">
-                                        All our suppliers maintain MSC (Marine Stewardship Council), ASC (Aquaculture Stewardship Council), and Global G.A.P. certifications. Certificates are available on request.
+                                <div class="accordion-item">
+                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: white; border: none; text-align: left; font-size: 16px; font-weight: 600; color: #171923; cursor: pointer; display: flex; justify-between; align-items: center;">
+                                        <span>How do I track my order?</span>
+                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: #718096;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="accordion-content">
+                                        <div style="padding: 0 20px 16px; color: #2D3748; line-height: 1.75;">
+                                            Once your order ships, you'll receive a tracking number via email.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-
-const AccordionItem = ({ title, children, isOpen, onToggle }) => (
-  &lt;div className="border-b border-pearl-200 last:border-b-0"&gt;
-    &lt;button
-      onClick={onToggle}
-      className="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors"
-    &gt;
-      &lt;span&gt;{title}&lt;/span&gt;
-      &lt;ChevronDown
-        className={`w-5 h-5 text-pearl-500 transition-transform ${
-          isOpen ? 'rotate-180' : ''
-        }`}
-      /&gt;
+                
+                <div id="accordion-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;div class="border border-pearl-200 rounded-md overflow-hidden"&gt;
+  &lt;div class="border-b border-pearl-200 last:border-0"&gt;
+    &lt;button onclick="toggleItem(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50"&gt;
+      &lt;span&gt;What is your return policy?&lt;/span&gt;
+      &lt;svg class="w-5 h-5 text-pearl-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+        &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"&gt;&lt;/path&gt;
+      &lt;/svg&gt;
     &lt;/button&gt;
-    &lt;div
-      className={`overflow-hidden transition-all duration-300 ${
-        isOpen ? 'max-h-96' : 'max-h-0'
-      }`}
-    &gt;
-      &lt;div className="px-5 pb-4 text-pearl-700 leading-relaxed"&gt;
-        {children}
+    &lt;div class="max-h-0 overflow-hidden transition-all duration-300"&gt;
+      &lt;div class="px-5 pb-4 text-pearl-700 leading-relaxed"&gt;
+        Content here...
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-);
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="accordion-react" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>React + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
-const Accordion = ({ items, allowMultiple = false }) => {
+const Accordion = ({ items }) => {
   const [openItems, setOpenItems] = useState(new Set());
 
   const toggleItem = (index) => {
     setOpenItems((prev) => {
-      const newSet = allowMultiple ? new Set(prev) : new Set();
+      const newSet = new Set(prev);
       if (prev.has(index)) {
         newSet.delete(index);
       } else {
@@ -152,219 +138,32 @@ const Accordion = ({ items, allowMultiple = false }) => {
   return (
     &lt;div className="border border-pearl-200 rounded-md overflow-hidden"&gt;
       {items.map((item, index) => (
-        &lt;AccordionItem
-          key={index}
-          title={item.title}
-          isOpen={openItems.has(index)}
-          onToggle={() => toggleItem(index)}
-        &gt;
-          {item.content}
-        &lt;/AccordionItem&gt;
+        &lt;div key={index} className="border-b border-pearl-200 last:border-0"&gt;
+          &lt;button
+            onClick={() => toggleItem(index)}
+            className="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50"
+          &gt;
+            &lt;span&gt;{item.title}&lt;/span&gt;
+            &lt;ChevronDown
+              className={`w-5 h-5 text-pearl-500 transition-transform ${
+                openItems.has(index) ? 'rotate-180' : ''
+              }`}
+            /&gt;
+          &lt;/button&gt;
+          &lt;div
+            className={`overflow-hidden transition-all duration-300 ${
+              openItems.has(index) ? 'max-h-96' : 'max-h-0'
+            }`}
+          &gt;
+            &lt;div className="px-5 pb-4 text-pearl-700 leading-relaxed"&gt;
+              {item.content}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       ))}
     &lt;/div&gt;
   );
-};
-
-// Usage
-const faqItems = [
-  {
-    title: 'What is your return policy?',
-    content: 'We accept returns within 30 days of delivery...',
-  },
-  {
-    title: 'How do I track my order?',
-    content: 'Once your order ships, you\'ll receive a tracking number...',
-  },
-];
-
-&lt;Accordion items={faqItems} allowMultiple={false} /&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- PRODUCT DETAILS ACCORDION -->
-            <section class="section">
-                <h2>Product Details Accordion</h2>
-                <p>Specialized accordion for displaying product specifications and details.</p>
-                
-                <div class="component-demo">
-                    <div style="max-width: 700px;">
-                        <div class="border border-pearl-200 rounded-md overflow-hidden">
-                            <!-- Specifications -->
-                            <div class="accordion-item active border-b border-pearl-200">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>Specifications</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4">
-                                        <table class="w-full text-sm">
-                                            <tr class="border-b border-pearl-100">
-                                                <td class="py-2 text-pearl-600 font-medium">Species</td>
-                                                <td class="py-2 text-pearl-900">Atlantic Bluefin Tuna</td>
-                                            </tr>
-                                            <tr class="border-b border-pearl-100">
-                                                <td class="py-2 text-pearl-600 font-medium">Origin</td>
-                                                <td class="py-2 text-pearl-900">North Atlantic Ocean</td>
-                                            </tr>
-                                            <tr class="border-b border-pearl-100">
-                                                <td class="py-2 text-pearl-600 font-medium">Processing</td>
-                                                <td class="py-2 text-pearl-900">Fresh, Wild-Caught</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-2 text-pearl-600 font-medium">Weight Range</td>
-                                                <td class="py-2 text-pearl-900">15-25 kg per fish</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Certifications -->
-                            <div class="accordion-item border-b border-pearl-200">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>Certifications</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4 text-pearl-700 leading-relaxed">
-                                        <ul class="space-y-2">
-                                            <li class="flex items-center gap-2">
-                                                <span class="text-coral-500">✓</span>
-                                                MSC Certified Sustainable Seafood
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="text-coral-500">✓</span>
-                                                Global G.A.P. Aquaculture Standard
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="text-coral-500">✓</span>
-                                                HACCP Food Safety Certified
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Shipping Info -->
-                            <div class="accordion-item">
-                                <button onclick="toggleAccordion(this)" class="w-full px-5 py-4 bg-white text-left text-base font-semibold text-pearl-900 flex justify-between items-center hover:bg-pearl-50 transition-colors">
-                                    <span>Shipping & Storage</span>
-                                    <svg class="accordion-icon w-5 h-5 text-pearl-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                                <div class="accordion-content">
-                                    <div class="px-5 pb-4 text-pearl-700 leading-relaxed">
-                                        <p class="mb-3"><strong>Shipping:</strong> Express cold-chain delivery within 24-48 hours to major ports worldwide.</p>
-                                        <p><strong>Storage:</strong> Store at -18°C to -20°C. Shelf life: 12 months when properly frozen.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>React + Tailwind</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>// Product Accordion with Rich Content
-const ProductAccordion = ({ specifications, certifications, shipping }) => {
-  const [openSection, setOpenSection] = useState('specs');
-
-  return (
-    &lt;div className="border border-pearl-200 rounded-md overflow-hidden"&gt;
-      {/* Specifications */}
-      &lt;AccordionItem
-        title="Specifications"
-        isOpen={openSection === 'specs'}
-        onToggle={() => setOpenSection(openSection === 'specs' ? '' : 'specs')}
-      &gt;
-        &lt;table className="w-full text-sm"&gt;
-          {specifications.map((spec, i) => (
-            &lt;tr key={i} className="border-b border-pearl-100 last:border-0"&gt;
-              &lt;td className="py-2 text-pearl-600 font-medium"&gt;{spec.label}&lt;/td&gt;
-              &lt;td className="py-2 text-pearl-900"&gt;{spec.value}&lt;/td&gt;
-            &lt;/tr&gt;
-          ))}
-        &lt;/table&gt;
-      &lt;/AccordionItem&gt;
-
-      {/* Certifications */}
-      &lt;AccordionItem
-        title="Certifications"
-        isOpen={openSection === 'certs'}
-        onToggle={() => setOpenSection(openSection === 'certs' ? '' : 'certs')}
-      &gt;
-        &lt;ul className="space-y-2"&gt;
-          {certifications.map((cert, i) => (
-            &lt;li key={i} className="flex items-center gap-2"&gt;
-              &lt;span className="text-coral-500"&gt;✓&lt;/span&gt;
-              {cert}
-            &lt;/li&gt;
-          ))}
-        &lt;/ul&gt;
-      &lt;/AccordionItem&gt;
-    &lt;/div&gt;
-  );
 };</code></pre>
-                </div>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Use clear, descriptive titles for each section</li>
-                            <li>Keep content concise within each panel</li>
-                            <li>Use accordions for FAQ sections and product details</li>
-                            <li>Indicate expanded state with icon rotation</li>
-                            <li>Allow keyboard navigation (Enter/Space to toggle)</li>
-                            <li>Consider allowing multiple panels open simultaneously</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't nest accordions more than one level deep</li>
-                            <li>Don't hide critical information in closed panels</li>
-                            <li>Don't use accordions for navigation menus</li>
-                            <li>Don't make panels too tall - keep content scannable</li>
-                            <li>Don't use accordions when all content should be visible</li>
-                            <li>Don't forget smooth transitions for better UX</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Keyboard Navigation:</strong> Enter or Space to toggle panels, Tab to move between items</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>ARIA Attributes:</strong> Use aria-expanded and aria-controls for screen readers</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Focus Indicators:</strong> Clear visual focus states on accordion headers</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Semantic HTML:</strong> Use button elements for interactive headers</p>
                     </div>
                 </div>
             </section>
@@ -380,24 +179,23 @@ const ProductAccordion = ({ specifications, certifications, shipping }) => {
         function toggleAccordion(button) {
             const item = button.closest('.accordion-item');
             const wasActive = item.classList.contains('active');
-            
-            // Close all items (for single-open behavior)
             document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-            
-            // Toggle current item
-            if (!wasActive) {
-                item.classList.add('active');
-            }
+            if (!wasActive) item.classList.add('active');
         }
-
+        
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            section.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(codeBlock.textContent).then(() => {
                 btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                }, 2000);
+                setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
             });
         }
     </script>

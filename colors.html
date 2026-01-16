@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .hero {
+            text-align: right;
+            padding: var(--spacing-16) 0;
+        }
+
         .color-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -33,6 +38,7 @@
         }
 
         .color-name {
+            font-family: var(--font-body);
             font-weight: var(--font-weight-semibold);
             font-size: var(--font-size-sm);
             margin-bottom: var(--spacing-1);
@@ -48,13 +54,28 @@
             margin-bottom: var(--spacing-16);
         }
 
+        .component-section h2 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .component-section > p {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-6);
+            line-height: var(--line-height-relaxed);
+        }
+
         .usage-note {
-            background: var(--color-surface-sand);
-            padding: var(--spacing-4);
+            background: var(--color-shore-sand);
+            padding: var(--spacing-5);
             border-radius: var(--radius-md);
+            font-family: var(--font-body);
             font-size: var(--font-size-sm);
             margin-top: var(--spacing-4);
-            line-height: 1.6;
+            line-height: var(--line-height-relaxed);
         }
     </style>
 </head>
@@ -77,167 +98,229 @@
         <div class="container-with-sidenav">
             <header class="hero">
                 <h1>Colors</h1>
-                <p class="hero-subtitle">Ocean-inspired palette for Whalelord marketplace interfaces.</p>
+                <p class="hero-subtitle">Ocean-inspired palette shaping trust and clarity in B2B seafood transactions.</p>
             </header>
 
-            <!-- PRIMARY BRAND -->
+            <!-- PRIMARY BRAND - WAVES -->
             <section class="component-section">
-                <h2>Primary Brand (Kelp)</h2>
+                <h2>Primary Brand — Waves</h2>
+                <p>Deep ocean blues that convey trust, professionalism, and stability. Used for primary actions, links, and interactive elements that guide buyers through confident purchasing decisions.</p>
 
                 <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #E6F2F8"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp 50</div>
+                            <div class="color-name">Waves 50</div>
                             <div class="color-value">#E6F2F8</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #CCE5F1"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp 100</div>
+                            <div class="color-name">Waves 100</div>
                             <div class="color-value">#CCE5F1</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #99CBE3"></div>
+                        <div class="color-info">
+                            <div class="color-name">Waves 200</div>
+                            <div class="color-value">#99CBE3</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #66B1D5"></div>
+                        <div class="color-info">
+                            <div class="color-name">Waves 300</div>
+                            <div class="color-value">#66B1D5</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #025E96"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp 500</div>
+                            <div class="color-name">Waves 500</div>
                             <div class="color-value">#025E96</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #01385A"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp 700</div>
+                            <div class="color-name">Waves 700</div>
                             <div class="color-value">#01385A</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #01121E"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp 900</div>
+                            <div class="color-name">Waves 900</div>
                             <div class="color-value">#01121E</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SURFACES -->
+            <!-- SURFACES - SHORE -->
             <section class="component-section">
-                <h2>Surfaces</h2>
+                <h2>Surfaces — Shore</h2>
+                <p>Neutral foundations that create breathing room for product imagery and transaction details. Like a clean shore, these surfaces let content stand out without distraction.</p>
 
                 <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #F7FAFC"></div>
                         <div class="color-info">
-                            <div class="color-name">Base</div>
+                            <div class="color-name">Shore Base</div>
                             <div class="color-value">#F7FAFC</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #D9F0F2"></div>
                         <div class="color-info">
-                            <div class="color-name">Ice</div>
+                            <div class="color-name">Shore Ice</div>
                             <div class="color-value">#D9F0F2</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #EDE6D8"></div>
                         <div class="color-info">
-                            <div class="color-name">Sand</div>
+                            <div class="color-name">Shore Sand</div>
                             <div class="color-value">#EDE6D8</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #E6F2F8"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp</div>
+                            <div class="color-name">Shore Foam</div>
                             <div class="color-value">#E6F2F8</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="usage-note">
-                    <strong>Base:</strong> Default canvas, cards, modals<br>
-                    <strong>Ice:</strong> Data tables, outline button hovers<br>
-                    <strong>Sand:</strong> Editorial sections, footers<br>
-                    <strong>Kelp:</strong> Light buttons on dark backgrounds
+                    <strong>Base:</strong> Default canvas for product cards and marketplace views<br>
+                    <strong>Ice:</strong> Secondary sections, data tables, hover states that signal interactivity<br>
+                    <strong>Sand:</strong> Editorial content, empty states, footer areas<br>
+                    <strong>Foam:</strong> Light accents on dark backgrounds, subtle highlights
                 </div>
             </section>
 
-            <!-- BORDERS -->
+            <!-- SEMANTIC SIGNALS - CORAL -->
             <section class="component-section">
-                <h2>Borders & Dividers</h2>
+                <h2>Semantic Signals — Coral</h2>
+                <p>Vibrant accents inspired by coral reefs that communicate status, urgency, and feedback. These colors bring life to critical information without overwhelming the professional tone.</p>
 
+                <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); margin: var(--spacing-8) 0 var(--spacing-4) 0;">Success (Coral Green)</h3>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-4);">Confirms successful orders, certifications, and quality indicators</p>
                 <div class="color-grid">
                     <div class="color-swatch">
-                        <div class="color-preview" style="background: #E2E8F0"></div>
+                        <div class="color-preview" style="background: #69DBA5"></div>
                         <div class="color-info">
-                            <div class="color-name">Default</div>
-                            <div class="color-value">#E2E8F0</div>
+                            <div class="color-name">Success 300</div>
+                            <div class="color-value">#69DBA5</div>
                         </div>
                     </div>
-                    <div class="color-swatch">
-                        <div class="color-preview" style="background: #CBD5E0"></div>
-                        <div class="color-info">
-                            <div class="color-name">Neutral</div>
-                            <div class="color-value">#CBD5E0</div>
-                        </div>
-                    </div>
-                    <div class="color-swatch">
-                        <div class="color-preview" style="background: #A0AEC0"></div>
-                        <div class="color-info">
-                            <div class="color-name">Hover</div>
-                            <div class="color-value">#A0AEC0</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SEMANTIC SIGNALS -->
-            <section class="component-section">
-                <h2>Semantic Signals</h2>
-
-                <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #48BB78"></div>
                         <div class="color-info">
-                            <div class="color-name">Success</div>
+                            <div class="color-name">Success 500</div>
                             <div class="color-value">#48BB78</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #2C7048"></div>
+                        <div class="color-info">
+                            <div class="color-name">Success 700</div>
+                            <div class="color-value">#2C7048</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); margin: var(--spacing-8) 0 var(--spacing-4) 0;">Error (Coral Red)</h3>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-4);">Alerts buyers to stock issues, validation errors, and urgent attention needs</p>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E57A6A"></div>
+                        <div class="color-info">
+                            <div class="color-name">Error 300</div>
+                            <div class="color-value">#E57A6A</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #C24E3A"></div>
                         <div class="color-info">
-                            <div class="color-name">Error</div>
+                            <div class="color-name">Error 500</div>
                             <div class="color-value">#C24E3A</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #742F22"></div>
+                        <div class="color-info">
+                            <div class="color-name">Error 700</div>
+                            <div class="color-value">#742F22</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); margin: var(--spacing-8) 0 var(--spacing-4) 0;">Warning (Coral Amber)</h3>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-4);">Highlights limited stock, seasonal availability, and pending confirmations</p>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #FBBF24"></div>
+                        <div class="color-info">
+                            <div class="color-name">Warning 300</div>
+                            <div class="color-value">#FBBF24</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #F59E0B"></div>
                         <div class="color-info">
-                            <div class="color-name">Warning</div>
+                            <div class="color-name">Warning 500</div>
                             <div class="color-value">#F59E0B</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #B45309"></div>
+                        <div class="color-info">
+                            <div class="color-name">Warning 700</div>
+                            <div class="color-value">#B45309</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); margin: var(--spacing-8) 0 var(--spacing-4) 0;">Info (Uses Waves)</h3>
+                <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--spacing-4);">Provides helpful tips, market insights, and non-critical updates</p>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #66B1D5"></div>
+                        <div class="color-info">
+                            <div class="color-name">Info 300</div>
+                            <div class="color-value">#66B1D5</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #025E96"></div>
                         <div class="color-info">
-                            <div class="color-name">Info</div>
+                            <div class="color-name">Info 500</div>
                             <div class="color-value">#025E96</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #01385A"></div>
+                        <div class="color-info">
+                            <div class="color-name">Info 700</div>
+                            <div class="color-value">#01385A</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="usage-note">
-                    Use for icons, badges, and highlights only.
+                    Use Coral colors for badges, icons, alerts, and status indicators. Never use as primary button fills.
                 </div>
             </section>
 
             <!-- TEXT COLORS -->
             <section class="component-section">
                 <h2>Text Colors</h2>
+                <p>Clear hierarchy for readability across product details, pricing, and supplier information.</p>
 
                 <div class="color-grid">
                     <div class="color-swatch">
@@ -264,9 +347,40 @@
                 </div>
             </section>
 
+            <!-- BORDERS -->
+            <section class="component-section">
+                <h2>Borders & Dividers</h2>
+                <p>Subtle separation for cards, tables, and form elements without visual clutter.</p>
+
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #E2E8F0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Default</div>
+                            <div class="color-value">#E2E8F0</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #CBD5E0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Neutral</div>
+                            <div class="color-value">#CBD5E0</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #A0AEC0"></div>
+                        <div class="color-info">
+                            <div class="color-name">Hover</div>
+                            <div class="color-value">#A0AEC0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- NEUTRAL COLORS (PEARL) -->
             <section class="component-section">
-                <h2>Neutral Colors (Pearl)</h2>
+                <h2>Neutral Colors — Pearl</h2>
+                <p>Full grayscale for backgrounds, overlays, and subtle UI elements.</p>
 
                 <div class="color-grid">
                     <div class="color-swatch">
@@ -274,6 +388,13 @@
                         <div class="color-info">
                             <div class="color-name">Pearl 50</div>
                             <div class="color-value">#F7FAFC</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #EDF2F7"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 100</div>
+                            <div class="color-value">#EDF2F7</div>
                         </div>
                     </div>
                     <div class="color-swatch">
@@ -305,10 +426,31 @@
                         </div>
                     </div>
                     <div class="color-swatch">
+                        <div class="color-preview" style="background: #4A5568"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 600</div>
+                            <div class="color-value">#4A5568</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #2D3748"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 700</div>
+                            <div class="color-value">#2D3748</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
                         <div class="color-preview" style="background: #1A202C"></div>
                         <div class="color-info">
                             <div class="color-name">Pearl 800</div>
                             <div class="color-value">#1A202C</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-preview" style="background: #171923"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pearl 900</div>
+                            <div class="color-value">#171923</div>
                         </div>
                     </div>
                 </div>

@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buttons - Compass Design System v2.0</title>
+    <title>Buttons - Compass Design System</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="buttons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--color-neutral-200);
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .tab-btn {
+            padding: var(--spacing-3) var(--spacing-5);
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-neutral-600);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            color: var(--color-primary-500);
+        }
+        
+        .tab-btn.active {
+            color: var(--color-primary-500);
+            border-bottom-color: var(--color-primary-500);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
         .preview-box {
             background: white;
             border: 1px solid var(--color-border-default);
@@ -26,25 +64,17 @@
             background: var(--color-primary-500);
         }
 
-        .section-intro {
-            background: var(--color-surface-ice);
-            padding: var(--spacing-6);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-8);
-            border-left: 4px solid var(--color-primary-500);
+        .component-section {
+            margin-bottom: var(--spacing-16);
         }
 
-        .section-intro p {
-            margin: 0;
-            color: var(--color-text-primary);
+        .component-section h2 {
+            margin-bottom: var(--spacing-2);
         }
 
-        .variant-group {
-            margin-bottom: var(--spacing-12);
-        }
-
-        .variant-group h3 {
-            margin-bottom: var(--spacing-4);
+        .component-section > p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-6);
         }
     </style>
 </head>
@@ -55,7 +85,7 @@
                 <img src="Logo.svg" alt="Whalelord" width="40" height="40">
                 <div class="nav-logo-text">
                     <div class="nav-logo-brand">WHALELORD</div>
-                    <div class="nav-logo-subtitle">Compass Design System v2.0</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
                 </div>
             </div>
         </div>
@@ -66,232 +96,202 @@
     <div class="main-content">
         <div class="container-with-sidenav">
             <header class="hero">
-                <h1>Buttons — Hybrid System v2.0</h1>
-                <p class="hero-subtitle">Complete button hierarchy with Ice hover states, surface-aware variants, and dark background support.</p>
+                <h1>Buttons</h1>
+                <p class="hero-subtitle">Primary interaction elements for Whalelord marketplace interfaces.</p>
             </header>
 
-            <div class="section-intro">
-                <p><strong>One-Line Principle:</strong> Surfaces carry tone. Buttons carry intent. Color carries meaning.</p>
-            </div>
-
-            <!-- LIGHT BACKGROUNDS -->
-            <section class="section">
-                <h2>Light Backgrounds</h2>
-                <p>Use these button variants on white, light gray, or Ice/Sand surfaces.</p>
-
-                <!-- PRIMARY FILLED -->
-                <div class="variant-group">
-                    <h3>Primary (Filled Blue)</h3>
-                    <p>Main CTAs — Use for primary actions like "Submit", "Continue", "Buy Now"</p>
-                    
-                    <div class="preview-box">
-                        <button class="btn btn-sm btn-primary">Small Button</button>
-                        <button class="btn btn-md btn-primary">Medium Button</button>
-                        <button class="btn btn-lg btn-primary">Large Button</button>
-                        <button class="btn btn-md btn-primary" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-primary"&gt;Primary Button&lt;/button&gt;</code></pre>
-                </div>
-
-                <!-- PRIMARY OUTLINE -->
-                <div class="variant-group">
-                    <h3>Primary Outline</h3>
-                    <p>Secondary CTAs with blue emphasis — Hovers to Ice surface (#D9F0F2)</p>
-                    
-                    <div class="preview-box">
-                        <button class="btn btn-sm btn-primary-outline">Small Button</button>
-                        <button class="btn btn-md btn-primary-outline">Medium Button</button>
-                        <button class="btn btn-lg btn-primary-outline">Large Button</button>
-                        <button class="btn btn-md btn-primary-outline" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-primary-outline"&gt;Primary Outline&lt;/button&gt;</code></pre>
-                </div>
-
-                <!-- SECONDARY OUTLINE -->
-                <div class="variant-group">
-                    <h3>Secondary Outline</h3>
-                    <p>Tertiary actions with minimal emphasis — Gray border, subtle hover</p>
-                    
-                    <div class="preview-box">
-                        <button class="btn btn-sm btn-secondary-outline">Small Button</button>
-                        <button class="btn btn-md btn-secondary-outline">Medium Button</button>
-                        <button class="btn btn-lg btn-secondary-outline">Large Button</button>
-                        <button class="btn btn-md btn-secondary-outline" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-secondary-outline"&gt;Secondary Outline&lt;/button&gt;</code></pre>
-                </div>
-
-                <!-- NEUTRAL -->
-                <div class="variant-group">
-                    <h3>Neutral (White)</h3>
-                    <p>Minimal emphasis actions — Use for less important actions</p>
-                    
-                    <div class="preview-box">
-                        <button class="btn btn-sm btn-neutral">Small Button</button>
-                        <button class="btn btn-md btn-neutral">Medium Button</button>
-                        <button class="btn btn-lg btn-neutral">Large Button</button>
-                        <button class="btn btn-md btn-neutral" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-neutral"&gt;Neutral Button&lt;/button&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- DARK BACKGROUNDS -->
-            <section class="section">
-                <h2>Dark Backgrounds</h2>
-                <p>Use these button variants on primary blue (#025E96) or darker backgrounds.</p>
-
-                <!-- PRIMARY LIGHT -->
-                <div class="variant-group">
-                    <h3>Primary Light (Filled)</h3>
-                    <p>Light buttons on dark — Kelp 50 fill (#E6F2F8)</p>
-                    
-                    <div class="preview-box dark">
-                        <button class="btn btn-sm btn-primary-light">Small Button</button>
-                        <button class="btn btn-md btn-primary-light">Medium Button</button>
-                        <button class="btn btn-lg btn-primary-light">Large Button</button>
-                        <button class="btn btn-md btn-primary-light" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-primary-light"&gt;Primary Light&lt;/button&gt;</code></pre>
-                </div>
-
-                <!-- PRIMARY LIGHT OUTLINE -->
-                <div class="variant-group">
-                    <h3>Primary Light Outline</h3>
-                    <p>Light outline on dark — Subtle contrast with rgba hover</p>
-                    
-                    <div class="preview-box dark">
-                        <button class="btn btn-sm btn-primary-light-outline">Small Button</button>
-                        <button class="btn btn-md btn-primary-light-outline">Medium Button</button>
-                        <button class="btn btn-lg btn-primary-light-outline">Large Button</button>
-                        <button class="btn btn-md btn-primary-light-outline" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-primary-light-outline"&gt;Primary Light Outline&lt;/button&gt;</code></pre>
-                </div>
-
-                <!-- TERTIARY TEXT -->
-                <div class="variant-group">
-                    <h3>Tertiary (Text Only)</h3>
-                    <p>Text-only buttons for dark backgrounds — Minimal visual weight</p>
-                    
-                    <div class="preview-box dark">
-                        <button class="btn btn-sm btn-tertiary-text">Small Button</button>
-                        <button class="btn btn-md btn-tertiary-text">Medium Button</button>
-                        <button class="btn btn-lg btn-tertiary-text">Large Button</button>
-                        <button class="btn btn-md btn-tertiary-text" disabled>Disabled</button>
-                    </div>
-
-                    <pre><code>&lt;button class="btn btn-md btn-tertiary-text"&gt;Tertiary Text&lt;/button&gt;</code></pre>
-                </div>
-            </section>
-
             <!-- BUTTON SIZES -->
-            <section class="section">
+            <section class="component-section">
                 <h2>Button Sizes</h2>
                 
-                <div class="specs">
-                    <table class="spec-table">
-                        <thead>
-                            <tr>
-                                <th>Size</th>
-                                <th>Class</th>
-                                <th>Height</th>
-                                <th>Padding (H)</th>
-                                <th>Font Size</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Small</td>
-                                <td><code>btn-sm</code></td>
-                                <td>32px</td>
-                                <td>16px</td>
-                                <td>14px</td>
-                            </tr>
-                            <tr>
-                                <td>Medium (default)</td>
-                                <td><code>btn-md</code></td>
-                                <td>40px</td>
-                                <td>24px</td>
-                                <td>16px</td>
-                            </tr>
-                            <tr>
-                                <td>Large</td>
-                                <td><code>btn-lg</code></td>
-                                <td>48px</td>
-                                <td>32px</td>
-                                <td>18px</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'sizes-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'sizes-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'sizes-jsx')">JSX</button>
                 </div>
-
-                <p><strong>Note:</strong> Outline buttons reduce horizontal padding by 1px to account for border width.</p>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
                 
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✓ Do</h4>
-                        <ul>
-                            <li>Use Primary for main actions</li>
-                            <li>Use Primary Outline for secondary CTAs with emphasis</li>
-                            <li>Use Ice hover (#D9F0F2) for outline buttons</li>
-                            <li>Maintain visual hierarchy (filled > outline > text)</li>
-                            <li>Test on actual background colors</li>
-                        </ul>
+                <div id="sizes-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <button class="btn btn-sm btn-primary">Small</button>
+                        <button class="btn btn-md btn-primary">Medium</button>
+                        <button class="btn btn-lg btn-primary">Large</button>
                     </div>
-
-                    <div class="guideline dont">
-                        <h4>✗ Don't</h4>
-                        <ul>
-                            <li>Don't use more than one Primary button in a view</li>
-                            <li>Don't use light buttons on light backgrounds</li>
-                            <li>Don't create custom button colors outside the system</li>
-                            <li>Don't skip disabled states</li>
-                            <li>Don't use buttons for navigation (use links)</li>
-                        </ul>
-                    </div>
+                </div>
+                
+                <div id="sizes-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-sm btn-primary"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn-lg btn-primary"&gt;Large&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="sizes-jsx" class="tab-content">
+                    <pre><code>&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-4 h-8 rounded-lg"&gt;Small&lt;/button&gt;
+&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg"&gt;Medium&lt;/button&gt;
+&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-8 h-12 rounded-lg"&gt;Large&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
-            <!-- REACT + TAILWIND -->
-            <section class="section">
-                <h2>React + Tailwind Implementation</h2>
+            <!-- PRIMARY BUTTONS -->
+            <section class="component-section">
+                <h2>Primary</h2>
+                <p>Main call-to-action buttons for primary actions.</p>
                 
-                <pre><code>// Primary Button
-&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
-  Primary Button
-&lt;/button&gt;
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'primary-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'primary-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'primary-jsx')">JSX</button>
+                </div>
+                
+                <div id="primary-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <button class="btn btn-md btn-primary">Button</button>
+                        <button class="btn btn-md btn-primary" disabled>Disabled</button>
+                    </div>
+                </div>
+                
+                <div id="primary-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-primary"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="primary-jsx" class="tab-content">
+                    <pre><code>&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;
+&lt;button className="bg-border-neutral text-border-hover px-6 h-10 rounded-lg" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+            </section>
 
-// Primary Outline Button with Ice Hover
-&lt;button className="bg-transparent hover:bg-surface-ice border border-kelp-500 hover:border-kelp-700 text-kelp-500 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
-  Primary Outline
-&lt;/button&gt;
+            <!-- PRIMARY OUTLINE -->
+            <section class="component-section">
+                <h2>Primary Outline</h2>
+                <p>Secondary actions with blue emphasis.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'outline-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'outline-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'outline-jsx')">JSX</button>
+                </div>
+                
+                <div id="outline-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <button class="btn btn-md btn-primary-outline">Button</button>
+                        <button class="btn btn-md btn-primary-outline" disabled>Disabled</button>
+                    </div>
+                </div>
+                
+                <div id="outline-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-primary-outline"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary-outline" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="outline-jsx" class="tab-content">
+                    <pre><code>&lt;button className="border border-kelp-500 hover:bg-surface-ice hover:border-kelp-700 text-kelp-500 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                </div>
+            </section>
 
-// Secondary Outline Button
-&lt;button className="bg-transparent hover:bg-surface-base border border-border-neutral hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
-  Secondary Outline
-&lt;/button&gt;
+            <!-- SECONDARY OUTLINE -->
+            <section class="component-section">
+                <h2>Secondary Outline</h2>
+                <p>Tertiary actions with minimal emphasis.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'secondary-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'secondary-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'secondary-jsx')">JSX</button>
+                </div>
+                
+                <div id="secondary-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <button class="btn btn-md btn-secondary-outline">Button</button>
+                        <button class="btn btn-md btn-secondary-outline" disabled>Disabled</button>
+                    </div>
+                </div>
+                
+                <div id="secondary-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-secondary-outline"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-md btn-secondary-outline" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="secondary-jsx" class="tab-content">
+                    <pre><code>&lt;button className="border border-border-neutral hover:bg-surface-base hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                </div>
+            </section>
 
-// Primary Light for Dark Backgrounds
-&lt;button className="bg-surface-kelp hover:bg-kelp-100 text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;
-  Primary Light
-&lt;/button&gt;</code></pre>
+            <!-- NEUTRAL -->
+            <section class="component-section">
+                <h2>Neutral</h2>
+                <p>Minimal emphasis actions.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'neutral-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'neutral-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'neutral-jsx')">JSX</button>
+                </div>
+                
+                <div id="neutral-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <button class="btn btn-md btn-neutral">Button</button>
+                        <button class="btn btn-md btn-neutral" disabled>Disabled</button>
+                    </div>
+                </div>
+                
+                <div id="neutral-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-neutral"&gt;Button&lt;/button&gt;
+&lt;button class="btn btn-md btn-neutral" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="neutral-jsx" class="tab-content">
+                    <pre><code>&lt;button className="bg-surface-base border border-border-default hover:bg-border-default text-pearl-800 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- BUTTONS ON DARK BACKGROUNDS -->
+            <section class="component-section">
+                <h2>Buttons on Dark Backgrounds</h2>
+                <p>Use these variants on primary blue or darker backgrounds.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'dark-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'dark-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'dark-jsx')">JSX</button>
+                </div>
+                
+                <div id="dark-preview" class="tab-content active">
+                    <div class="preview-box dark">
+                        <button class="btn btn-md btn-primary-light">Primary Light</button>
+                        <button class="btn btn-md btn-primary-light-outline">Light Outline</button>
+                        <button class="btn btn-md btn-tertiary-text">Text Only</button>
+                    </div>
+                </div>
+                
+                <div id="dark-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-primary-light"&gt;Primary Light&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary-light-outline"&gt;Light Outline&lt;/button&gt;
+&lt;button class="btn btn-md btn-tertiary-text"&gt;Text Only&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="dark-jsx" class="tab-content">
+                    <pre><code>&lt;button className="bg-surface-kelp hover:bg-kelp-100 text-pearl-800 px-6 h-10 rounded-lg"&gt;Primary Light&lt;/button&gt;
+&lt;button className="border border-surface-kelp hover:bg-white/10 text-surface-kelp px-6 h-10 rounded-lg"&gt;Light Outline&lt;/button&gt;
+&lt;button className="text-surface-kelp hover:text-kelp-100 hover:underline px-6 h-10"&gt;Text Only&lt;/button&gt;</code></pre>
+                </div>
             </section>
 
         </div>
     </div>
 
     <script src="navigation.js"></script>
+    <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.component-section');
+            const allTabs = section.querySelectorAll('.tab-content');
+            const allBtns = section.querySelectorAll('.tab-btn');
+            
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            allBtns.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>

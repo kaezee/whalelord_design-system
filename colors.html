@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colors - Compass Design System v2.0</title>
+    <title>Colors - Compass Design System</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
     <style>
         .color-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: var(--spacing-4);
             margin-bottom: var(--spacing-8);
         }
@@ -44,20 +44,17 @@
             color: var(--color-text-secondary);
         }
 
-        .section-intro {
-            background: var(--color-surface-ice);
-            padding: var(--spacing-6);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-8);
-            border-left: 4px solid var(--color-primary-500);
+        .component-section {
+            margin-bottom: var(--spacing-16);
         }
 
         .usage-note {
             background: var(--color-surface-sand);
             padding: var(--spacing-4);
-            border-radius: var(--radius-sm);
+            border-radius: var(--radius-md);
             font-size: var(--font-size-sm);
             margin-top: var(--spacing-4);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -68,7 +65,7 @@
                 <img src="Logo.svg" alt="Whalelord" width="40" height="40">
                 <div class="nav-logo-text">
                     <div class="nav-logo-brand">WHALELORD</div>
-                    <div class="nav-logo-subtitle">Compass Design System v2.0</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
                 </div>
             </div>
         </div>
@@ -79,18 +76,13 @@
     <div class="main-content">
         <div class="container-with-sidenav">
             <header class="hero">
-                <h1>Colors — Hybrid System v2.0</h1>
-                <p class="hero-subtitle">Ocean-inspired palette with semantic surfaces, clear hierarchy, and micro-use signals.</p>
+                <h1>Colors</h1>
+                <p class="hero-subtitle">Ocean-inspired palette for Whalelord marketplace interfaces.</p>
             </header>
 
-            <div class="section-intro">
-                <p><strong>One-Line Principle:</strong> Surfaces carry tone. Buttons carry intent. Color carries meaning.</p>
-            </div>
-
             <!-- PRIMARY BRAND -->
-            <section class="section">
-                <h2>Primary / Brand Blue</h2>
-                <p>Kelp blues — Main brand color for CTAs, links, and emphasis.</p>
+            <section class="component-section">
+                <h2>Primary Brand (Kelp)</h2>
 
                 <div class="color-grid">
                     <div class="color-swatch">
@@ -132,74 +124,71 @@
             </section>
 
             <!-- SURFACES -->
-            <section class="section">
-                <h2>Surfaces (Semantic Whites) — NEW</h2>
-                <p>These are NOT accents — they are surface layers that carry tone.</p>
+            <section class="component-section">
+                <h2>Surfaces</h2>
 
                 <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #F7FAFC"></div>
                         <div class="color-info">
-                            <div class="color-name">Base / Neutral White</div>
+                            <div class="color-name">Base</div>
                             <div class="color-value">#F7FAFC</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #D9F0F2"></div>
                         <div class="color-info">
-                            <div class="color-name">Ice (Cool Surface)</div>
+                            <div class="color-name">Ice</div>
                             <div class="color-value">#D9F0F2</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #EDE6D8"></div>
                         <div class="color-info">
-                            <div class="color-name">Sand (Warm Surface)</div>
+                            <div class="color-name">Sand</div>
                             <div class="color-value">#EDE6D8</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #E6F2F8"></div>
                         <div class="color-info">
-                            <div class="color-name">Kelp (Light Surface)</div>
+                            <div class="color-name">Kelp</div>
                             <div class="color-value">#E6F2F8</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="usage-note">
-                    <strong>Usage:</strong><br>
-                    • <strong>Base:</strong> Default canvas, cards, modals<br>
-                    • <strong>Ice:</strong> Secondary sections, data tables, outline button hovers<br>
-                    • <strong>Sand:</strong> Editorial sections, empty states, footers<br>
-                    • <strong>Kelp:</strong> Light buttons on dark backgrounds
+                    <strong>Base:</strong> Default canvas, cards, modals<br>
+                    <strong>Ice:</strong> Data tables, outline button hovers<br>
+                    <strong>Sand:</strong> Editorial sections, footers<br>
+                    <strong>Kelp:</strong> Light buttons on dark backgrounds
                 </div>
             </section>
 
             <!-- BORDERS -->
-            <section class="section">
-                <h2>Borders & Dividers — NEW</h2>
-                <p>Clear hierarchy for borders, strokes, and dividers.</p>
+            <section class="component-section">
+                <h2>Borders & Dividers</h2>
 
                 <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #E2E8F0"></div>
                         <div class="color-info">
-                            <div class="color-name">Default Border</div>
+                            <div class="color-name">Default</div>
                             <div class="color-value">#E2E8F0</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #CBD5E0"></div>
                         <div class="color-info">
-                            <div class="color-name">Neutral Border</div>
+                            <div class="color-name">Neutral</div>
                             <div class="color-value">#CBD5E0</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #A0AEC0"></div>
                         <div class="color-info">
-                            <div class="color-name">Hover Border</div>
+                            <div class="color-name">Hover</div>
                             <div class="color-value">#A0AEC0</div>
                         </div>
                     </div>
@@ -207,9 +196,8 @@
             </section>
 
             <!-- SEMANTIC SIGNALS -->
-            <section class="section">
-                <h2>Semantic Signals (Micro-use Only) — UPDATED</h2>
-                <p>Never used as primary button fills — icons, badges, subtle highlights only.</p>
+            <section class="component-section">
+                <h2>Semantic Signals</h2>
 
                 <div class="color-grid">
                     <div class="color-swatch">
@@ -243,43 +231,42 @@
                 </div>
 
                 <div class="usage-note">
-                    <strong>Key Rule:</strong> Semantic colors support meaning, never dominance. Use for icons, badges, and highlights only — not for primary button fills.
+                    Use for icons, badges, and highlights only.
                 </div>
             </section>
 
             <!-- TEXT COLORS -->
-            <section class="section">
+            <section class="component-section">
                 <h2>Text Colors</h2>
 
                 <div class="color-grid">
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #1A202C"></div>
                         <div class="color-info">
-                            <div class="color-name">Primary Text (Ink)</div>
+                            <div class="color-name">Primary</div>
                             <div class="color-value">#1A202C</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #718096"></div>
                         <div class="color-info">
-                            <div class="color-name">Secondary Text</div>
+                            <div class="color-name">Secondary</div>
                             <div class="color-value">#718096</div>
                         </div>
                     </div>
                     <div class="color-swatch">
                         <div class="color-preview" style="background: #FFFFFF; border: 2px solid #E2E8F0;"></div>
                         <div class="color-info">
-                            <div class="color-name">Inverse Text</div>
+                            <div class="color-name">Inverse</div>
                             <div class="color-value">#FFFFFF</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- NEUTRAL COLORS -->
-            <section class="section">
+            <!-- NEUTRAL COLORS (PEARL) -->
+            <section class="component-section">
                 <h2>Neutral Colors (Pearl)</h2>
-                <p>Legacy support — Use new semantic names (surfaces, borders, text) when possible.</p>
 
                 <div class="color-grid">
                     <div class="color-swatch">

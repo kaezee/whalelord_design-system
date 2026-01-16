@@ -10,10 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .hero {
+            text-align: right;
+            padding: var(--spacing-16) 0;
+        }
+
         .tab-nav {
             display: flex;
             gap: 0;
-            border-bottom: 2px solid var(--color-neutral-200);
+            border-bottom: 2px solid var(--color-pearl-200);
             margin-bottom: var(--spacing-6);
         }
         
@@ -24,7 +29,7 @@
             font-family: var(--font-body);
             font-size: var(--font-size-sm);
             font-weight: var(--font-weight-medium);
-            color: var(--color-neutral-600);
+            color: var(--color-pearl-600);
             cursor: pointer;
             border-bottom: 2px solid transparent;
             margin-bottom: -2px;
@@ -32,12 +37,12 @@
         }
         
         .tab-btn:hover {
-            color: var(--color-primary-500);
+            color: var(--color-waves-500);
         }
         
         .tab-btn.active {
-            color: var(--color-primary-500);
-            border-bottom-color: var(--color-primary-500);
+            color: var(--color-waves-500);
+            border-bottom-color: var(--color-waves-500);
         }
         
         .tab-content {
@@ -61,7 +66,7 @@
         }
         
         .preview-box.dark {
-            background: var(--color-primary-500);
+            background: var(--color-waves-500);
         }
 
         .component-section {
@@ -69,12 +74,32 @@
         }
 
         .component-section h2 {
-            margin-bottom: var(--spacing-2);
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-3);
         }
 
         .component-section > p {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
             color: var(--color-text-secondary);
             margin-bottom: var(--spacing-6);
+            line-height: var(--line-height-relaxed);
+        }
+
+        pre {
+            background: var(--color-pearl-800);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-4);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-6);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-pearl-50);
+            line-height: var(--line-height-relaxed);
         }
     </style>
 </head>
@@ -97,12 +122,13 @@
         <div class="container-with-sidenav">
             <header class="hero">
                 <h1>Buttons</h1>
-                <p class="hero-subtitle">Primary interaction elements for Whalelord marketplace interfaces.</p>
+                <p class="hero-subtitle">Action elements that guide buyers through discovery, quoting, and ordering flows.</p>
             </header>
 
             <!-- BUTTON SIZES -->
             <section class="component-section">
                 <h2>Button Sizes</h2>
+                <p>Three sizes optimized for desktop and mobile marketplace interfaces.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'sizes-preview')">Preview</button>
@@ -112,9 +138,9 @@
                 
                 <div id="sizes-preview" class="tab-content active">
                     <div class="preview-box">
-                        <button class="btn btn-sm btn-primary">Small</button>
-                        <button class="btn btn-md btn-primary">Medium</button>
-                        <button class="btn btn-lg btn-primary">Large</button>
+                        <button class="btn btn-sm btn-primary">Small (32px)</button>
+                        <button class="btn btn-md btn-primary">Medium (40px)</button>
+                        <button class="btn btn-lg btn-primary">Large (48px)</button>
                     </div>
                 </div>
                 
@@ -125,16 +151,16 @@
                 </div>
                 
                 <div id="sizes-jsx" class="tab-content">
-                    <pre><code>&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-4 h-8 rounded-lg"&gt;Small&lt;/button&gt;
-&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg"&gt;Medium&lt;/button&gt;
-&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-8 h-12 rounded-lg"&gt;Large&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="bg-waves-500 hover:bg-waves-700 text-white px-4 h-8 rounded-lg font-medium"&gt;Small&lt;/button&gt;
+&lt;button className="bg-waves-500 hover:bg-waves-700 text-white px-6 h-10 rounded-lg font-medium"&gt;Medium&lt;/button&gt;
+&lt;button className="bg-waves-500 hover:bg-waves-700 text-white px-8 h-12 rounded-lg font-medium"&gt;Large&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
-            <!-- PRIMARY BUTTONS -->
+            <!-- PRIMARY -->
             <section class="component-section">
                 <h2>Primary</h2>
-                <p>Main call-to-action buttons for primary actions.</p>
+                <p>Main call-to-action for critical marketplace actions: Request Quote, Place Order, Confirm Purchase. The Waves blue builds buyer confidence.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'primary-preview')">Preview</button>
@@ -144,26 +170,25 @@
                 
                 <div id="primary-preview" class="tab-content active">
                     <div class="preview-box">
-                        <button class="btn btn-md btn-primary">Button</button>
+                        <button class="btn btn-md btn-primary">Request Quote</button>
                         <button class="btn btn-md btn-primary" disabled>Disabled</button>
                     </div>
                 </div>
                 
                 <div id="primary-html" class="tab-content">
-                    <pre><code>&lt;button class="btn btn-md btn-primary"&gt;Button&lt;/button&gt;
+                    <pre><code>&lt;button class="btn btn-md btn-primary"&gt;Request Quote&lt;/button&gt;
 &lt;button class="btn btn-md btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></pre>
                 </div>
                 
                 <div id="primary-jsx" class="tab-content">
-                    <pre><code>&lt;button className="bg-kelp-500 hover:bg-kelp-700 text-white px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;
-&lt;button className="bg-border-neutral text-border-hover px-6 h-10 rounded-lg" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="bg-waves-500 hover:bg-waves-700 text-white px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Request Quote&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
             <!-- PRIMARY OUTLINE -->
             <section class="component-section">
                 <h2>Primary Outline</h2>
-                <p>Secondary actions with blue emphasis.</p>
+                <p>Secondary CTAs with Waves emphasis: Compare Products, View Details, Save to List. Hovers to Shore Ice for clear feedback.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'outline-preview')">Preview</button>
@@ -173,25 +198,25 @@
                 
                 <div id="outline-preview" class="tab-content active">
                     <div class="preview-box">
-                        <button class="btn btn-md btn-primary-outline">Button</button>
+                        <button class="btn btn-md btn-primary-outline">View Details</button>
                         <button class="btn btn-md btn-primary-outline" disabled>Disabled</button>
                     </div>
                 </div>
                 
                 <div id="outline-html" class="tab-content">
-                    <pre><code>&lt;button class="btn btn-md btn-primary-outline"&gt;Button&lt;/button&gt;
+                    <pre><code>&lt;button class="btn btn-md btn-primary-outline"&gt;View Details&lt;/button&gt;
 &lt;button class="btn btn-md btn-primary-outline" disabled&gt;Disabled&lt;/button&gt;</code></pre>
                 </div>
                 
                 <div id="outline-jsx" class="tab-content">
-                    <pre><code>&lt;button className="border border-kelp-500 hover:bg-surface-ice hover:border-kelp-700 text-kelp-500 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="border border-waves-500 hover:bg-shore-ice hover:border-waves-700 text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;View Details&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
             <!-- SECONDARY OUTLINE -->
             <section class="component-section">
                 <h2>Secondary Outline</h2>
-                <p>Tertiary actions with minimal emphasis.</p>
+                <p>Tertiary actions with minimal emphasis: Cancel, Go Back, Skip Step. Neutral gray maintains focus on primary flows.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'secondary-preview')">Preview</button>
@@ -201,25 +226,25 @@
                 
                 <div id="secondary-preview" class="tab-content active">
                     <div class="preview-box">
-                        <button class="btn btn-md btn-secondary-outline">Button</button>
+                        <button class="btn btn-md btn-secondary-outline">Cancel</button>
                         <button class="btn btn-md btn-secondary-outline" disabled>Disabled</button>
                     </div>
                 </div>
                 
                 <div id="secondary-html" class="tab-content">
-                    <pre><code>&lt;button class="btn btn-md btn-secondary-outline"&gt;Button&lt;/button&gt;
+                    <pre><code>&lt;button class="btn btn-md btn-secondary-outline"&gt;Cancel&lt;/button&gt;
 &lt;button class="btn btn-md btn-secondary-outline" disabled&gt;Disabled&lt;/button&gt;</code></pre>
                 </div>
                 
                 <div id="secondary-jsx" class="tab-content">
-                    <pre><code>&lt;button className="border border-border-neutral hover:bg-surface-base hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="border border-border-neutral hover:bg-shore-base hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Cancel&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
             <!-- NEUTRAL -->
             <section class="component-section">
                 <h2>Neutral</h2>
-                <p>Minimal emphasis actions.</p>
+                <p>Minimal emphasis for supporting actions: Learn More, View FAQ, Download Spec Sheet.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'neutral-preview')">Preview</button>
@@ -229,25 +254,25 @@
                 
                 <div id="neutral-preview" class="tab-content active">
                     <div class="preview-box">
-                        <button class="btn btn-md btn-neutral">Button</button>
+                        <button class="btn btn-md btn-neutral">Learn More</button>
                         <button class="btn btn-md btn-neutral" disabled>Disabled</button>
                     </div>
                 </div>
                 
                 <div id="neutral-html" class="tab-content">
-                    <pre><code>&lt;button class="btn btn-md btn-neutral"&gt;Button&lt;/button&gt;
+                    <pre><code>&lt;button class="btn btn-md btn-neutral"&gt;Learn More&lt;/button&gt;
 &lt;button class="btn btn-md btn-neutral" disabled&gt;Disabled&lt;/button&gt;</code></pre>
                 </div>
                 
                 <div id="neutral-jsx" class="tab-content">
-                    <pre><code>&lt;button className="bg-surface-base border border-border-default hover:bg-border-default text-pearl-800 px-6 h-10 rounded-lg"&gt;Button&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="bg-shore-base border border-border-default hover:bg-border-default text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all"&gt;Learn More&lt;/button&gt;</code></pre>
                 </div>
             </section>
 
             <!-- BUTTONS ON DARK BACKGROUNDS -->
             <section class="component-section">
                 <h2>Buttons on Dark Backgrounds</h2>
-                <p>Use these variants on primary blue or darker backgrounds.</p>
+                <p>Light variants for dark hero sections, promotional banners, and Waves-colored cards.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'dark-preview')">Preview</button>
@@ -257,22 +282,54 @@
                 
                 <div id="dark-preview" class="tab-content active">
                     <div class="preview-box dark">
-                        <button class="btn btn-md btn-primary-light">Primary Light</button>
-                        <button class="btn btn-md btn-primary-light-outline">Light Outline</button>
-                        <button class="btn btn-md btn-tertiary-text">Text Only</button>
+                        <button class="btn btn-md btn-primary-light">Get Started</button>
+                        <button class="btn btn-md btn-primary-light-outline">Learn More</button>
+                        <button class="btn btn-md btn-tertiary-text">Skip</button>
                     </div>
                 </div>
                 
                 <div id="dark-html" class="tab-content">
-                    <pre><code>&lt;button class="btn btn-md btn-primary-light"&gt;Primary Light&lt;/button&gt;
-&lt;button class="btn btn-md btn-primary-light-outline"&gt;Light Outline&lt;/button&gt;
-&lt;button class="btn btn-md btn-tertiary-text"&gt;Text Only&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button class="btn btn-md btn-primary-light"&gt;Get Started&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary-light-outline"&gt;Learn More&lt;/button&gt;
+&lt;button class="btn btn-md btn-tertiary-text"&gt;Skip&lt;/button&gt;</code></pre>
                 </div>
                 
                 <div id="dark-jsx" class="tab-content">
-                    <pre><code>&lt;button className="bg-surface-kelp hover:bg-kelp-100 text-pearl-800 px-6 h-10 rounded-lg"&gt;Primary Light&lt;/button&gt;
-&lt;button className="border border-surface-kelp hover:bg-white/10 text-surface-kelp px-6 h-10 rounded-lg"&gt;Light Outline&lt;/button&gt;
-&lt;button className="text-surface-kelp hover:text-kelp-100 hover:underline px-6 h-10"&gt;Text Only&lt;/button&gt;</code></pre>
+                    <pre><code>&lt;button className="bg-shore-foam hover:bg-waves-100 text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Get Started&lt;/button&gt;
+&lt;button className="border border-shore-foam hover:bg-white/10 text-shore-foam px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Learn More&lt;/button&gt;
+&lt;button className="text-shore-foam hover:text-waves-100 hover:underline px-6 h-10 font-medium transition-all"&gt;Skip&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- FLUID/RESPONSIVE BUTTONS -->
+            <section class="component-section">
+                <h2>Fluid / Responsive Buttons</h2>
+                <p>Full-width buttons for mobile checkout flows, form submissions, and stacked action layouts. Add <code>btn-fluid</code> class to any button variant.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'fluid-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'fluid-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'fluid-jsx')">JSX</button>
+                </div>
+                
+                <div id="fluid-preview" class="tab-content active">
+                    <div class="preview-box" style="flex-direction: column; align-items: stretch;">
+                        <button class="btn btn-md btn-primary btn-fluid">Complete Order</button>
+                        <button class="btn btn-md btn-primary-outline btn-fluid">Save for Later</button>
+                        <button class="btn btn-md btn-secondary-outline btn-fluid">Cancel</button>
+                    </div>
+                </div>
+                
+                <div id="fluid-html" class="tab-content">
+                    <pre><code>&lt;button class="btn btn-md btn-primary btn-fluid"&gt;Complete Order&lt;/button&gt;
+&lt;button class="btn btn-md btn-primary-outline btn-fluid"&gt;Save for Later&lt;/button&gt;
+&lt;button class="btn btn-md btn-secondary-outline btn-fluid"&gt;Cancel&lt;/button&gt;</code></pre>
+                </div>
+                
+                <div id="fluid-jsx" class="tab-content">
+                    <pre><code>&lt;button className="w-full bg-waves-500 hover:bg-waves-700 text-white px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Complete Order&lt;/button&gt;
+&lt;button className="w-full border border-waves-500 hover:bg-shore-ice hover:border-waves-700 text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Save for Later&lt;/button&gt;
+&lt;button className="w-full border border-border-neutral hover:bg-shore-base hover:border-border-hover text-pearl-800 px-6 h-10 rounded-lg font-medium transition-all hover:underline"&gt;Cancel&lt;/button&gt;</code></pre>
                 </div>
             </section>
 

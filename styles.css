@@ -43,15 +43,17 @@
      SURFACES - SHORE
      =========================== */
   --color-shore-base: #F7FAFC;
-  --color-shore-ice: #D9F0F2;
-  --color-shore-sand: #EDE6D8;
+  --color-shore-hover: #D4EAF4;
+  --color-shore-editorial: #F5F7FA;
   --color-shore-foam: #E6F2F8;
+  --color-shore-muted: #E2E8F0;
 
   /* Legacy aliases */
   --color-surface-base: #F7FAFC;
-  --color-surface-ice: #D9F0F2;
-  --color-surface-sand: #EDE6D8;
-  --color-surface-kelp: #E6F2F8;
+  --color-surface-hover: #D4EAF4;
+  --color-surface-editorial: #F5F7FA;
+  --color-surface-foam: #E6F2F8;
+  --color-surface-muted: #E2E8F0;
 
   /* ===========================
      BORDERS & DIVIDERS
@@ -63,17 +65,21 @@
   /* ===========================
      SEMANTIC SIGNALS - CORAL
      =========================== */
+  --color-coral-success-100: #D4F4E2;
+  --color-coral-success-200: #A8E6C5;
   --color-coral-success-300: #69DBA5;
   --color-coral-success-500: #48BB78;
   --color-coral-success-700: #2C7048;
   
-  --color-coral-error-300: #E57A6A;
-  --color-coral-error-500: #C24E3A;
-  --color-coral-error-700: #742F22;
+  --color-coral-error-100: #FFE5E8;
+  --color-coral-error-300: #FF6B6B;
+  --color-coral-error-500: #E63946;
+  --color-coral-error-700: #A4161A;
   
-  --color-coral-warning-300: #FBBF24;
-  --color-coral-warning-500: #F59E0B;
-  --color-coral-warning-700: #B45309;
+  --color-coral-warning-100: #FFE8D9;
+  --color-coral-warning-300: #FFB347;
+  --color-coral-warning-500: #FF8C42;
+  --color-coral-warning-700: #CC5500;
   
   --color-coral-info-300: #66B1D5;
   --color-coral-info-500: #025E96;
@@ -81,8 +87,8 @@
 
   /* Legacy aliases */
   --color-success-50: #E6F9F0;
-  --color-success-100: #CDF3E1;
-  --color-success-200: #9BE7C3;
+  --color-success-100: #D4F4E2;
+  --color-success-200: #A8E6C5;
   --color-success-300: #69DBA5;
   --color-success-400: #5ACC94;
   --color-success-500: #48BB78;
@@ -92,11 +98,17 @@
   --color-success-900: #0F2518;
 
   --color-warning-50: #FFFBEA;
-  --color-warning-500: #F59E0B;
+  --color-warning-100: #FFE8D9;
+  --color-warning-300: #FFB347;
+  --color-warning-500: #FF8C42;
+  --color-warning-700: #CC5500;
   --color-warning-900: #4D3D00;
 
   --color-error-50: #FEE9E9;
-  --color-error-500: #C24E3A;
+  --color-error-100: #FFE5E8;
+  --color-error-300: #FF6B6B;
+  --color-error-500: #E63946;
+  --color-error-700: #A4161A;
   --color-error-900: #400E0E;
 
   --color-info-50: #E6F7FB;

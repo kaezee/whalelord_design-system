@@ -87,7 +87,7 @@
 .btn-primary-outline.btn-lg { padding: 0 31px; }
 
 .btn-primary-outline:hover:not(:disabled) {
-  background: var(--color-shore-ice);
+  background: var(--color-shore-hover);
   border-color: var(--color-waves-700);
   text-decoration: underline;
   text-underline-offset: 4px;

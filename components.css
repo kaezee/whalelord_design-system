@@ -105,7 +105,7 @@
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--color-primary-500);
+  border-color: var(--color-waves-500);
   box-shadow: 0 0 0 3px rgba(2, 94, 150, 0.1);
 }
 

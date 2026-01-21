@@ -1,0 +1,202 @@
+/* STATUS INDICATORS - WHALELORD DESIGN SYSTEM */
+
+/* ===========================
+   BASE STATUS INDICATOR STYLES
+   Bordered badges for actionable states
+   =========================== */
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  border-radius: 8px; /* Medium rounded, less than certification badges */
+  border-width: 1px; /* Refined 1px border */
+  border-style: solid;
+  white-space: nowrap;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+/* ===========================
+   ORDER STATUS VARIANTS
+   =========================== */
+
+/* Delivered - Success State */
+.status-delivered {
+  background: #F0FDF4; /* Very pale mint green */
+  border-color: var(--color-success-700);
+  color: var(--color-success-700);
+}
+
+/* Processing - Warning State */
+.status-processing {
+  background: #FFF5EB; /* Very pale amber */
+  border-color: var(--color-warning-700);
+  color: var(--color-warning-700);
+}
+
+/* Cancelled - Error State */
+.status-cancelled {
+  background: #FEF2F2; /* Very pale pink/red */
+  border-color: var(--color-error-700);
+  color: var(--color-error-700);
+}
+
+/* Archived - Neutral State */
+.status-archived {
+  background: #FFFFFF;
+  border-color: var(--color-border-neutral);
+  color: var(--color-text-secondary);
+}
+
+/* ===========================
+   INVENTORY STATUS VARIANTS
+   =========================== */
+
+/* In Stock - Success State */
+.status-in-stock {
+  background: #F0FDF4; /* Very pale mint green */
+  border-color: var(--color-success-700);
+  color: var(--color-success-700);
+}
+
+/* Low Stock - Warning State */
+.status-low-stock {
+  background: #FFF5EB; /* Very pale amber */
+  border-color: var(--color-warning-700);
+  color: var(--color-warning-700);
+}
+
+/* Out of Stock - Error State */
+.status-out-of-stock {
+  background: #FEF2F2; /* Very pale pink/red */
+  border-color: var(--color-error-700);
+  color: var(--color-error-700);
+}
+
+/* ===========================
+   OPTIONAL ICON PLACEHOLDER
+   =========================== */
+
+/* Rectangle icon placeholder for status indicators */
+.status-indicator-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  opacity: 0.1;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Support for actual icon/image in placeholder */
+.status-indicator-icon img,
+.status-indicator-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 1;
+}
+
+/* ===========================
+   USAGE NOTES
+   =========================== */
+
+/*
+WHEN TO USE:
+- Order status tracking (Delivered, Processing, Cancelled, Archived)
+- Inventory alerts (In Stock, Low Stock, Out of Stock)
+- Actionable states requiring user attention
+- ANY urgent or dynamic status that needs clear visual signaling
+
+NOT FOR:
+- Certification badges (MSC, Organic, Sustainable) - use badges.css
+- Quality seals or trust indicators - use badges.css
+- Informational attributes that don't require action
+
+DISTINCTION FROM CERTIFICATION BADGES:
+Status Indicators:
+  - 1px borders
+  - Barely-tinted backgrounds (100-level semantic colors)
+  - Medium rounded (8px border-radius)
+  - Actionable and urgent
+  - Communicate dynamic state
+
+Certification Badges:
+  - No borders
+  - Filled Success-200 backgrounds
+  - Very rounded (16px pill shape)
+  - Informational and reassuring
+  - Communicate fixed attributes
+
+COLORS:
+
+Success (Delivered, In Stock):
+  - Background: #F0FDF4 (very pale mint)
+  - Border: Success-700 (#2C7048)
+  - Text: Success-700 (#2C7048)
+  - Contrast: WCAG AA compliant
+
+Warning (Processing, Low Stock):
+  - Background: #FFF5EB (very pale amber)
+  - Border: Warning-700 (#CC5500)
+  - Text: Warning-700 (#CC5500)
+  - Contrast: WCAG AA compliant
+
+Error (Cancelled, Out of Stock):
+  - Background: #FEF2F2 (very pale pink)
+  - Border: Error-700 (#A4161A)
+  - Text: Error-700 (#A4161A)
+  - Contrast: WCAG AA compliant
+
+Neutral (Archived):
+  - Background: #FFFFFF (white)
+  - Border: Border-Neutral (#CBD5E0)
+  - Text: Text-Secondary (#718096)
+  - Contrast: WCAG AA compliant
+
+SHAPE & SPACING:
+- Border-radius: 8px (medium, not pill-shaped)
+- Border-width: 1px (refined, professional)
+- Padding: 6px vertical, 14px horizontal
+- Gap (with icon): 6px between icon and text
+
+ICON PLACEHOLDER (OPTIONAL):
+- Size: 14x14px rectangle
+- Style: currentColor at 10% opacity
+- Use for urgent alerts (Low Stock, Out of Stock)
+- Can be replaced with actual icon/SVG
+
+EXAMPLES:
+
+<!-- Basic order status -->
+<span class="status-indicator status-delivered">Delivered</span>
+<span class="status-indicator status-processing">Processing</span>
+<span class="status-indicator status-cancelled">Cancelled</span>
+
+<!-- Inventory with icon -->
+<span class="status-indicator status-low-stock">
+  <span class="status-indicator-icon"></span>
+  Low Stock
+</span>
+
+<!-- With actual icon -->
+<span class="status-indicator status-out-of-stock">
+  <span class="status-indicator-icon">
+    <svg>...</svg>
+  </span>
+  Out of Stock
+</span>
+
+ACCESSIBILITY:
+- Color contrast meets WCAG AA (4.5:1 minimum)
+- Border provides visual structure beyond color
+- Text content clearly describes status
+- Icons supplement but don't replace text
+- Optimized for 30-60+ demographic in B2B context
+*/

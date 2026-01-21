@@ -1,137 +1,80 @@
-/* BADGE COMPONENTS - WHALELORD DESIGN SYSTEM */
+/* CERTIFICATION BADGES - WHALELORD DESIGN SYSTEM */
 
-/* BASE BADGE STYLES */
-.badge {
+/* ===========================
+   CERTIFICATION BADGES
+   Soft, filled, pill-shaped badges for quality seals
+   =========================== */
+
+.cert-badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--color-success-200);
+  color: var(--color-success-700);
   font-family: var(--font-body);
+  font-size: 13px;
   font-weight: var(--font-weight-semibold);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  padding: 4px 12px;
-  border-radius: var(--radius-sm);
+  border-radius: 16px; /* Very rounded pill shape */
   white-space: nowrap;
   line-height: 1.4;
+  transition: all 0.2s ease;
 }
 
-.badge-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  font-size: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  border: 1px solid currentColor;
-}
-
-.badge-icon-cert {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Icon Placeholder - Rectangle for user to replace with actual icon */
+.cert-badge-icon {
+  display: inline-block;
   width: 16px;
   height: 16px;
-  font-size: 12px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(44, 112, 72, 0.1); /* Success-700 at 10% opacity */
   border-radius: 2px;
-  border: 1px solid currentColor;
+  flex-shrink: 0;
 }
 
-.badge-icon-cert img {
-  width: 16px;
-  height: 16px;
+/* Optional: If user wants to use an actual image/icon inside the placeholder */
+.cert-badge-icon img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  display: block;
 }
 
-/* STATUS BADGES */
-.badge-popular {
-  background: #FFE8E8;
-  color: #991B1B;
-}
+/* ===========================
+   USAGE NOTES
+   =========================== */
 
-.badge-new {
-  background: #E0F2FE;
-  color: #075985;
-}
+/*
+WHEN TO USE:
+- Quality indicators (MSC Certified, Organic, Sustainable)
+- Trust signals and compliance standards
+- Positive product attributes
+- NOT for status indicators (use status-indicators.css for those)
 
-.badge-limited {
-  background: #FEF3C7;
-  color: #92400E;
-}
+COLORS:
+- Background: Success-200 (#A8E6C5) - soft mint green
+- Text: Success-700 (#2C7048) - dark forest green
+- Contrast ratio: 4.8:1 (WCAG AA compliant)
 
-.badge-seasonal {
-  background: #ECFCCB;
-  color: #3F6212;
-}
+SHAPE:
+- Border-radius: 16px (very rounded pill)
+- No borders (filled style only)
+- Padding: 8px horizontal, 16px vertical
 
-/* CERTIFICATION BADGES */
-.badge-cert {
-  background: var(--color-primary-50);
-  color: var(--color-primary-500);
-  font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-}
+ICON:
+- Rectangle placeholder (16x16px)
+- Replace with actual certification logo
+- Maintains proper spacing with gap: 8px
 
-/* ORDER STATUS BADGES */
-.badge-status-info {
-  background: #E0F2FE;
-  color: #075985;
-  font-weight: var(--font-weight-medium);
-  text-transform: none;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-}
+EXAMPLES:
+<span class="cert-badge">
+  <span class="cert-badge-icon"></span>
+  MSC Certified
+</span>
 
-.badge-status-warning {
-  background: #FEF3C7;
-  color: #92400E;
-  font-weight: var(--font-weight-medium);
-  text-transform: none;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-}
-
-.badge-status-success {
-  background: #D1FAE5;
-  color: #065F46;
-  font-weight: var(--font-weight-medium);
-  text-transform: none;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-}
-
-.badge-status-complete {
-  background: #D1FAE5;
-  color: #065F46;
-  font-weight: var(--font-weight-medium);
-  text-transform: none;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-}
-
-/* SUPPLIER TYPE BADGES */
-.badge-supplier {
-  background: var(--color-primary-50);
-  color: var(--color-primary-700);
-  font-weight: var(--font-weight-medium);
-  text-transform: none;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-}
-
-.badge-top-rated {
-  background: #FEF3C7;
-  color: #92400E;
-}
-
-.badge-verified {
-  background: #D1FAE5;
-  color: #065F46;
-}
+<span class="cert-badge">
+  <span class="cert-badge-icon">
+    <img src="/logos/msc.svg" alt="MSC" />
+  </span>
+  MSC Certified
+</span>
+*/

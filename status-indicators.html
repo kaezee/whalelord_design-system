@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Indicators - Compass Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="status-indicators.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero { text-align: left; padding: var(--spacing-16) 0; }
+        .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--color-pearl-200); margin-bottom: var(--spacing-6); }
+        .tab-btn { padding: var(--spacing-3) var(--spacing-5); background: none; border: none; font-family: var(--font-body); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-pearl-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--color-waves-500); }
+        .tab-btn.active { color: var(--color-waves-500); border-bottom-color: var(--color-waves-500); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .preview-box { background: white; border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); display: flex; align-items: center; flex-wrap: wrap; gap: var(--spacing-4); }
+        .code-example { background: var(--color-pearl-800); border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--spacing-6); }
+        .code-header { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-4) var(--spacing-5); background: var(--color-pearl-900); border-bottom: 1px solid var(--color-pearl-700); }
+        .code-header span { font-family: var(--font-mono); font-size: var(--font-size-sm); color: var(--color-pearl-400); font-weight: var(--font-weight-medium); }
+        .copy-btn { background: var(--color-waves-500); color: white; border: none; padding: 4px 12px; border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); cursor: pointer; transition: background 0.2s; }
+        .copy-btn:hover { background: var(--color-waves-700); }
+        .code-example pre { margin: 0; padding: var(--spacing-5); overflow-x: auto; }
+        .code-example code { font-family: var(--font-mono); font-size: var(--font-size-sm); color: var(--color-pearl-50); line-height: var(--line-height-relaxed); }
+        .component-section { margin-bottom: var(--spacing-16); }
+        .component-section h2 { font-family: var(--font-heading); font-size: var(--font-size-3xl); margin-bottom: var(--spacing-3); }
+        .component-section > p { font-family: var(--font-body); font-size: var(--font-size-base); color: var(--color-text-secondary); margin-bottom: var(--spacing-6); line-height: var(--line-height-relaxed); }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidenav" id="sidenav"></div>
+
+    <div class="main-content">
+        <div class="container-with-sidenav">
+            <header class="hero">
+                <h1>Status Indicators</h1>
+                <p class="hero-subtitle">Actionable status badges that communicate order states, inventory levels, and urgent alerts.</p>
+            </header>
+
+            <section class="component-section" style="background: var(--color-shore-editorial); padding: var(--spacing-8); border-radius: var(--radius-lg); margin-bottom: var(--spacing-12);">
+                <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--spacing-4);">Usage & Purpose</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6);">
+                    <div>
+                        <h4 style="font-size: var(--font-size-base); font-weight: 600; margin-bottom: var(--spacing-2);">When to Use</h4>
+                        <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: var(--line-height-relaxed);">
+                            Order status (Delivered, Processing, Cancelled), inventory alerts (Low Stock, Out of Stock), actionable states requiring user attention.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: var(--font-size-base); font-weight: 600; margin-bottom: var(--spacing-2);">Visual Style</h4>
+                        <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: var(--line-height-relaxed);">
+                            1px borders, barely-tinted backgrounds, medium rounded (8px). Crisp for actionable information that demands attention.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: var(--font-size-base); font-weight: 600; margin-bottom: var(--spacing-2);">vs Certification Badges</h4>
+                        <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: var(--line-height-relaxed);">
+                            Status indicators have borders and are action-oriented. Certification badges are soft/filled and informational.
+                        </p>
+                    </div>
+                </div>
+                <div style="margin-top: var(--spacing-5); padding-top: var(--spacing-5); border-top: 1px solid var(--color-border-default);">
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: var(--line-height-relaxed);">
+                        <strong>Colors:</strong> Success (green) for delivered, Warning (amber) for processing/low-stock, Error (red) for cancelled/out-of-stock. All use semantic-100 backgrounds with semantic-700 borders/text.
+                    </p>
+                </div>
+            </section>
+
+            <section class="component-section">
+                <h2>Order Status Indicators</h2>
+                <p>Track order progression from received to delivered or cancelled.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'order-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'order-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'order-tailwind')">Tailwind</button>
+                </div>
+                
+                <div id="order-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <span class="status-indicator status-delivered">Delivered</span>
+                        <span class="status-indicator status-processing">Processing</span>
+                        <span class="status-indicator status-cancelled">Cancelled</span>
+                        <span class="status-indicator status-archived">Archived</span>
+                    </div>
+                </div>
+                
+                <div id="order-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML with CSS Classes</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;span class="status-indicator status-delivered"&gt;Delivered&lt;/span&gt;
+&lt;span class="status-indicator status-processing"&gt;Processing&lt;/span&gt;
+&lt;span class="status-indicator status-cancelled"&gt;Cancelled&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="order-tailwind" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>Tailwind CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;span class="inline-flex items-center px-3.5 py-1.5 rounded-lg border border-[#2C7048] bg-[#F0FDF4] text-[#2C7048] text-sm font-semibold"&gt;Delivered&lt;/span&gt;
+&lt;span class="inline-flex items-center px-3.5 py-1.5 rounded-lg border border-[#CC5500] bg-[#FFF5EB] text-[#CC5500] text-sm font-semibold"&gt;Processing&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="component-section">
+                <h2>Inventory Status Indicators</h2>
+                <p>Alert users to stock availability on product cards.</p>
+                
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'inventory-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'inventory-html')">HTML</button>
+                </div>
+                
+                <div id="inventory-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <span class="status-indicator status-low-stock">
+                            <span class="status-indicator-icon"></span>
+                            Low Stock
+                        </span>
+                        <span class="status-indicator status-out-of-stock">
+                            <span class="status-indicator-icon"></span>
+                            Out of Stock
+                        </span>
+                    </div>
+                </div>
+                
+                <div id="inventory-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;span class="status-indicator status-low-stock"&gt;
+  &lt;span class="status-indicator-icon"&gt;&lt;/span&gt;
+  Low Stock
+&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Compass Design System v1.0</p>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.component-section');
+            section.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            section.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-example').querySelector('code');
+            navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            });
+        }
+    </script>
+</body>
+</html>

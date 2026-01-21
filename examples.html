@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples - Compass Design System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="badges.css">
+    <link rel="stylesheet" href="status-indicators.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            text-align: left;
+            padding: var(--spacing-16) 0;
+        }
+
+        .example-section {
+            margin-bottom: var(--spacing-20);
+        }
+
+        .example-section h2 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .product-image {
+            height: 220px;
+            background: var(--color-shore-editorial);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            position: relative;
+        }
+
+        .product-content {
+            padding: var(--spacing-5);
+        }
+
+        .product-certifications {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .product-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-2);
+            color: var(--color-text-primary);
+        }
+
+        .product-supplier {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .product-price {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-waves-700);
+            margin-bottom: var(--spacing-5);
+        }
+
+        .product-price-unit {
+            font-size: var(--font-size-sm);
+            font-weight: 400;
+            color: var(--color-text-secondary);
+        }
+
+        .order-list {
+            background: white;
+            border: 1px solid var(--color-border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .order-item {
+            padding: var(--spacing-5);
+            border-bottom: 1px solid var(--color-border-default);
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: var(--spacing-4);
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item.archived {
+            background: var(--color-shore-muted);
+        }
+
+        .order-details h4 {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .order-details p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.svg" alt="Whalelord" width="40" height="40">
+                <div class="nav-logo-text">
+                    <div class="nav-logo-brand">WHALELORD</div>
+                    <div class="nav-logo-subtitle">Compass Design System</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidenav" id="sidenav"></div>
+
+    <div class="main-content">
+        <div class="container-with-sidenav">
+            <header class="hero">
+                <h1>Examples</h1>
+                <p class="hero-subtitle">See Compass components in action across real marketplace scenarios - product cards, order tracking, and user interfaces.</p>
+            </header>
+
+            <!-- PRODUCT CARDS -->
+            <section class="example-section">
+                <h2>Product Cards</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6);">Product listings combining certification badges, status indicators, and call-to-action buttons.</p>
+
+                <div class="example-grid">
+                    <!-- Product 1: Norwegian Salmon -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span>Product Image</span>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-certifications">
+                                <span class="cert-badge">
+                                    <span class="cert-badge-icon"></span>
+                                    MSC Certified
+                                </span>
+                                <span class="cert-badge">
+                                    <span class="cert-badge-icon"></span>
+                                    Organic
+                                </span>
+                            </div>
+                            <h3 class="product-title">Norwegian Salmon</h3>
+                            <p class="product-supplier">Nordic Fisheries AS</p>
+                            <div class="product-price">
+                                $13.20 <span class="product-price-unit">/ kg</span>
+                            </div>
+                            <button class="btn btn-md btn-primary btn-fluid">Request Quote</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Sea Bass (Low Stock) -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span>Product Image</span>
+                            <div style="position: absolute; top: 12px; left: 12px;">
+                                <span class="status-indicator status-low-stock">
+                                    <span class="status-indicator-icon"></span>
+                                    Low Stock
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-certifications">
+                                <span class="cert-badge">
+                                    <span class="cert-badge-icon"></span>
+                                    Sustainable
+                                </span>
+                            </div>
+                            <h3 class="product-title">Mediterranean Sea Bass</h3>
+                            <p class="product-supplier">Fresh Catch Ltd.</p>
+                            <div class="product-price">
+                                $16.80 <span class="product-price-unit">/ kg</span>
+                            </div>
+                            <button class="btn btn-md btn-primary btn-fluid">Request Quote</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Atlantic Cod (Out of Stock) -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span>Product Image</span>
+                            <div style="position: absolute; top: 12px; left: 12px;">
+                                <span class="status-indicator status-out-of-stock">
+                                    <span class="status-indicator-icon"></span>
+                                    Out of Stock
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-certifications">
+                                <span class="cert-badge">
+                                    <span class="cert-badge-icon"></span>
+                                    ASC Approved
+                                </span>
+                            </div>
+                            <h3 class="product-title">Atlantic Cod</h3>
+                            <p class="product-supplier">Ocean Harvest Co.</p>
+                            <div class="product-price">
+                                $14.50 <span class="product-price-unit">/ kg</span>
+                            </div>
+                            <button class="btn btn-md btn-secondary-outline btn-fluid" disabled>Notify When Available</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ORDER TRACKING -->
+            <section class="example-section">
+                <h2>Order Tracking</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6);">Order lists showing status progression with semantic status indicators.</p>
+
+                <div style="max-width: 800px;">
+                    <div class="order-list">
+                        <div class="order-item">
+                            <div class="order-details">
+                                <h4>#WL-10247</h4>
+                                <p>Norwegian Salmon • 250 kg</p>
+                                <p style="margin-top: 4px; font-size: 12px;">Delivered Jan 20, 2026</p>
+                            </div>
+                            <span class="status-indicator status-delivered">Delivered</span>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="order-details">
+                                <h4>#WL-10248</h4>
+                                <p>Atlantic Cod • 180 kg</p>
+                                <p style="margin-top: 4px; font-size: 12px;">Expected Jan 22, 2026</p>
+                            </div>
+                            <span class="status-indicator status-processing">Processing</span>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="order-details">
+                                <h4>#WL-10249</h4>
+                                <p>Mediterranean Sea Bass • 150 kg</p>
+                                <p style="margin-top: 4px; font-size: 12px;">Expected Jan 23, 2026</p>
+                            </div>
+                            <span class="status-indicator status-processing">Processing</span>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="order-details">
+                                <h4>#WL-10246</h4>
+                                <p>Tuna Steaks • 120 kg</p>
+                                <p style="margin-top: 4px; font-size: 12px;">Cancelled Jan 19, 2026</p>
+                            </div>
+                            <span class="status-indicator status-cancelled">Cancelled</span>
+                        </div>
+
+                        <div class="order-item archived">
+                            <div class="order-details">
+                                <h4>#WL-10200</h4>
+                                <p>Shrimp Mix • 90 kg</p>
+                                <p style="margin-top: 4px; font-size: 12px;">Archived Jan 10, 2026</p>
+                            </div>
+                            <span class="status-indicator status-archived">Archived</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BUTTON COMBINATIONS -->
+            <section class="example-section">
+                <h2>Action Patterns</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6);">Common button combinations for different user flows.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--spacing-8);">
+                    <!-- Primary Action Flow -->
+                    <div style="background: white; padding: var(--spacing-8); border: 1px solid var(--color-border-default); border-radius: var(--radius-lg);">
+                        <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--spacing-5);">Quote Request</h3>
+                        <div style="display: flex; gap: var(--spacing-3); margin-bottom: var(--spacing-4);">
+                            <button class="btn btn-md btn-primary" style="flex: 1;">Submit Quote</button>
+                            <button class="btn btn-md btn-secondary-outline">Save Draft</button>
+                        </div>
+                        <button class="btn btn-md btn-neutral btn-fluid">Cancel</button>
+                    </div>
+
+                    <!-- Secondary Actions -->
+                    <div style="background: white; padding: var(--spacing-8); border: 1px solid var(--color-border-default); border-radius: var(--radius-lg);">
+                        <h3 style="font-size: var(--font-size-lg); font-weight: 600; margin-bottom: var(--spacing-5);">Product Actions</h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--spacing-3);">
+                            <button class="btn btn-md btn-primary-outline btn-fluid">View Details</button>
+                            <button class="btn btn-md btn-secondary-outline btn-fluid">Compare Products</button>
+                            <button class="btn btn-md btn-secondary-outline btn-fluid">Save for Later</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMBINED INTERFACE -->
+            <section class="example-section">
+                <h2>Complete Interface</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6);">Full marketplace interface showing all components working together.</p>
+
+                <div style="background: var(--color-shore-base); padding: var(--spacing-8); border-radius: var(--radius-lg);">
+                    <!-- Filter Bar -->
+                    <div style="background: white; padding: var(--spacing-5); border-radius: var(--radius-lg); margin-bottom: var(--spacing-6); display: flex; gap: var(--spacing-4); flex-wrap: wrap; align-items: center;">
+                        <span style="font-size: var(--font-size-sm); font-weight: 600;">Filters:</span>
+                        <button class="btn btn-sm btn-primary-outline">All Products</button>
+                        <button class="btn btn-sm btn-secondary-outline">MSC Certified</button>
+                        <button class="btn btn-sm btn-secondary-outline">In Stock</button>
+                        <button class="btn btn-sm btn-secondary-outline">Best Price</button>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div class="example-grid">
+                        <div class="product-card">
+                            <div class="product-image">Product Image</div>
+                            <div class="product-content">
+                                <div class="product-certifications">
+                                    <span class="cert-badge">
+                                        <span class="cert-badge-icon"></span>
+                                        MSC Certified
+                                    </span>
+                                </div>
+                                <h3 class="product-title">Wild Salmon</h3>
+                                <p class="product-supplier">Alaska Seafood Co.</p>
+                                <div class="product-price">$18.90 <span class="product-price-unit">/ kg</span></div>
+                                <div style="display: flex; gap: var(--spacing-2);">
+                                    <button class="btn btn-sm btn-primary" style="flex: 1;">Add to Cart</button>
+                                    <button class="btn btn-sm btn-secondary-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                Product Image
+                                <div style="position: absolute; top: 12px; left: 12px;">
+                                    <span class="status-indicator status-low-stock">
+                                        <span class="status-indicator-icon"></span>
+                                        Low Stock
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-certifications">
+                                    <span class="cert-badge">
+                                        <span class="cert-badge-icon"></span>
+                                        Organic
+                                    </span>
+                                    <span class="cert-badge">
+                                        <span class="cert-badge-icon"></span>
+                                        Sustainable
+                                    </span>
+                                </div>
+                                <h3 class="product-title">King Prawns</h3>
+                                <p class="product-supplier">Pacific Harvest Ltd.</p>
+                                <div class="product-price">$24.50 <span class="product-price-unit">/ kg</span></div>
+                                <div style="display: flex; gap: var(--spacing-2);">
+                                    <button class="btn btn-sm btn-primary" style="flex: 1;">Add to Cart</button>
+                                    <button class="btn btn-sm btn-secondary-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Compass Design System v1.0</p>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

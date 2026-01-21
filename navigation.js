@@ -18,10 +18,10 @@
         { name: 'Certification Badges', href: 'badges.html' },
         { name: 'Status Indicators', href: 'status-indicators.html' },
         { name: 'Input Fields & Forms', href: 'forms.html' },
-        { name: 'Chips', href: 'chips.html' },
         { name: 'Accordion', href: 'accordion.html' },
         { name: 'Stepper', href: 'stepper.html' },
-        { name: 'Snackbar', href: 'snackbar.html' }
+        { name: 'Snackbar', href: 'snackbar.html' },
+        { name: 'Chips', href: 'chips.html' }
       ]
     },
     {

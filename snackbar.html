@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--color-pearl-200); margin-bottom: var(--spacing-6); }
+        .tab-btn { padding: var(--spacing-3) var(--spacing-5); background: none; border: none; font-family: var(--font-body); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-pearl-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--color-waves-500); }
+        .tab-btn.active { color: var(--color-waves-500); border-bottom-color: var(--color-waves-500); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .preview-box { background: white; border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -31,10 +40,9 @@
                 <p class="hero-subtitle">Brief notification messages that appear temporarily to provide feedback on user actions.</p>
             </header>
 
-            <!-- BASIC SNACKBARS -->
             <section class="section">
                 <h2>Snackbar Variants</h2>
-                <p>Different variants for various message types: default, success, error, warning, and info.</p>
+                <p>Different variants for various message types: success, error, warning, info, and default.</p>
                 
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'snackbar-preview')">Preview</button>
@@ -45,13 +53,14 @@
                 <div id="snackbar-preview" class="tab-content active">
                     <div class="preview-box">
                         <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
+                            
                             <!-- Success -->
                             <div style="min-width: 320px; padding: 16px 20px; background: var(--color-success-500); color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px;">
                                 <svg style="width: 20px; height: 20px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <span style="font-size: 14px; flex: 1;">Quote request sent successfully</span>
-                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px;">✕</button>
+                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1;">✕</button>
                             </div>
 
                             <!-- Error -->
@@ -60,7 +69,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                                 <span style="font-size: 14px; flex: 1;">Failed to process payment</span>
-                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px;">✕</button>
+                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1;">✕</button>
                             </div>
 
                             <!-- Warning -->
@@ -69,7 +78,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                                 </svg>
                                 <span style="font-size: 14px; flex: 1;">Stock running low for this product</span>
-                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px;">✕</button>
+                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1;">✕</button>
                             </div>
 
                             <!-- Info -->
@@ -78,13 +87,13 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span style="font-size: 14px; flex: 1;">New suppliers added to marketplace</span>
-                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px;">✕</button>
+                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1;">✕</button>
                             </div>
 
                             <!-- Default/Neutral -->
                             <div style="min-width: 320px; padding: 16px 20px; background: var(--color-pearl-900); color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 12px;">
                                 <span style="font-size: 14px; flex: 1;">Your changes have been saved</span>
-                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px;">✕</button>
+                                <button style="color: white; opacity: 0.8; padding: 4px; background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1;">✕</button>
                             </div>
                         </div>
                     </div>
@@ -93,281 +102,67 @@
                 <div id="snackbar-html" class="tab-content">
                     <div class="code-example">
                         <div class="code-header">
-                            <span>HTML + Tailwind</span>
+                            <span>HTML + CSS</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
                         <pre><code>&lt;!-- Success Snackbar --&gt;
-&lt;div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-success-500 text-white rounded-lg shadow-lg flex items-center gap-3"&gt;
-  &lt;svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
-    &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"&gt;&lt;/path&gt;
-  &lt;/svg&gt;
-  &lt;span class="text-sm flex-1"&gt;Quote request sent successfully&lt;/span&gt;
-  &lt;button class="text-white opacity-80 hover:opacity-100"&gt;✕&lt;/button&gt;
+&lt;div class="snackbar snackbar-success"&gt;
+  &lt;svg class="snackbar-icon"&gt;...&lt;/svg&gt;
+  &lt;span&gt;Quote request sent successfully&lt;/span&gt;
+  &lt;button class="snackbar-close"&gt;✕&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Error Snackbar --&gt;
+&lt;div class="snackbar snackbar-error"&gt;
+  &lt;svg class="snackbar-icon"&gt;...&lt;/svg&gt;
+  &lt;span&gt;Failed to process payment&lt;/span&gt;
+  &lt;button class="snackbar-close"&gt;✕&lt;/button&gt;
 &lt;/div&gt;</code></pre>
                     </div>
                 </div>
                 
                 <div id="snackbar-jsx" class="tab-content">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { X, CheckCircle, XCircle, AlertTriangle, Info } from 'lucide-react';
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>JSX</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>import { CheckCircle, X, AlertTriangle, Info } from 'lucide-react';
 
-const Snackbar = ({ 
-  variant = 'default', 
-  message, 
-  onClose,
-  autoHideDuration = 5000 
-}) => {
+const Snackbar = ({ variant = 'default', message, onClose }) => {
   const variants = {
-    default: {
-      bg: 'bg-pearl-900',
-      text: 'text-white',
-      icon: null,
-    },
-    success: {
-      bg: 'bg-success-500',
-      text: 'text-white',
-      icon: CheckCircle,
-    },
-    error: {
-      bg: 'bg-crimson-500',
-      text: 'text-white',
-      icon: XCircle,
-    },
-    warning: {
-      bg: 'bg-amber-500',
-      text: 'text-pearl-900',
-      icon: AlertTriangle,
-    },
-    info: {
-      bg: 'bg-waves-500',
-      text: 'text-white',
-      icon: Info,
-    },
+    success: { bg: 'bg-success-500', Icon: CheckCircle },
+    error: { bg: 'bg-error-500', Icon: X },
+    warning: { bg: 'bg-warning-500', Icon: AlertTriangle },
+    info: { bg: 'bg-waves-500', Icon: Info },
+    default: { bg: 'bg-pearl-900', Icon: null }
   };
 
-  const { bg, text, icon: Icon } = variants[variant];
-
-  useEffect(() => {
-    if (autoHideDuration) {
-      const timer = setTimeout(onClose, autoHideDuration);
-      return () => clearTimeout(timer);
-    }
-  }, [autoHideDuration, onClose]);
+  const { bg, Icon } = variants[variant];
 
   return (
-    &lt;div 
-      className={`min-w-[320px] max-w-[600px] px-5 py-4 ${bg} ${text} rounded-md shadow-lg flex items-center gap-3 animate-slide-up`}
-    &gt;
+    &lt;div className={`
+      min-w-[320px] max-w-[600px] px-5 py-4 rounded-lg shadow-lg
+      flex items-center gap-3 text-white ${bg}
+    `}&gt;
       {Icon && &lt;Icon className="w-5 h-5 flex-shrink-0" /&gt;}
       &lt;span className="text-sm flex-1"&gt;{message}&lt;/span&gt;
       &lt;button 
         onClick={onClose}
-        className={`${text} opacity-80 hover:opacity-100 p-1 transition-opacity`}
+        className="opacity-80 hover:opacity-100 transition-opacity"
       &gt;
-        &lt;X className="w-4 h-4" /&gt;
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-};
-
-// Usage with a Snackbar Provider/Context
-import { createContext, useContext, useState } from 'react';
-
-const SnackbarContext = createContext();
-
-export const SnackbarProvider = ({ children }) => {
-  const [snackbar, setSnackbar] = useState(null);
-
-  const showSnackbar = (message, variant = 'default') => {
-    setSnackbar({ message, variant, id: Date.now() });
-  };
-
-  return (
-    &lt;SnackbarContext.Provider value={{ showSnackbar }}&gt;
-      {children}
-      {snackbar && (
-        &lt;div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"&gt;
-          &lt;Snackbar
-            message={snackbar.message}
-            variant={snackbar.variant}
-            onClose={() => setSnackbar(null)}
-          /&gt;
-        &lt;/div&gt;
-      )}
-    &lt;/SnackbarContext.Provider&gt;
-  );
-};
-
-export const useSnackbar = () => useContext(SnackbarContext);
-
-// In your components
-const { showSnackbar } = useSnackbar();
-showSnackbar('Order placed successfully', 'success');</code></pre>
-                </div>
-
-                <div class="specs">
-                    <h4>Snackbar Specifications</h4>
-                    <table class="spec-table">
-                        <tr>
-                            <th>Variant</th>
-                            <th>Tailwind Classes</th>
-                            <th>Use Case</th>
-                        </tr>
-                        <tr>
-                            <td>Default</td>
-                            <td>bg-pearl-900 text-white</td>
-                            <td>General notifications</td>
-                        </tr>
-                        <tr>
-                            <td>Success</td>
-                            <td>bg-success-500 text-white</td>
-                            <td>Successful actions</td>
-                        </tr>
-                        <tr>
-                            <td>Error</td>
-                            <td>bg-crimson-500 text-white</td>
-                            <td>Error messages</td>
-                        </tr>
-                        <tr>
-                            <td>Warning</td>
-                            <td>bg-amber-500 text-pearl-900</td>
-                            <td>Warning alerts</td>
-                        </tr>
-                        <tr>
-                            <td>Info</td>
-                            <td>bg-waves-500 text-white</td>
-                            <td>Informational messages</td>
-                        </tr>
-                    </table>
-                </div>
-            </section>
-
-            <!-- WITH ACTIONS -->
-            <section class="section">
-                <h2>Snackbar with Action</h2>
-                <p>Snackbars can include an action button for immediate interaction.</p>
-                
-                <div class="component-demo">
-                    <div class="space-y-4">
-                        <!-- With Undo Action -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-4">
-                            <span class="text-sm flex-1">Item deleted</span>
-                            <button class="text-kelp-300 hover:text-kelp-200 text-sm font-medium transition-colors">
-                                UNDO
-                            </button>
-                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
-                        </div>
-
-                        <!-- With View Action -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-waves-500 text-white rounded-md shadow-lg flex items-center gap-4">
-                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="text-sm flex-1">New message from supplier</span>
-                            <button class="text-white hover:underline text-sm font-medium">
-                                VIEW
-                            </button>
-                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>const SnackbarWithAction = ({ 
-  message, 
-  actionLabel,
-  onAction,
-  onClose,
-  variant = 'default' 
-}) => {
-  return (
-    &lt;div className="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-4"&gt;
-      &lt;span className="text-sm flex-1"&gt;{message}&lt;/span&gt;
-      {actionLabel && (
-        &lt;button
-          onClick={onAction}
-          className="text-kelp-300 hover:text-kelp-200 text-sm font-medium transition-colors"
-        &gt;
-          {actionLabel.toUpperCase()}
-        &lt;/button&gt;
-      )}
-      &lt;button 
-        onClick={onClose}
-        className="text-white opacity-80 hover:opacity-100 p-1 transition-opacity"
-      &gt;
-        &lt;X className="w-4 h-4" /&gt;
+        ✕
       &lt;/button&gt;
     &lt;/div&gt;
   );
 };
 
 // Usage
-&lt;SnackbarWithAction
-  message="Item deleted"
-  actionLabel="Undo"
-  onAction={() => console.log('Undo clicked')}
-  onClose={handleClose}
+&lt;Snackbar 
+  variant="success" 
+  message="Quote request sent successfully"
+  onClose={() => console.log('Close')}
 /&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Keep messages brief and actionable (under 100 characters)</li>
-                            <li>Auto-dismiss after 4-6 seconds (except errors)</li>
-                            <li>Show only one snackbar at a time</li>
-                            <li>Use success variant for completed actions</li>
-                            <li>Provide clear action buttons when applicable</li>
-                            <li>Position at bottom center or bottom left</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't stack multiple snackbars</li>
-                            <li>Don't use for critical system errors (use modals)</li>
-                            <li>Don't auto-dismiss error messages</li>
-                            <li>Don't include long paragraphs of text</li>
-                            <li>Don't block important UI elements</li>
-                            <li>Don't use for permission requests or confirmations</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>ARIA Role:</strong> Use role="alert" for important messages, role="status" for less critical updates</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Screen Readers:</strong> Snackbars are announced automatically with proper ARIA attributes</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Focus Management:</strong> Don't steal focus unless containing interactive elements</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Keyboard Dismiss:</strong> Allow Escape key to dismiss snackbar</p>
                     </div>
                 </div>
             </section>
@@ -390,12 +185,9 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
         
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(codeBlock.textContent).then(() => {
                 btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                }, 2000);
+                setTimeout(() => btn.textContent = 'Copy', 2000);
             });
         }
     </script>

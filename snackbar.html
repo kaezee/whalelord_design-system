@@ -36,18 +36,25 @@
                 <h2>Snackbar Variants</h2>
                 <p>Different variants for various message types: default, success, error, warning, and info.</p>
                 
-                <div class="component-demo">
-                    <div class="space-y-4">
-                        <!-- Default -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-3">
-                            <span class="text-sm flex-1">Your changes have been saved</span>
-                            <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
-                        </div>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'snackbar-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'snackbar-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'snackbar-jsx')">JSX</button>
+                </div>
+                
+                <div id="snackbar-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div class="space-y-4">
+                            <!-- Default -->
+                            <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-pearl-900 text-white rounded-md shadow-lg flex items-center gap-3">
+                                <span class="text-sm flex-1">Your changes have been saved</span>
+                                <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
+                            </div>
 
-                        <!-- Success -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-coral-500 text-white rounded-md shadow-lg flex items-center gap-3">
-                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            <!-- Success -->
+                            <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-success-500 text-white rounded-md shadow-lg flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-sm flex-1">Order placed successfully</span>
                             <button class="text-white opacity-80 hover:opacity-100 p-1">✕</button>
@@ -72,7 +79,7 @@
                         </div>
 
                         <!-- Info -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-tide-500 text-white rounded-md shadow-lg flex items-center gap-3">
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-waves-500 text-white rounded-md shadow-lg flex items-center gap-3">
                             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -84,7 +91,7 @@
 
                 <div class="code-example">
                     <div class="code-header">
-                        <span>React + Tailwind</span>
+                        <span>JSX</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
                     <pre><code>import { X, CheckCircle, XCircle, AlertTriangle, Info } from 'lucide-react';
@@ -102,7 +109,7 @@ const Snackbar = ({
       icon: null,
     },
     success: {
-      bg: 'bg-coral-500',
+      bg: 'bg-success-500',
       text: 'text-white',
       icon: CheckCircle,
     },
@@ -117,7 +124,7 @@ const Snackbar = ({
       icon: AlertTriangle,
     },
     info: {
-      bg: 'bg-tide-500',
+      bg: 'bg-waves-500',
       text: 'text-white',
       icon: Info,
     },
@@ -198,7 +205,7 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
                         </tr>
                         <tr>
                             <td>Success</td>
-                            <td>bg-coral-500 text-white</td>
+                            <td>bg-success-500 text-white</td>
                             <td>Successful actions</td>
                         </tr>
                         <tr>
@@ -213,7 +220,7 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
                         </tr>
                         <tr>
                             <td>Info</td>
-                            <td>bg-tide-500 text-white</td>
+                            <td>bg-waves-500 text-white</td>
                             <td>Informational messages</td>
                         </tr>
                     </table>
@@ -237,7 +244,7 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
                         </div>
 
                         <!-- With View Action -->
-                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-tide-500 text-white rounded-md shadow-lg flex items-center gap-4">
+                        <div class="min-w-[320px] max-w-[600px] px-5 py-4 bg-waves-500 text-white rounded-md shadow-lg flex items-center gap-4">
                             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -252,7 +259,7 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
 
                 <div class="code-example">
                     <div class="code-header">
-                        <span>React + Tailwind</span>
+                        <span>JSX</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
                     <pre><code>const SnackbarWithAction = ({ 
@@ -354,6 +361,14 @@ showSnackbar('Order placed successfully', 'success');</code></pre>
 
     <script src="navigation.js"></script>
     <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            section.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;

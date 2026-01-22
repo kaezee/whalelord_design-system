@@ -36,8 +36,16 @@
                 <h2>Basic Stepper</h2>
                 <p>Horizontal stepper showing progress through a multi-step process.</p>
                 
-                <div class="component-demo">
-                    <div class="flex items-center justify-between mb-10">
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'stepper-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'stepper-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'stepper-jsx')">JSX</button>
+                </div>
+                
+                <div id="stepper-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 800px; width: 100%;">
+                            <div class="flex items-center justify-between mb-10">
                         <!-- Step 1 - Completed -->
                         <div class="flex flex-col items-center flex-1 relative">
                             <div class="w-10 h-10 rounded-full bg-kelp-500 border-2 border-kelp-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
@@ -73,11 +81,24 @@
                             <span class="text-sm text-pearl-600 text-center">Confirmation</span>
                         </div>
                     </div>
+                        </div>
+                    </div>
                 </div>
-
+                
+                <div id="stepper-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Stepper HTML --&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="stepper-jsx" class="tab-content">
                 <div class="code-example">
                     <div class="code-header">
-                        <span>React + Tailwind</span>
+                        <span>JSX</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
                     <pre><code>const Stepper = ({ steps, currentStep }) => {
@@ -140,6 +161,7 @@ const checkoutSteps = [
 ];
 
 &lt;Stepper steps={checkoutSteps} currentStep={2} /&gt;</code></pre>
+                    </div>
                 </div>
             </section>
 
@@ -148,9 +170,16 @@ const checkoutSteps = [
                 <h2>Vertical Stepper</h2>
                 <p>Vertical layout for mobile or sidebar placement.</p>
                 
-                <div class="component-demo">
-                    <div style="max-width: 400px;">
-                        <div class="space-y-0">
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'vertical-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'vertical-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'vertical-jsx')">JSX</button>
+                </div>
+                
+                <div id="vertical-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="max-width: 400px;">
+                            <div class="space-y-0">
                             <!-- Step 1 - Completed -->
                             <div class="flex gap-4 pb-8 relative">
                                 <div class="flex flex-col items-center">
@@ -193,11 +222,24 @@ const checkoutSteps = [
                             </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
                 </div>
-
+                
+                <div id="vertical-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Vertical Stepper HTML --&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="vertical-jsx" class="tab-content">
                 <div class="code-example">
                     <div class="code-header">
-                        <span>React + Tailwind</span>
+                        <span>JSX</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
                     <pre><code>const VerticalStepper = ({ steps, currentStep }) => {
@@ -268,6 +310,7 @@ const onboardingSteps = [
 ];
 
 &lt;VerticalStepper steps={onboardingSteps} currentStep={2} /&gt;</code></pre>
+                    </div>
                 </div>
             </section>
 
@@ -332,6 +375,14 @@ const onboardingSteps = [
 
     <script src="navigation.js"></script>
     <script>
+        function switchTab(event, tabId) {
+            const section = event.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            section.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
             const text = codeBlock.textContent;

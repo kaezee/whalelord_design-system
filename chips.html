@@ -31,28 +31,62 @@
                 <p class="hero-subtitle">Compact elements for representing tags, filters, or removable selections. Often used in search filters and multi-select inputs.</p>
             </header>
 
-            <!-- BASIC CHIPS -->
+            <!-- REMOVABLE FILTER CHIPS -->
             <section class="section">
-                <h2>Basic Chips</h2>
-                <p>Standard chips for displaying tags or selections.</p>
+                <h2>Filter Chips</h2>
+                <p>Removable tags for applied search filters in marketplace browsing.</p>
                 
-                <div class="component-demo">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Fresh
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Frozen
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Wild-Caught
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Sustainable
-                        </span>
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchTab(event, 'chips-preview')">Preview</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'chips-html')">HTML</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'chips-jsx')">JSX</button>
+                </div>
+                
+                <div id="chips-preview" class="tab-content active">
+                    <div class="preview-box">
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 700px;">
+                            <!-- Price Filter -->
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                                Price: $50-$100
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                            </span>
+                            
+                            <!-- Location Filter -->
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                                Location: Norway
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                            </span>
+                            
+                            <!-- Certification Filter -->
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                                MSC Certified
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                            </span>
+                            
+                            <!-- Type Filter -->
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                                Fresh
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                            </span>
+                        </div>
                     </div>
                 </div>
-
+                
+                <div id="chips-html" class="tab-content">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>HTML + Tailwind</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>&lt;!-- Removable Filter Chip --&gt;
+&lt;span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-900"&gt;
+  Price: $50-$100
+  &lt;button class="text-pearl-600 hover:text-pearl-900"&gt;✕&lt;/button&gt;
+&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div id="chips-jsx" class="tab-content">
                 <div class="code-example">
                     <div class="code-header">
                         <span>JSX</span>

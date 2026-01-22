@@ -48,19 +48,19 @@
                             <div class="flex items-center justify-between mb-10">
                         <!-- Step 1 - Completed -->
                         <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-kelp-500 border-2 border-kelp-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
+                            <div class="w-10 h-10 rounded-full bg-success-500 border-2 border-success-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
                                 ✓
                             </div>
                             <span class="text-sm text-pearl-700 text-center">Product Details</span>
-                            <div class="absolute top-5 left-1/2 w-full h-0.5 bg-kelp-500 -z-10"></div>
+                            <div class="absolute top-5 left-1/2 w-full h-0.5 bg-success-500 -z-10"></div>
                         </div>
 
                         <!-- Step 2 - Active -->
                         <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-kelp-500 border-2 border-kelp-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
+                            <div class="w-10 h-10 rounded-full bg-success-500 border-2 border-success-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
                                 2
                             </div>
-                            <span class="text-sm text-kelp-500 font-semibold text-center">Shipping Info</span>
+                            <span class="text-sm text-success-700 font-semibold text-center">Shipping Info</span>
                             <div class="absolute top-5 left-0 w-full h-0.5 bg-pearl-200 -z-10"></div>
                         </div>
 
@@ -117,7 +117,7 @@
             &lt;div
               className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold mb-2 z-10 ${
                 isCompleted || isActive
-                  ? 'bg-kelp-500 border-kelp-500 text-white'
+                  ? 'bg-success-500 border-success-500 text-white'
                   : 'bg-white border-pearl-300 text-pearl-600'
               }`}
             &gt;
@@ -128,7 +128,7 @@
             &lt;span
               className={`text-sm text-center ${
                 isActive
-                  ? 'text-kelp-500 font-semibold'
+                  ? 'text-success-700 font-semibold'
                   : isCompleted
                   ? 'text-pearl-700'
                   : 'text-pearl-600'
@@ -141,7 +141,7 @@
             {!isLast && (
               &lt;div
                 className={`absolute top-5 left-1/2 w-full h-0.5 -z-10 ${
-                  isCompleted ? 'bg-kelp-500' : 'bg-pearl-200'
+                  isCompleted ? 'bg-success-500' : 'bg-pearl-200'
                 }`}
               /&gt;
             )}
@@ -165,154 +165,6 @@ const checkoutSteps = [
                 </div>
             </section>
 
-            <!-- VERTICAL STEPPER -->
-            <section class="section">
-                <h2>Vertical Stepper</h2>
-                <p>Vertical layout for mobile or sidebar placement.</p>
-                
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab(event, 'vertical-preview')">Preview</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'vertical-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'vertical-jsx')">JSX</button>
-                </div>
-                
-                <div id="vertical-preview" class="tab-content active">
-                    <div class="preview-box">
-                        <div style="max-width: 400px;">
-                            <div class="space-y-0">
-                            <!-- Step 1 - Completed -->
-                            <div class="flex gap-4 pb-8 relative">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 h-10 rounded-full bg-kelp-500 border-2 border-kelp-500 flex items-center justify-center text-white font-semibold z-10">
-                                        ✓
-                                    </div>
-                                    <div class="absolute top-10 left-5 w-0.5 h-full bg-kelp-500"></div>
-                                </div>
-                                <div class="flex-1 pt-2">
-                                    <h4 class="text-base font-semibold text-pearl-900 mb-1">Create Account</h4>
-                                    <p class="text-sm text-pearl-600">Set up your business profile</p>
-                                </div>
-                            </div>
-
-                            <!-- Step 2 - Active -->
-                            <div class="flex gap-4 pb-8 relative">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 h-10 rounded-full bg-kelp-500 border-2 border-kelp-500 flex items-center justify-center text-white font-semibold z-10">
-                                        2
-                                    </div>
-                                    <div class="absolute top-10 left-5 w-0.5 h-full bg-pearl-200"></div>
-                                </div>
-                                <div class="flex-1 pt-2">
-                                    <h4 class="text-base font-semibold text-kelp-500 mb-1">Verify Documents</h4>
-                                    <p class="text-sm text-pearl-600">Upload business licenses and certificates</p>
-                                </div>
-                            </div>
-
-                            <!-- Step 3 - Upcoming -->
-                            <div class="flex gap-4">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-10 h-10 rounded-full bg-white border-2 border-pearl-300 flex items-center justify-center text-pearl-600 font-semibold z-10">
-                                        3
-                                    </div>
-                                </div>
-                                <div class="flex-1 pt-2">
-                                    <h4 class="text-base font-semibold text-pearl-600 mb-1">Start Trading</h4>
-                                    <p class="text-sm text-pearl-500">Browse products and request quotes</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="vertical-html" class="tab-content">
-                    <div class="code-example">
-                        <div class="code-header">
-                            <span>HTML + Tailwind</span>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <pre><code>&lt;!-- Vertical Stepper HTML --&gt;</code></pre>
-                    </div>
-                </div>
-                
-                <div id="vertical-jsx" class="tab-content">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>const VerticalStepper = ({ steps, currentStep }) => {
-  return (
-    &lt;div className="space-y-0"&gt;
-      {steps.map((step, index) => {
-        const stepNumber = index + 1;
-        const isCompleted = stepNumber < currentStep;
-        const isActive = stepNumber === currentStep;
-        const isLast = index === steps.length - 1;
-
-        return (
-          &lt;div key={index} className={`flex gap-4 ${!isLast ? 'pb-8' : ''} relative`}&gt;
-            {/* Circle and Line */}
-            &lt;div className="flex flex-col items-center"&gt;
-              &lt;div
-                className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold z-10 ${
-                  isCompleted || isActive
-                    ? 'bg-kelp-500 border-kelp-500 text-white'
-                    : 'bg-white border-pearl-300 text-pearl-600'
-                }`}
-              &gt;
-                {isCompleted ? '✓' : stepNumber}
-              &lt;/div&gt;
-              {!isLast && (
-                &lt;div
-                  className={`absolute top-10 left-5 w-0.5 h-full ${
-                    isCompleted ? 'bg-kelp-500' : 'bg-pearl-200'
-                  }`}
-                /&gt;
-              )}
-            &lt;/div&gt;
-
-            {/* Content */}
-            &lt;div className="flex-1 pt-2"&gt;
-              &lt;h4
-                className={`text-base font-semibold mb-1 ${
-                  isActive ? 'text-kelp-500' : isCompleted ? 'text-pearl-900' : 'text-pearl-600'
-                }`}
-              &gt;
-                {step.title}
-              &lt;/h4&gt;
-              &lt;p className={`text-sm ${isCompleted || isActive ? 'text-pearl-600' : 'text-pearl-500'}`}&gt;
-                {step.description}
-              &lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        );
-      })}
-    &lt;/div&gt;
-  );
-};
-
-// Usage
-const onboardingSteps = [
-  {
-    title: 'Create Account',
-    description: 'Set up your business profile',
-  },
-  {
-    title: 'Verify Documents',
-    description: 'Upload business licenses and certificates',
-  },
-  {
-    title: 'Start Trading',
-    description: 'Browse products and request quotes',
-  },
-];
-
-&lt;VerticalStepper steps={onboardingSteps} currentStep={2} /&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
 
             <!-- USAGE GUIDELINES -->
             <section class="section">

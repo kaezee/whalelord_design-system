@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--color-pearl-200); margin-bottom: var(--spacing-6); }
+        .tab-btn { padding: var(--spacing-3) var(--spacing-5); background: none; border: none; font-family: var(--font-body); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-pearl-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--color-waves-500); }
+        .tab-btn.active { color: var(--color-waves-500); border-bottom-color: var(--color-waves-500); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .preview-box { background: white; border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -27,11 +36,10 @@
     <div class="main-content">
         <div class="container-with-sidenav">
             <header>
-                <h1>Chips</h1>
-                <p class="hero-subtitle">Compact elements for representing tags, filters, or removable selections. Often used in search filters and multi-select inputs.</p>
+                <h1>Filter Chips</h1>
+                <p class="hero-subtitle">Removable tags for applied search filters in marketplace browsing. Display active filters with easy removal.</p>
             </header>
 
-            <!-- REMOVABLE FILTER CHIPS -->
             <section class="section">
                 <h2>Filter Chips</h2>
                 <p>Removable tags for applied search filters in marketplace browsing.</p>
@@ -44,29 +52,25 @@
                 
                 <div id="chips-preview" class="tab-content active">
                     <div class="preview-box">
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 700px;">
-                            <!-- Price Filter -->
-                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
                                 Price: $50-$100
-                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 18px; padding: 0; line-height: 1; margin-left: 4px;">✕</button>
                             </span>
                             
-                            <!-- Location Filter -->
-                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
                                 Location: Norway
-                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 18px; padding: 0; line-height: 1; margin-left: 4px;">✕</button>
                             </span>
                             
-                            <!-- Certification Filter -->
-                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
                                 MSC Certified
-                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 18px; padding: 0; line-height: 1; margin-left: 4px;">✕</button>
                             </span>
                             
-                            <!-- Type Filter -->
-                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
+                            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--color-pearl-100); border: 1px solid var(--color-pearl-300); border-radius: 9999px; font-size: 14px; font-weight: 500; color: var(--color-text-primary);">
                                 Fresh
-                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 16px; padding: 0; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">✕</button>
+                                <button style="background: none; border: none; cursor: pointer; color: var(--color-pearl-600); font-size: 18px; padding: 0; line-height: 1; margin-left: 4px;">✕</button>
                             </span>
                         </div>
                     </div>
@@ -79,7 +83,7 @@
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
                         <pre><code>&lt;!-- Removable Filter Chip --&gt;
-&lt;span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-900"&gt;
+&lt;span class="inline-flex items-center gap-2 px-4 py-2 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-900"&gt;
   Price: $50-$100
   &lt;button class="text-pearl-600 hover:text-pearl-900"&gt;✕&lt;/button&gt;
 &lt;/span&gt;</code></pre>
@@ -87,348 +91,27 @@
                 </div>
                 
                 <div id="chips-jsx" class="tab-content">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>// Basic Chip Component
-const Chip = ({ children, variant = 'default' }) => {
-  const variants = {
-    default: 'bg-pearl-100 border-pearl-300 text-pearl-700',
-    primary: 'bg-kelp-50 border-kelp-200 text-kelp-700',
-  };
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>JSX</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>import { X } from 'lucide-react';
 
-  return (
-    &lt;span 
-      className={`inline-flex items-center gap-2 px-3 py-1.5 border rounded-full text-sm font-medium ${variants[variant]}`}
+const FilterChip = ({ label, onRemove }) => (
+  &lt;span className="inline-flex items-center gap-2 px-4 py-2 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-900"&gt;
+    {label}
+    &lt;button 
+      onClick={onRemove}
+      className="text-pearl-600 hover:text-pearl-900 transition-colors"
     &gt;
-      {children}
-    &lt;/span&gt;
-  );
-};
-
-// Usage
-&lt;Chip&gt;Fresh&lt;/Chip&gt;
-&lt;Chip&gt;Frozen&lt;/Chip&gt;
-&lt;Chip variant="primary"&gt;Sustainable&lt;/Chip&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- REMOVABLE CHIPS -->
-            <section class="section">
-                <h2>Removable Chips</h2>
-                <p>Chips with close buttons for user-removable selections (e.g., applied filters).</p>
-                
-                <div class="component-demo">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Price: $50-$100
-                            <button class="flex items-center justify-center w-4 h-4 text-pearl-600 hover:text-pearl-900 transition-colors">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            Location: Norway
-                            <button class="flex items-center justify-center w-4 h-4 text-pearl-600 hover:text-pearl-900 transition-colors">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-kelp-50 border border-kelp-200 rounded-full text-sm font-medium text-kelp-700">
-                            MSC Certified
-                            <button class="flex items-center justify-center w-4 h-4 text-kelp-600 hover:text-kelp-900 transition-colors">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { X } from 'lucide-react';
-
-// Removable Chip Component
-const RemovableChip = ({ 
-  children, 
-  onRemove, 
-  variant = 'default' 
-}) => {
-  const variants = {
-    default: 'bg-pearl-100 border-pearl-300 text-pearl-700',
-    primary: 'bg-kelp-50 border-kelp-200 text-kelp-700',
-  };
-
-  const iconColors = {
-    default: 'text-pearl-600 hover:text-pearl-900',
-    primary: 'text-kelp-600 hover:text-kelp-900',
-  };
-
-  return (
-    &lt;span 
-      className={`inline-flex items-center gap-2 px-3 py-1.5 border rounded-full text-sm font-medium ${variants[variant]}`}
-    &gt;
-      {children}
-      &lt;button
-        onClick={onRemove}
-        className={`flex items-center justify-center w-4 h-4 ${iconColors[variant]} transition-colors`}
-        aria-label="Remove"
-      &gt;
-        &lt;X className="w-3 h-3" /&gt;
-      &lt;/button&gt;
-    &lt;/span&gt;
-  );
-};
-
-// Usage with state management
-const FilterChips = () => {
-  const [filters, setFilters] = useState([
-    { id: 1, label: 'Price: $50-$100' },
-    { id: 2, label: 'Location: Norway' },
-    { id: 3, label: 'MSC Certified', primary: true },
-  ]);
-
-  const removeFilter = (id) => {
-    setFilters(filters.filter(f => f.id !== id));
-  };
-
-  return (
-    &lt;div className="flex flex-wrap gap-2"&gt;
-      {filters.map((filter) => (
-        &lt;RemovableChip
-          key={filter.id}
-          variant={filter.primary ? 'primary' : 'default'}
-          onRemove={() => removeFilter(filter.id)}
-        &gt;
-          {filter.label}
-        &lt;/RemovableChip&gt;
-      ))}
-    &lt;/div&gt;
-  );
-};</code></pre>
-                </div>
-            </section>
-
-            <!-- CHIPS WITH ICONS -->
-            <section class="section">
-                <h2>Chips with Icons</h2>
-                <p>Chips can include leading icons for enhanced visual identification.</p>
-                
-                <div class="component-demo">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            North Atlantic
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-pearl-100 border border-pearl-300 rounded-full text-sm font-medium text-pearl-700">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                            John's Fishing Co.
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-coral-50 border border-coral-200 rounded-full text-sm font-medium text-coral-700">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Verified Supplier
-                        </span>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { MapPin, User, CheckCircle } from 'lucide-react';
-
-// Chip with Icon Component
-const IconChip = ({ 
-  icon: Icon, 
-  children, 
-  variant = 'default' 
-}) => {
-  const variants = {
-    default: 'bg-pearl-100 border-pearl-300 text-pearl-700',
-    success: 'bg-coral-50 border-coral-200 text-coral-700',
-    primary: 'bg-kelp-50 border-kelp-200 text-kelp-700',
-  };
-
-  return (
-    &lt;span 
-      className={`inline-flex items-center gap-2 px-3 py-1.5 border rounded-full text-sm font-medium ${variants[variant]}`}
-    &gt;
-      {Icon && &lt;Icon className="w-4 h-4" /&gt;}
-      {children}
-    &lt;/span&gt;
-  );
-};
-
-// Usage
-&lt;IconChip icon={MapPin}&gt;North Atlantic&lt;/IconChip&gt;
-&lt;IconChip icon={User}&gt;John's Fishing Co.&lt;/IconChip&gt;
-&lt;IconChip icon={CheckCircle} variant="success"&gt;
-  Verified Supplier
-&lt;/IconChip&gt;</code></pre>
-                </div>
-            </section>
-
-            <!-- INTERACTIVE CHIPS (SELECTION) -->
-            <section class="section">
-                <h2>Interactive Filter Chips</h2>
-                <p>Clickable chips that toggle selection state, commonly used for multi-select filters.</p>
-                
-                <div class="component-demo">
-                    <div class="flex flex-wrap gap-2">
-                        <!-- Selected state -->
-                        <button class="inline-flex items-center gap-2 px-3 py-1.5 bg-kelp-500 border border-kelp-500 rounded-full text-sm font-medium text-white transition-all hover:bg-kelp-600">
-                            Fresh
-                            <span class="flex items-center justify-center w-4 h-4">✓</span>
-                        </button>
-                        
-                        <!-- Unselected state -->
-                        <button class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-pearl-300 rounded-full text-sm font-medium text-pearl-700 transition-all hover:border-kelp-500 hover:bg-kelp-50">
-                            Frozen
-                        </button>
-                        
-                        <!-- Selected -->
-                        <button class="inline-flex items-center gap-2 px-3 py-1.5 bg-kelp-500 border border-kelp-500 rounded-full text-sm font-medium text-white transition-all hover:bg-kelp-600">
-                            Wild-Caught
-                            <span class="flex items-center justify-center w-4 h-4">✓</span>
-                        </button>
-                        
-                        <!-- Unselected -->
-                        <button class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-pearl-300 rounded-full text-sm font-medium text-pearl-700 transition-all hover:border-kelp-500 hover:bg-kelp-50">
-                            Farm-Raised
-                        </button>
-                    </div>
-                </div>
-
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>import { Check } from 'lucide-react';
-
-// Interactive Filter Chip
-const FilterChip = ({ 
-  label, 
-  isSelected, 
-  onToggle 
-}) => {
-  return (
-    &lt;button
-      onClick={onToggle}
-      className={`inline-flex items-center gap-2 px-3 py-1.5 border rounded-full text-sm font-medium transition-all ${
-        isSelected
-          ? 'bg-kelp-500 border-kelp-500 text-white hover:bg-kelp-600'
-          : 'bg-white border-pearl-300 text-pearl-700 hover:border-kelp-500 hover:bg-kelp-50'
-      }`}
-    &gt;
-      {label}
-      {isSelected && (
-        &lt;Check className="w-4 h-4" /&gt;
-      )}
+      &lt;X className="w-4 h-4" /&gt;
     &lt;/button&gt;
-  );
-};
+  &lt;/span&gt;
+);
 
-// Usage with state
-const FilterGroup = () => {
-  const [selected, setSelected] = useState(['fresh', 'wild-caught']);
-
-  const toggleFilter = (value) => {
-    setSelected(prev =>
-      prev.includes(value)
-        ? prev.filter(v => v !== value)
-        : [...prev, value]
-    );
-  };
-
-  const filters = [
-    { value: 'fresh', label: 'Fresh' },
-    { value: 'frozen', label: 'Frozen' },
-    { value: 'wild-caught', label: 'Wild-Caught' },
-    { value: 'farm-raised', label: 'Farm-Raised' },
-  ];
-
-  return (
-    &lt;div className="flex flex-wrap gap-2"&gt;
-      {filters.map((filter) => (
-        &lt;FilterChip
-          key={filter.value}
-          label={filter.label}
-          isSelected={selected.includes(filter.value)}
-          onToggle={() => toggleFilter(filter.value)}
-        /&gt;
-      ))}
-    &lt;/div&gt;
-  );
-};</code></pre>
-                </div>
-            </section>
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Use chips for tags, filters, and removable selections</li>
-                            <li>Keep chip labels short and scannable</li>
-                            <li>Use remove button for user-deletable chips</li>
-                            <li>Show selected state clearly in filter chips</li>
-                            <li>Group related chips together</li>
-                            <li>Use consistent sizing across chip groups</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't use chips for primary navigation</li>
-                            <li>Don't make chips too tall or wide</li>
-                            <li>Don't use more than 2-3 chip variants in one view</li>
-                            <li>Don't hide the remove button on hover (always visible)</li>
-                            <li>Don't use chips for long text content</li>
-                            <li>Don't make static chips look interactive</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Keyboard Support:</strong> Interactive chips are keyboard accessible with Tab and Enter/Space</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>ARIA Labels:</strong> Remove buttons have descriptive aria-label attributes</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Focus Indicators:</strong> Clear focus states for keyboard navigation</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Selection State:</strong> Selected chips are announced to screen readers</p>
+// Usage
+&lt;FilterChip label="Price: $50-$100" onRemove={() => console.log('Remove')} /&gt;</code></pre>
                     </div>
                 </div>
             </section>
@@ -451,12 +134,9 @@ const FilterGroup = () => {
         
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(codeBlock.textContent).then(() => {
                 btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                }, 2000);
+                setTimeout(() => btn.textContent = 'Copy', 2000);
             });
         }
     </script>

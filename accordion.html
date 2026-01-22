@@ -51,35 +51,35 @@
                 <div class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab(event, 'accordion-preview')">Preview</button>
                     <button class="tab-btn" onclick="switchTab(event, 'accordion-html')">HTML</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'accordion-react')">React + Tailwind</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'accordion-jsx')">JSX</button>
                 </div>
                 
                 <div id="accordion-preview" class="tab-content active">
                     <div class="preview-box">
                         <div style="max-width: 700px; width: 100%;">
-                            <div style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
-                                <div class="accordion-item" style="border-bottom: 1px solid #E2E8F0;">
-                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: white; border: none; text-align: left; font-size: 16px; font-weight: 600; color: #171923; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="border: 1px solid var(--color-pearl-700); border-radius: 8px; overflow: hidden; background: var(--color-pearl-900);">
+                                <div class="accordion-item" style="border-bottom: 1px solid var(--color-pearl-700);">
+                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: var(--color-pearl-900); border: none; text-align: left; font-size: 16px; font-weight: 600; color: white; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
                                         <span>What is your return policy?</span>
-                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: #718096;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: var(--color-pearl-400);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                         </svg>
                                     </button>
                                     <div class="accordion-content">
-                                        <div style="padding: 0 20px 16px; color: #2D3748; line-height: 1.75;">
+                                        <div style="padding: 0 20px 16px; color: var(--color-pearl-300); line-height: 1.75;">
                                             We accept returns within 30 days of delivery for most products. Items must be unused and in their original packaging.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
-                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: white; border: none; text-align: left; font-size: 16px; font-weight: 600; color: #171923; cursor: pointer; display: flex; justify-between; align-items: center;">
+                                    <button onclick="toggleAccordion(this)" style="width: 100%; padding: 16px 20px; background: var(--color-pearl-900); border: none; text-align: left; font-size: 16px; font-weight: 600; color: white; cursor: pointer; display: flex; justify-between; align-items: center;">
                                         <span>How do I track my order?</span>
-                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: #718096;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="accordion-icon" style="width: 20px; height: 20px; color: var(--color-pearl-400);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                         </svg>
                                     </button>
                                     <div class="accordion-content">
-                                        <div style="padding: 0 20px 16px; color: #2D3748; line-height: 1.75;">
+                                        <div style="padding: 0 20px 16px; color: var(--color-pearl-300); line-height: 1.75;">
                                             Once your order ships, you'll receive a tracking number via email.
                                         </div>
                                     </div>
@@ -113,10 +113,10 @@
                     </div>
                 </div>
                 
-                <div id="accordion-react" class="tab-content">
+                <div id="accordion-jsx" class="tab-content">
                     <div class="code-example">
                         <div class="code-header">
-                            <span>React + Tailwind</span>
+                            <span>JSX</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
                         <pre><code>import { useState } from 'react';

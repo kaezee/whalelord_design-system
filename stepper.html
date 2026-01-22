@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--color-pearl-200); margin-bottom: var(--spacing-6); }
+        .tab-btn { padding: var(--spacing-3) var(--spacing-5); background: none; border: none; font-family: var(--font-body); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-pearl-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--color-waves-500); }
+        .tab-btn.active { color: var(--color-waves-500); border-bottom-color: var(--color-waves-500); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .preview-box { background: white; border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--spacing-8); margin-bottom: var(--spacing-6); }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -28,10 +37,9 @@
         <div class="container-with-sidenav">
             <header>
                 <h1>Stepper</h1>
-                <p class="hero-subtitle">Multi-step progress indicator for guided workflows. Shows users their position in a sequential process.</p>
+                <p class="hero-subtitle">Horizontal progress indicator for multi-step processes like quote requests and onboarding.</p>
             </header>
 
-            <!-- BASIC STEPPER -->
             <section class="section">
                 <h2>Basic Stepper</h2>
                 <p>Horizontal stepper showing progress through a multi-step process.</p>
@@ -45,42 +53,49 @@
                 <div id="stepper-preview" class="tab-content active">
                     <div class="preview-box">
                         <div style="max-width: 800px; width: 100%;">
-                            <div class="flex items-center justify-between mb-10">
-                        <!-- Step 1 - Completed -->
-                        <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-success-500 border-2 border-success-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
-                                ✓
-                            </div>
-                            <span class="text-sm text-pearl-700 text-center">Product Details</span>
-                            <div class="absolute top-5 left-1/2 w-full h-0.5 bg-success-500 -z-10"></div>
-                        </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; position: relative;">
+                                
+                                <!-- Step 1 - Completed -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; z-index: 1;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-success-500); border: 2px solid var(--color-success-500); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-bottom: 8px;">
+                                        ✓
+                                    </div>
+                                    <span style="font-size: 14px; color: var(--color-text-secondary); text-align: center;">Product Details</span>
+                                </div>
 
-                        <!-- Step 2 - Active -->
-                        <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-success-500 border-2 border-success-500 flex items-center justify-center text-white font-semibold mb-2 z-10">
-                                2
-                            </div>
-                            <span class="text-sm text-success-700 font-semibold text-center">Shipping Info</span>
-                            <div class="absolute top-5 left-0 w-full h-0.5 bg-pearl-200 -z-10"></div>
-                        </div>
+                                <!-- Connector Line 1 -->
+                                <div style="flex: 1; height: 2px; background: var(--color-success-500); margin: 0 -20px; margin-bottom: 28px;"></div>
 
-                        <!-- Step 3 - Upcoming -->
-                        <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-white border-2 border-pearl-300 flex items-center justify-center text-pearl-600 font-semibold mb-2 z-10">
-                                3
-                            </div>
-                            <span class="text-sm text-pearl-600 text-center">Payment</span>
-                            <div class="absolute top-5 left-0 w-full h-0.5 bg-pearl-200 -z-10"></div>
-                        </div>
+                                <!-- Step 2 - Active -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; z-index: 1;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-success-500); border: 2px solid var(--color-success-500); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-bottom: 8px;">
+                                        2
+                                    </div>
+                                    <span style="font-size: 14px; color: var(--color-success-700); font-weight: 600; text-align: center;">Shipping Info</span>
+                                </div>
 
-                        <!-- Step 4 - Upcoming -->
-                        <div class="flex flex-col items-center flex-1 relative">
-                            <div class="w-10 h-10 rounded-full bg-white border-2 border-pearl-300 flex items-center justify-center text-pearl-600 font-semibold mb-2 z-10">
-                                4
+                                <!-- Connector Line 2 -->
+                                <div style="flex: 1; height: 2px; background: var(--color-pearl-300); margin: 0 -20px; margin-bottom: 28px;"></div>
+
+                                <!-- Step 3 - Upcoming -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; z-index: 1;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: white; border: 2px solid var(--color-pearl-300); display: flex; align-items: center; justify-content: center; color: var(--color-pearl-600); font-weight: 600; margin-bottom: 8px;">
+                                        3
+                                    </div>
+                                    <span style="font-size: 14px; color: var(--color-pearl-600); text-align: center;">Payment</span>
+                                </div>
+
+                                <!-- Connector Line 3 -->
+                                <div style="flex: 1; height: 2px; background: var(--color-pearl-300); margin: 0 -20px; margin-bottom: 28px;"></div>
+
+                                <!-- Step 4 - Upcoming -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; z-index: 1;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: white; border: 2px solid var(--color-pearl-300); display: flex; align-items: center; justify-content: center; color: var(--color-pearl-600); font-weight: 600; margin-bottom: 8px;">
+                                        4
+                                    </div>
+                                    <span style="font-size: 14px; color: var(--color-pearl-600); text-align: center;">Confirmation</span>
+                                </div>
                             </div>
-                            <span class="text-sm text-pearl-600 text-center">Confirmation</span>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>
@@ -88,64 +103,75 @@
                 <div id="stepper-html" class="tab-content">
                     <div class="code-example">
                         <div class="code-header">
-                            <span>HTML + Tailwind</span>
+                            <span>HTML + CSS</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <pre><code>&lt;!-- Stepper HTML --&gt;</code></pre>
+                        <pre><code>&lt;!-- Horizontal Stepper --&gt;
+&lt;div class="stepper"&gt;
+  &lt;!-- Completed Step --&gt;
+  &lt;div class="step step-completed"&gt;
+    &lt;div class="step-circle"&gt;✓&lt;/div&gt;
+    &lt;span class="step-label"&gt;Product Details&lt;/span&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="step-line step-line-completed"&gt;&lt;/div&gt;
+  
+  &lt;!-- Active Step --&gt;
+  &lt;div class="step step-active"&gt;
+    &lt;div class="step-circle"&gt;2&lt;/div&gt;
+    &lt;span class="step-label"&gt;Shipping Info&lt;/span&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="step-line"&gt;&lt;/div&gt;
+  
+  &lt;!-- Upcoming Steps --&gt;
+  &lt;div class="step"&gt;
+    &lt;div class="step-circle"&gt;3&lt;/div&gt;
+    &lt;span class="step-label"&gt;Payment&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
                 
                 <div id="stepper-jsx" class="tab-content">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span>JSX</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>const Stepper = ({ steps, currentStep }) => {
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>JSX</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>const Stepper = ({ steps, currentStep }) => {
   return (
-    &lt;div className="flex items-center justify-between mb-10"&gt;
+    &lt;div className="flex items-center justify-between"&gt;
       {steps.map((step, index) => {
         const stepNumber = index + 1;
         const isCompleted = stepNumber < currentStep;
         const isActive = stepNumber === currentStep;
-        const isUpcoming = stepNumber > currentStep;
-        const isLast = index === steps.length - 1;
-
+        
         return (
-          &lt;div key={index} className="flex flex-col items-center flex-1 relative"&gt;
-            {/* Circle */}
-            &lt;div
-              className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold mb-2 z-10 ${
-                isCompleted || isActive
-                  ? 'bg-success-500 border-success-500 text-white'
+          &lt;React.Fragment key={index}&gt;
+            &lt;div className="flex flex-col items-center flex-1"&gt;
+              &lt;div className={`
+                w-10 h-10 rounded-full flex items-center justify-center font-semibold
+                ${isCompleted || isActive 
+                  ? 'bg-success-500 border-success-500 text-white' 
                   : 'bg-white border-pearl-300 text-pearl-600'
-              }`}
-            &gt;
-              {isCompleted ? '✓' : stepNumber}
+                } border-2
+              `}&gt;
+                {isCompleted ? '✓' : stepNumber}
+              &lt;/div&gt;
+              &lt;span className={`text-sm mt-2 ${
+                isActive ? 'text-success-700 font-semibold' : 'text-pearl-600'
+              }`}&gt;
+                {step.label}
+              &lt;/span&gt;
             &lt;/div&gt;
-
-            {/* Label */}
-            &lt;span
-              className={`text-sm text-center ${
-                isActive
-                  ? 'text-success-700 font-semibold'
-                  : isCompleted
-                  ? 'text-pearl-700'
-                  : 'text-pearl-600'
-              }`}
-            &gt;
-              {step.label}
-            &lt;/span&gt;
-
-            {/* Connector Line */}
-            {!isLast && (
-              &lt;div
-                className={`absolute top-5 left-1/2 w-full h-0.5 -z-10 ${
-                  isCompleted ? 'bg-success-500' : 'bg-pearl-200'
-                }`}
-              /&gt;
+            
+            {index < steps.length - 1 && (
+              &lt;div className={`flex-1 h-0.5 ${
+                isCompleted ? 'bg-success-500' : 'bg-pearl-300'
+              }`} /&gt;
             )}
-          &lt;/div&gt;
+          &lt;/React.Fragment&gt;
         );
       })}
     &lt;/div&gt;
@@ -157,64 +183,10 @@ const checkoutSteps = [
   { label: 'Product Details' },
   { label: 'Shipping Info' },
   { label: 'Payment' },
-  { label: 'Confirmation' },
+  { label: 'Confirmation' }
 ];
 
 &lt;Stepper steps={checkoutSteps} currentStep={2} /&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- USAGE GUIDELINES -->
-            <section class="section">
-                <h2>Usage Guidelines</h2>
-                <div class="guidelines-grid">
-                    <div class="guideline do">
-                        <h4>✅ Do</h4>
-                        <ul>
-                            <li>Use steppers for linear, sequential processes</li>
-                            <li>Keep step labels short and action-oriented</li>
-                            <li>Show completion status with checkmarks</li>
-                            <li>Clearly indicate the current active step</li>
-                            <li>Allow navigation to previous completed steps</li>
-                            <li>Use vertical steppers on mobile or narrow layouts</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="guideline dont">
-                        <h4>❌ Don't</h4>
-                        <ul>
-                            <li>Don't use steppers for non-linear workflows</li>
-                            <li>Don't allow skipping ahead to incomplete steps</li>
-                            <li>Don't use more than 5-6 steps (break into sections)</li>
-                            <li>Don't hide progress - always show all steps</li>
-                            <li>Don't use steppers for single-page forms</li>
-                            <li>Don't make step indicators clickable if navigation is disabled</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACCESSIBILITY -->
-            <section class="section bg-primary text-white">
-                <h2>Accessibility</h2>
-                <div class="a11y-checklist">
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>ARIA Labels:</strong> Use aria-label to describe progress (e.g., "Step 2 of 4")</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Current Status:</strong> Mark active step with aria-current="step"</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Visual Indicators:</strong> Don't rely solely on color to show status</p>
-                    </div>
-                    <div class="a11y-item">
-                        <span class="check">✓</span>
-                        <p><strong>Keyboard Navigation:</strong> If clickable, ensure Tab and Enter key support</p>
                     </div>
                 </div>
             </section>
@@ -237,12 +209,9 @@ const checkoutSteps = [
         
         function copyCode(btn) {
             const codeBlock = btn.closest('.code-example').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(codeBlock.textContent).then(() => {
                 btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                }, 2000);
+                setTimeout(() => btn.textContent = 'Copy', 2000);
             });
         }
     </script>
